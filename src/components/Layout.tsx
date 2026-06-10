@@ -75,7 +75,7 @@ function Footer() {
           <h4 className="text-white font-semibold mb-4">Navegação</h4>
           <ul className="space-y-2 text-sm">
             {NAV.map((n) => (
-              <li key={n.to}><Link to={n.to} className="hover:text-primary">{n.label}</Link></li>
+              <li key={n.to}><Link to={n.to as "/"} className="hover:text-primary">{n.label}</Link></li>
             ))}
           </ul>
         </div>
