@@ -93,7 +93,7 @@ function ProductDetail() {
 
           <h3 className="mt-8 text-primary font-bold tracking-wider text-sm">USO RECOMENDADO</h3>
           <ul className="mt-3 space-y-2">
-            {product.uses.map((u) => (
+            {product.uses.map((u: string) => (
               <li key={u} className="flex items-start gap-2 text-sm">
                 <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                 {u}
@@ -103,7 +103,7 @@ function ProductDetail() {
 
           <h3 className="mt-8 text-primary font-bold tracking-wider text-sm">MEDIDAS DISPONÍVEIS</h3>
           <div className="mt-3 inline-flex items-center gap-4 bg-white border border-border rounded-xl px-5 py-3 text-sm font-medium">
-            {product.sizes.map((s, i) => (
+            {product.sizes.map((s: string, i: number) => (
               <span key={s} className="flex items-center gap-4">
                 {i > 0 && <span className="text-border">|</span>}
                 {s}
