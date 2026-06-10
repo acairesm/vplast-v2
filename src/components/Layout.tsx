@@ -25,7 +25,7 @@ function Header() {
             return (
               <Link
                 key={n.to}
-                to={n.to}
+                to={n.to as "/"}
                 className={`relative text-sm font-semibold tracking-wide flex items-center gap-1 transition-colors ${
                   active ? "text-primary" : "text-ink hover:text-primary"
                 }`}
