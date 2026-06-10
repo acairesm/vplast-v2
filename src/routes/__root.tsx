@@ -115,11 +115,12 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const Layout = require("@/components/Layout").default;
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <Layout />
     </QueryClientProvider>
   );
 }
