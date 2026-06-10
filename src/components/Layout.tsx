@@ -2,14 +2,14 @@ import { Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { Phone, MessageCircle, Mail, MapPin, Facebook, Instagram, Linkedin, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo.png";
 
-const NAV = [
+const NAV: { to: string; label: string; hasDropdown?: boolean }[] = [
   { to: "/", label: "HOME" },
   { to: "/produtos", label: "PRODUTOS", hasDropdown: true },
   { to: "/sobre", label: "SOBRE NÓS" },
   { to: "/solucoes", label: "SOLUÇÕES" },
   { to: "/blog", label: "BLOG" },
   { to: "/contato", label: "CONTATO" },
-] as const;
+];
 
 function Header() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
