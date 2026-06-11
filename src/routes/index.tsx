@@ -57,7 +57,7 @@ function HomePage() {
             <img
               src={tapesCutout.url}
               alt="Composição de fitas adesivas Vplast"
-              className="relative z-10 w-[88%] max-w-[520px] object-contain drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]"
+              className="relative z-10 w-[110%] max-w-[680px] object-contain drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]"
             />
           </div>
 
