@@ -3,7 +3,7 @@ import { Award, ShieldCheck, Handshake, Package, MessageCircle, ArrowRight } fro
 import { SectionEyebrow } from "@/components/Layout";
 import { PRODUCTS } from "@/lib/products";
 import hero from "@/assets/hero-tapes.jpg";
-import heroBanner from "@/assets/hero-banner.jpeg.asset.json";
+import tapesCutout from "@/assets/hero-tapes-cutout.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -48,12 +48,19 @@ function HomePage() {
             </div>
           </div>
           <div className="relative flex items-center justify-center h-80 lg:h-[460px]">
+            <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-full h-full">
+              <path d="M180 0 C520 140, 80 260, 300 400 L600 400 L600 0 Z" fill="#F97316" opacity="0.10"/>
+              <path d="M220 0 C520 120, 80 280, 260 400 L600 400 L600 0 Z" fill="#F97316"/>
+              <path d="M260 0 C540 130, 110 270, 300 400" stroke="white" strokeWidth="40" strokeLinecap="round" opacity="0.13" fill="none"/>
+              <path d="M290 0 C560 140, 140 280, 330 400" stroke="white" strokeWidth="14" strokeLinecap="round" opacity="0.22" fill="none"/>
+            </svg>
             <img
-              src={heroBanner.url}
-              alt="Composição de fitas adesivas Vplast com fita Cuidado Frágil"
-              className="w-full h-full object-contain drop-shadow-xl"
+              src={tapesCutout.url}
+              alt="Composição de fitas adesivas Vplast"
+              className="relative z-10 w-[88%] max-w-[520px] object-contain drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]"
             />
           </div>
+
 
         </div>
 
