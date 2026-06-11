@@ -3,7 +3,7 @@ import { Award, ShieldCheck, Handshake, Package, MessageCircle, ArrowRight } fro
 import { SectionEyebrow } from "@/components/Layout";
 import { PRODUCTS } from "@/lib/products";
 import hero from "@/assets/hero-tapes.jpg";
-import tapesStack from "@/assets/hero-tapes-stack.png.asset.json";
+import heroBanner from "@/assets/hero-banner.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
