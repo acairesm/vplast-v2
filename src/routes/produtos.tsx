@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useChildMatches } from "@tanstack/react-router";
 import { useState } from "react";
 import { ChevronRight, Boxes, Package, Layers, Tag, Sparkles, Shield, RotateCcw, ArrowRight } from "lucide-react";
 import { SectionEyebrow } from "@/components/Layout";
@@ -27,6 +27,9 @@ const CAT_ICONS: Record<string, any> = {
 const APPS = ["Fechamento de Embalagens", "Pintura e Acabamento", "Fixação e Montagem", "Impermeabilização", "Uso Geral"];
 
 function ProdutosPage() {
+  const childMatches = useChildMatches();
+  if (childMatches.length > 0) return <Outlet />;
+
   const [selectedCat, setSelectedCat] = useState<string | null>(null);
   const [apps, setApps] = useState<string[]>([]);
   const filtered = PRODUCTS.filter((p) => !selectedCat || p.category === selectedCat);
@@ -34,19 +37,37 @@ function ProdutosPage() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-white to-orange-soft">
-        <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_70%_50%,oklch(0.96_0.04_60)_0%,transparent_60%)]" />
-        <div className="relative mx-auto max-w-[1400px] px-6 py-12 grid lg:grid-cols-2 gap-8 items-center">
+      <section className="relative overflow-hidden h-56 md:h-64 lg:h-72 flex items-stretch">
+        {/* lado esquerdo branco */}
+        <div className="flex-1 bg-white flex items-center px-8 lg:px-16 z-10">
           <div>
             <SectionEyebrow>PRODUTOS</SectionEyebrow>
-            <h1 className="mt-4 text-4xl md:text-5xl font-extrabold text-ink">
+            <h1 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink leading-tight">
               LINHA DE <span className="text-primary">PRODUTOS</span>
             </h1>
-            <p className="mt-4 text-muted-foreground max-w-lg leading-relaxed">
-              São diversas opções de fitas adesivas e soluções para embalagens, desenvolvidas para garantir qualidade, segurança e eficiência.
+            <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-md leading-relaxed">
+              São diversas opções de fitas adesivas e soluções para embalagens,<br className="hidden md:block" /> desenvolvidas para garantir qualidade, segurança e eficiência.
             </p>
           </div>
-          <img src={hero} alt="Produtos Vplast" className="w-full" />
+        </div>
+        {/* lado direito laranja com a foto */}
+        <div className="relative w-[45%] lg:w-[40%] bg-primary overflow-hidden shrink-0">
+          {/* reflexo branco curvo */}
+          <div className="absolute inset-0">
+            <svg viewBox="0 0 400 300" fill="none" className="absolute inset-0 w-full h-full">
+              <path d="M400 0 C280 40, 260 160, 380 300 L400 300 Z" fill="white" opacity="0.12"/>
+              <path d="M400 20 C310 60, 295 180, 395 290 L400 300 Z" fill="white" opacity="0.10"/>
+            </svg>
+          </div>
+          {/* curva esquerda do laranja */}
+          <svg viewBox="0 0 60 300" fill="none" className="absolute left-0 top-0 h-full w-16 z-10" preserveAspectRatio="none">
+            <path d="M60 0 C30 60, 30 240, 60 300 L0 300 L0 0 Z" fill="white"/>
+          </svg>
+          <img
+            src={hero}
+            alt="Produtos Vplast"
+            className="absolute bottom-0 right-0 h-[115%] w-auto object-contain object-bottom drop-shadow-2xl"
+          />
         </div>
       </section>
 

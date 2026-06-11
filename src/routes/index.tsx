@@ -25,7 +25,7 @@ function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-orange-soft" />
         <div className="absolute right-0 top-0 h-full w-2/3 bg-[radial-gradient(circle_at_70%_50%,oklch(0.96_0.04_60)_0%,transparent_60%)]" />
-        <div className="relative mx-auto max-w-[1400px] px-6 pt-16 pb-10 grid lg:grid-cols-2 gap-10 items-center">
+        <div className="relative mx-auto max-w-[1400px] px-6 pt-8 pb-10 grid lg:grid-cols-2 gap-10 items-start">
           <div>
             <SectionEyebrow>FITAS ADESIVAS E SOLUÇÕES PARA EMBALAGENS</SectionEyebrow>
             <h1 className="mt-5 text-5xl md:text-6xl font-extrabold leading-[1.05] text-ink">
@@ -46,8 +46,24 @@ function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="relative">
-            <img src={hero} alt="Fitas Vplast" className="w-full h-auto" />
+          <div className="relative flex items-center justify-center h-80 lg:h-105">
+            <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-full h-full">
+              {/* halo externo suave */}
+              <path d="M180 0 C520 140, 80 260, 300 400 L600 400 L600 0 Z" fill="#F97316" opacity="0.10"/>
+              {/* corpo principal — borda esquerda em S */}
+              <path d="M220 0 C520 120, 80 280, 260 400 L600 400 L600 0 Z" fill="#F97316"/>
+              {/* swoosh branco largo */}
+              <path d="M260 0 C540 130, 110 270, 300 400" stroke="white" strokeWidth="40" strokeLinecap="round" opacity="0.13" fill="none"/>
+              {/* swoosh branco fino */}
+              <path d="M290 0 C560 140, 140 280, 330 400" stroke="white" strokeWidth="14" strokeLinecap="round" opacity="0.22" fill="none"/>
+              {/* curvas laranja finas externas */}
+              <path d="M160 0 C460 110, 60 270, 220 400" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" opacity="0.30" fill="none"/>
+              <path d="M130 0 C410 100, 40 260, 190 400" stroke="#F97316" strokeWidth="1.5" strokeLinecap="round" opacity="0.16" fill="none"/>
+              {/* pontos decorativos */}
+              {[...Array(15)].map((_, i) => (
+                <circle key={i} cx={100 + (i % 5) * 22} cy={90 + Math.floor(i / 5) * 22} r="2.5" fill="#F97316" opacity={0.12 + i * 0.04}/>
+              ))}
+            </svg>
           </div>
         </div>
 
