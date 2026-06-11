@@ -3,6 +3,7 @@ import { Award, ShieldCheck, Handshake, Package, MessageCircle, ArrowRight } fro
 import { SectionEyebrow } from "@/components/Layout";
 import { PRODUCTS } from "@/lib/products";
 import hero from "@/assets/hero-tapes.jpg";
+import tapesStack from "@/assets/hero-tapes-stack.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,24 +47,23 @@ function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="relative flex items-center justify-center h-80 lg:h-105">
+          <div className="relative flex items-center justify-center h-80 lg:h-[460px]">
             <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-full h-full">
-              {/* halo externo suave */}
               <path d="M180 0 C520 140, 80 260, 300 400 L600 400 L600 0 Z" fill="#F97316" opacity="0.10"/>
-              {/* corpo principal — borda esquerda em S */}
               <path d="M220 0 C520 120, 80 280, 260 400 L600 400 L600 0 Z" fill="#F97316"/>
-              {/* swoosh branco largo */}
               <path d="M260 0 C540 130, 110 270, 300 400" stroke="white" strokeWidth="40" strokeLinecap="round" opacity="0.13" fill="none"/>
-              {/* swoosh branco fino */}
               <path d="M290 0 C560 140, 140 280, 330 400" stroke="white" strokeWidth="14" strokeLinecap="round" opacity="0.22" fill="none"/>
-              {/* curvas laranja finas externas */}
               <path d="M160 0 C460 110, 60 270, 220 400" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" opacity="0.30" fill="none"/>
               <path d="M130 0 C410 100, 40 260, 190 400" stroke="#F97316" strokeWidth="1.5" strokeLinecap="round" opacity="0.16" fill="none"/>
-              {/* pontos decorativos */}
               {[...Array(15)].map((_, i) => (
                 <circle key={i} cx={100 + (i % 5) * 22} cy={90 + Math.floor(i / 5) * 22} r="2.5" fill="#F97316" opacity={0.12 + i * 0.04}/>
               ))}
             </svg>
+            <img
+              src={tapesStack.url}
+              alt="Composição de fitas adesivas Vplast"
+              className="relative z-10 w-[90%] max-w-[520px] drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]"
+            />
           </div>
         </div>
 
