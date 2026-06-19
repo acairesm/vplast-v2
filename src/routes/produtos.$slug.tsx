@@ -28,8 +28,7 @@ function ProductDetail() {
   const [activeImg, setActiveImg] = useState(0);
   const [expandedCat, setExpandedCat] = useState<string>(product.category);
 
-  // galeria: usa a imagem do produto repetida como thumbnails enquanto não há múltiplas imagens
-  const images = [product.image, product.image, product.image, product.image];
+  const images = product.images?.length ? product.images : [product.image];
 
   return (
     <div className="mx-auto max-w-[1400px] px-6 py-8">
