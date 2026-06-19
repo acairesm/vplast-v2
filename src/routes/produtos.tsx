@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ChevronRight, Boxes, Package, Layers, Tag, Sparkles, Shield, RotateCcw, ArrowRight } from "lucide-react";
 import { SectionEyebrow } from "@/components/Layout";
 import { PRODUCTS, CATEGORIES } from "@/lib/products";
-import hero from "@/assets/hero-tapes.jpg";
+import fitaHero from "@/assets/fita_hero.png";
 
 export const Route = createFileRoute("/produtos")({
   head: () => ({
@@ -28,11 +28,11 @@ const APPS = ["Fechamento de Embalagens", "Pintura e Acabamento", "Fixação e M
 
 function ProdutosPage() {
   const childMatches = useChildMatches();
-  if (childMatches.length > 0) return <Outlet />;
-
   const [selectedCat, setSelectedCat] = useState<string | null>(null);
   const [apps, setApps] = useState<string[]>([]);
   const filtered = PRODUCTS.filter((p) => !selectedCat || p.category === selectedCat);
+
+  if (childMatches.length > 0) return <Outlet />;
 
   return (
     <div>
@@ -51,22 +51,17 @@ function ProdutosPage() {
           </div>
         </div>
         {/* lado direito laranja com a foto */}
-        <div className="relative w-[45%] lg:w-[40%] bg-primary overflow-hidden shrink-0">
-          {/* reflexo branco curvo */}
-          <div className="absolute inset-0">
-            <svg viewBox="0 0 400 300" fill="none" className="absolute inset-0 w-full h-full">
-              <path d="M400 0 C280 40, 260 160, 380 300 L400 300 Z" fill="white" opacity="0.12"/>
-              <path d="M400 20 C310 60, 295 180, 395 290 L400 300 Z" fill="white" opacity="0.10"/>
-            </svg>
-          </div>
-          {/* curva esquerda do laranja */}
-          <svg viewBox="0 0 60 300" fill="none" className="absolute left-0 top-0 h-full w-16 z-10" preserveAspectRatio="none">
-            <path d="M60 0 C30 60, 30 240, 60 300 L0 300 L0 0 Z" fill="white"/>
+        <div className="relative w-[45%] lg:w-[40%] bg-white overflow-hidden shrink-0">
+          <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
+            <path d="M180 0 C520 140, 80 260, 300 400 L600 400 L600 0 Z" fill="#F97316" opacity="0.10"/>
+            <path d="M220 0 C520 120, 80 280, 260 400 L600 400 L600 0 Z" fill="#F97316"/>
+            <path d="M260 0 C540 130, 110 270, 300 400" stroke="white" strokeWidth="40" strokeLinecap="round" opacity="0.13" fill="none"/>
+            <path d="M290 0 C560 140, 140 280, 330 400" stroke="white" strokeWidth="14" strokeLinecap="round" opacity="0.22" fill="none"/>
           </svg>
           <img
-            src={hero}
+            src={fitaHero}
             alt="Produtos Vplast"
-            className="absolute bottom-0 right-0 h-[115%] w-auto object-contain object-bottom drop-shadow-2xl"
+            className="absolute inset-0 m-auto h-[140%] w-auto object-contain drop-shadow-2xl"
           />
         </div>
       </section>

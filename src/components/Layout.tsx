@@ -7,9 +7,7 @@ const NAV: { to: string; label: string; hasDropdown?: boolean }[] = [
   { to: "/produtos", label: "PRODUTOS", hasDropdown: true },
   { to: "/sobre", label: "SOBRE NÓS" },
   { to: "/solucoes", label: "SOLUÇÕES" },
-  { to: "/blog", label: "BLOG" },
   { to: "/contato", label: "CONTATO" },
-  { to: "/equipe", label: "NATHALY SCHARAM" },
 ];
 
 function Header() {
