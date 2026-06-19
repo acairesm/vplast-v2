@@ -2,8 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Award, ShieldCheck, Handshake, Package, MessageCircle, ArrowRight } from "lucide-react";
 import { SectionEyebrow } from "@/components/Layout";
 import { PRODUCTS } from "@/lib/products";
-import hero from "@/assets/hero-tapes.jpg";
-import tapesCutout from "@/assets/hero-tapes-cutout.png.asset.json";
+import fitaHero from "@/assets/fita_hero.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -15,7 +14,7 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const FEATURED = ["Fitas Crepe", "Fitas Adesivas", "Fitas Dupla Face", "Fitas Impressas e Gomadas", "Mantas Asfálticas"];
+const FEATURED = ["Fitas Crepe", "Fitas Adesivas", "Fitas Dupla Face", "Alta Aderência", "Fita Automotiva"];
 
 function HomePage() {
   const featuredProducts = FEATURED.map((cat) => PRODUCTS.find((p) => p.category === cat)!).filter(Boolean);
@@ -55,7 +54,7 @@ function HomePage() {
               <path d="M290 0 C560 140, 140 280, 330 400" stroke="white" strokeWidth="14" strokeLinecap="round" opacity="0.22" fill="none"/>
             </svg>
             <img
-              src={tapesCutout.url}
+              src={fitaHero}
               alt="Composição de fitas adesivas Vplast"
               className="relative z-10 w-[125%] max-w-[760px] -ml-8 object-contain drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]"
             />
@@ -96,7 +95,7 @@ function HomePage() {
             <Link
               key={p.slug}
               to="/produtos"
-              className="group bg-white rounded-2xl border border-border p-5 hover:shadow-xl hover:-translate-y-1 transition"
+              className="group bg-white rounded-2xl border border-border p-5 hover:shadow-xl hover:-translate-y-1 transition flex flex-col"
             >
               <div className="aspect-square bg-secondary rounded-xl overflow-hidden">
                 <img src={p.image} alt={p.category} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition" />
@@ -104,7 +103,7 @@ function HomePage() {
               <h3 className="mt-5 text-center text-ink font-bold uppercase tracking-wide text-sm">
                 {p.category}
               </h3>
-              <p className="mt-2 text-center text-xs text-muted-foreground leading-relaxed">{p.description}</p>
+              <p className="mt-2 text-center text-xs text-muted-foreground leading-relaxed flex-1">{p.description}</p>
             </Link>
           ))}
         </div>

@@ -1,9 +1,9 @@
-import crepe from "@/assets/prod-crepe.jpg";
-import adesiva from "@/assets/prod-adesiva.jpg";
-import dupla from "@/assets/prod-dupla.jpg";
-import impressa from "@/assets/prod-impressa.jpg";
-import manta from "@/assets/prod-manta.jpg";
-import detail from "@/assets/prod-detail.jpg";
+import crepe from "@/assets/Fitas Hero /10X30 (3).png";
+import adesiva from "@/assets/Fitas Hero /DUREX 12X40 (3).png";
+import dupla from "@/assets/Fitas Hero /09MM DUPLA (3).png";
+import impressa from "@/assets/Fitas Hero /ChatGPT Image 17_04_2026, 09_23_56.png";
+import manta from "@/assets/Fitas Hero /WhatsApp Image 2026-04-24 at 10.44.13.jpeg";
+import detail from "@/assets/Fitas Hero /DUREX 12X40 (3).png";
 
 export type Product = {
   slug: string;
@@ -124,14 +124,14 @@ export const PRODUCTS: Product[] = [
     sizes: ["18mm x 50m", "24mm x 50m"],
   },
   {
-    slug: "fita-gomada-impressa",
-    name: "Fita Gomada Impressa",
-    category: "Fitas Impressas e Gomadas",
-    description: "Segurança e valorização da marca no fechamento das embalagens.",
-    longDescription: "Fita gomada personalizada para fechamento seguro.",
+    slug: "fita-alta-aderencia",
+    name: "Fita Alta Aderência",
+    category: "Alta Aderência",
+    description: "Fixação forte e duradoura para superfícies exigentes e ambientes críticos.",
+    longDescription: "Fita de alta aderência desenvolvida para garantir fixação robusta em superfícies lisas, porosas ou irregulares, com excelente resistência à tração e ao cisalhamento.",
     image: impressa,
-    uses: ["Fechamento seguro", "Personalização"],
-    sizes: ["70mm x 150m"],
+    uses: ["Fixação em superfícies irregulares", "Uso industrial", "Embalagens pesadas"],
+    sizes: ["48mm x 50m", "48mm x 100m"],
   },
   {
     slug: "fita-impressa-48x100",
@@ -144,13 +144,13 @@ export const PRODUCTS: Product[] = [
     sizes: ["48mm x 100m"],
   },
   {
-    slug: "manta-asfaltica-aluminizada",
-    name: "Manta Asfáltica Aluminizada",
-    category: "Mantas Asfálticas",
-    description: "Impermeabilização com alta resistência e proteção térmica.",
-    longDescription: "Manta asfáltica para impermeabilização de lajes e coberturas.",
+    slug: "fita-automotiva",
+    name: "Fita Automotiva",
+    category: "Fita Automotiva",
+    description: "Alta resistência para mascaramento, pintura e acabamentos automotivos.",
+    longDescription: "Fita desenvolvida para o setor automotivo, com excelente aderência, resistência à temperatura e remoção limpa sem deixar resíduos, ideal para pintura e acabamento.",
     image: manta,
-    uses: ["Impermeabilização de lajes", "Proteção térmica"],
-    sizes: ["3mm 10m²", "4mm 10m²"],
+    uses: ["Mascaramento para pintura", "Proteção de acabamentos", "Repintura automotiva"],
+    sizes: ["18mm x 40m", "24mm x 40m", "48mm x 40m"],
   },
 ];
