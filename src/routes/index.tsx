@@ -1,8 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Award, ShieldCheck, Handshake, Package, MessageCircle, ArrowRight } from "lucide-react";
 import { SectionEyebrow } from "@/components/Layout";
-import { PRODUCTS } from "@/lib/products";
-import fitaHero from "@/assets/fita_hero.png";
+import fitaHero from "@/assets/Foto imagem inicio/fotonovoincio.png";
+import imgCrepe from "@/assets/fitas inicio novas/Fita Crepe.jpeg";
+import imgAcrilica from "@/assets/fitas inicio novas/Fita Acrilica.jpeg";
+import imgAutomotiva from "@/assets/fitas inicio novas/Fita Automotiva.jpeg";
+import imgDuplaFace from "@/assets/fitas inicio novas/WhatsApp Image 2026-06-22 at 15.09.30(1).jpeg";
+import imgAltaAderencia from "@/assets/fitas inicio novas/DUPLA FACE ALTA ADERENCIA 306.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -14,10 +18,15 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const FEATURED = ["Fitas Crepe", "Fitas Adesivas", "Fitas Dupla Face", "Alta Aderência", "Fita Automotiva"];
+const FEATURED_HOME = [
+  { image: imgCrepe,         name: "Fita Crepe",                    desc: "Fixações temporárias, pintura e trabalhos manuais." },
+  { image: imgAcrilica,      name: "Fita Acrílica",                 desc: "Fechamento de embalagens e uso geral." },
+  { image: imgDuplaFace,     name: "Fita Dupla Face",               desc: "Fixação em superfícies lisas e irregulares." },
+  { image: imgAltaAderencia, name: "Dupla Face Alta Aderência 306", desc: "Alta adesão para fixações permanentes." },
+  { image: imgAutomotiva,    name: "Fita Automotiva",               desc: "Mascaramento e pintura automotiva profissional." },
+];
 
 function HomePage() {
-  const featuredProducts = FEATURED.map((cat) => PRODUCTS.find((p) => p.category === cat)!).filter(Boolean);
 
   return (
     <div>
@@ -56,7 +65,7 @@ function HomePage() {
             <img
               src={fitaHero}
               alt="Composição de fitas adesivas Vplast"
-              className="relative z-10 w-[125%] max-w-[760px] -ml-8 object-contain drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]"
+              className="absolute z-10 w-[160%] max-w-[960px] left-[3px] -translate-x-1/2 top-1/2 -translate-y-1/2 object-contain drop-shadow-2xl"
             />
           </div>
 
@@ -91,19 +100,21 @@ function HomePage() {
           LINHA DE <span className="text-primary">PRODUTOS</span>
         </h2>
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {featuredProducts.map((p) => (
+          {FEATURED_HOME.map((p) => (
             <Link
-              key={p.slug}
+              key={p.name}
               to="/produtos"
-              className="group bg-white rounded-2xl border border-border p-5 hover:shadow-xl hover:-translate-y-1 transition flex flex-col"
+              className="group bg-white rounded-2xl border border-border overflow-hidden transition-transform duration-300 hover:scale-105 flex flex-col"
             >
-              <div className="aspect-square bg-secondary rounded-xl overflow-hidden">
-                <img src={p.image} alt={p.category} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition" />
+              <div className="aspect-[4/3] bg-secondary overflow-hidden">
+                <img src={p.image} alt={p.name} loading="lazy" className="w-full h-full object-cover" />
               </div>
-              <h3 className="mt-5 text-center text-ink font-bold uppercase tracking-wide text-sm">
-                {p.category}
-              </h3>
-              <p className="mt-2 text-center text-xs text-muted-foreground leading-relaxed flex-1">{p.description}</p>
+              <div className="p-5">
+                <h3 className="text-center text-ink font-bold uppercase tracking-wide text-sm">
+                  {p.name}
+                </h3>
+                <p className="mt-2 text-center text-xs text-muted-foreground leading-relaxed">{p.desc}</p>
+              </div>
             </Link>
           ))}
         </div>

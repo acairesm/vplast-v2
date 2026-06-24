@@ -32,8 +32,8 @@ function ContatoPage() {
       <section className="mx-auto max-w-[1400px] px-6 py-14 grid lg:grid-cols-[1fr_1.3fr] gap-10">
         <div className="space-y-5">
           {[
-            { Icon: Phone, title: "Telefone", lines: ["(11) 4000-0000"] },
-            { Icon: MessageCircle, title: "WhatsApp", lines: ["(11) 90000-0000"] },
+            { Icon: Phone, title: "Telefone", lines: ["+55 (41) 9694-7566"] },
+            { Icon: MessageCircle, title: "WhatsApp", lines: ["+55 (41) 9694-7566"] },
             { Icon: Mail, title: "E-mail", lines: ["contato@vplast.com.br"] },
             { Icon: MapPin, title: "Endereço", lines: ["Av. Industrial, 1000", "São Paulo - SP"] },
             { Icon: Clock, title: "Atendimento", lines: ["Seg a Sex - 8h às 18h"] },

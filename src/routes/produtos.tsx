@@ -1,9 +1,9 @@
 import { createFileRoute, Link, Outlet, useChildMatches } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronRight, Boxes, Package, Layers, Tag, Sparkles, Shield, RotateCcw, ArrowRight } from "lucide-react";
+import { ChevronRight, Boxes, Package, Layers, Tag, Sparkles, RotateCcw, ArrowRight } from "lucide-react";
 import { SectionEyebrow } from "@/components/Layout";
-import { PRODUCTS, CATEGORIES } from "@/lib/products";
-import fitaHero from "@/assets/fita_hero.png";
+import { PRODUCTS, CATEGORIES, APPLICATIONS } from "@/lib/products";
+import fitaHero from "@/assets/Foto imagem inicio/fotonovoincio.png";
 
 export const Route = createFileRoute("/produtos")({
   head: () => ({
@@ -21,16 +21,17 @@ const CAT_ICONS: Record<string, any> = {
   "Fitas Dupla Face": Layers,
   "Fitas Impressas e Gomadas": Tag,
   "Fitas Especiais": Sparkles,
-  "Mantas Asfálticas": Shield,
 };
-
-const APPS = ["Fechamento de Embalagens", "Pintura e Acabamento", "Fixação e Montagem", "Impermeabilização", "Uso Geral"];
 
 function ProdutosPage() {
   const childMatches = useChildMatches();
   const [selectedCat, setSelectedCat] = useState<string | null>(null);
   const [apps, setApps] = useState<string[]>([]);
-  const filtered = PRODUCTS.filter((p) => !selectedCat || p.category === selectedCat);
+  const filtered = PRODUCTS.filter(
+    (p) =>
+      (!selectedCat || p.category === selectedCat) &&
+      (apps.length === 0 || apps.some((a) => p.applications.includes(a)))
+  );
 
   if (childMatches.length > 0) return <Outlet />;
 
@@ -106,7 +107,7 @@ function ProdutosPage() {
           <div className="bg-white rounded-2xl border border-border p-6">
             <h3 className="text-primary font-bold tracking-wider text-sm mb-4">APLICAÇÕES</h3>
             <ul className="space-y-3">
-              {APPS.map((a) => (
+              {APPLICATIONS.map((a) => (
                 <li key={a} className="flex items-center gap-2 text-sm">
                   <input
                     type="checkbox"

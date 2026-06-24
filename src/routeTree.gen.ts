@@ -14,6 +14,7 @@ import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as ProdutosRouteImport } from './routes/produtos'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SolucoesSlugRouteImport } from './routes/solucoes.$slug'
 import { Route as ProdutosSlugRouteImport } from './routes/produtos.$slug'
 
 const SolucoesRoute = SolucoesRouteImport.update({
@@ -41,6 +42,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolucoesSlugRoute = SolucoesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => SolucoesRoute,
+} as any)
 const ProdutosSlugRoute = ProdutosSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -52,16 +58,18 @@ export interface FileRoutesByFullPath {
   '/contato': typeof ContatoRoute
   '/produtos': typeof ProdutosRouteWithChildren
   '/sobre': typeof SobreRoute
-  '/solucoes': typeof SolucoesRoute
+  '/solucoes': typeof SolucoesRouteWithChildren
   '/produtos/$slug': typeof ProdutosSlugRoute
+  '/solucoes/$slug': typeof SolucoesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
   '/produtos': typeof ProdutosRouteWithChildren
   '/sobre': typeof SobreRoute
-  '/solucoes': typeof SolucoesRoute
+  '/solucoes': typeof SolucoesRouteWithChildren
   '/produtos/$slug': typeof ProdutosSlugRoute
+  '/solucoes/$slug': typeof SolucoesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -69,8 +77,9 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/produtos': typeof ProdutosRouteWithChildren
   '/sobre': typeof SobreRoute
-  '/solucoes': typeof SolucoesRoute
+  '/solucoes': typeof SolucoesRouteWithChildren
   '/produtos/$slug': typeof ProdutosSlugRoute
+  '/solucoes/$slug': typeof SolucoesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/sobre'
     | '/solucoes'
     | '/produtos/$slug'
+    | '/solucoes/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/sobre'
     | '/solucoes'
     | '/produtos/$slug'
+    | '/solucoes/$slug'
   id:
     | '__root__'
     | '/'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/sobre'
     | '/solucoes'
     | '/produtos/$slug'
+    | '/solucoes/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -104,7 +116,7 @@ export interface RootRouteChildren {
   ContatoRoute: typeof ContatoRoute
   ProdutosRoute: typeof ProdutosRouteWithChildren
   SobreRoute: typeof SobreRoute
-  SolucoesRoute: typeof SolucoesRoute
+  SolucoesRoute: typeof SolucoesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -144,6 +156,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solucoes/$slug': {
+      id: '/solucoes/$slug'
+      path: '/$slug'
+      fullPath: '/solucoes/$slug'
+      preLoaderRoute: typeof SolucoesSlugRouteImport
+      parentRoute: typeof SolucoesRoute
+    }
     '/produtos/$slug': {
       id: '/produtos/$slug'
       path: '/$slug'
@@ -166,12 +185,24 @@ const ProdutosRouteWithChildren = ProdutosRoute._addFileChildren(
   ProdutosRouteChildren,
 )
 
+interface SolucoesRouteChildren {
+  SolucoesSlugRoute: typeof SolucoesSlugRoute
+}
+
+const SolucoesRouteChildren: SolucoesRouteChildren = {
+  SolucoesSlugRoute: SolucoesSlugRoute,
+}
+
+const SolucoesRouteWithChildren = SolucoesRoute._addFileChildren(
+  SolucoesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContatoRoute: ContatoRoute,
   ProdutosRoute: ProdutosRouteWithChildren,
   SobreRoute: SobreRoute,
-  SolucoesRoute: SolucoesRoute,
+  SolucoesRoute: SolucoesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

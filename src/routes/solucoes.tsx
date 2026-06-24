@@ -1,12 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useChildMatches } from "@tanstack/react-router";
 import { Package, Truck, ShoppingCart, HardHat, Car, Award, ShieldCheck, Settings, Handshake, ArrowRight } from "lucide-react";
 import { SectionEyebrow } from "@/components/Layout";
 import hero from "@/assets/solutions-hero.jpg";
-import industria from "@/assets/seg-industria.jpg";
-import logistica from "@/assets/seg-logistica.jpg";
-import varejo from "@/assets/seg-varejo.jpg";
-import construcao from "@/assets/seg-construcao.jpg";
-import auto from "@/assets/seg-auto.jpg";
+import { SOLUTIONS } from "@/lib/solutions";
 
 export const Route = createFileRoute("/solucoes")({
   head: () => ({
@@ -18,15 +14,18 @@ export const Route = createFileRoute("/solucoes")({
   component: SolucoesPage,
 });
 
-const SEGMENTS = [
-  { Icon: Package, img: industria, title: "INDÚSTRIA E MANUFATURA", text: "Fitas de alta resistência para fechamento e proteção de embalagens industriais, garantindo segurança e desempenho." },
-  { Icon: Truck, img: logistica, title: "LOGÍSTICA E TRANSPORTE", text: "Soluções que garantem a integridade das cargas durante o transporte e armazenagem." },
-  { Icon: ShoppingCart, img: varejo, title: "VAREJO E E-COMMERCE", text: "Fitas e embalagens que valorizam sua marca e proporcionam uma excelente experiência ao cliente." },
-  { Icon: HardHat, img: construcao, title: "CONSTRUÇÃO CIVIL", text: "Produtos resistentes para aplicações exigentes, com alta durabilidade e proteção em ambientes adversos." },
-  { Icon: Car, img: auto, title: "AUTOMOTIVO", text: "Fitas automotivas de alto desempenho para pintura, mascaramento e acabamento profissional." },
-];
+const SEGMENT_ICONS: Record<string, any> = {
+  "industria-e-manufatura": Package,
+  "logistica-e-transporte": Truck,
+  "varejo-e-ecommerce": ShoppingCart,
+  "construcao-civil": HardHat,
+  "automotivo": Car,
+};
 
 function SolucoesPage() {
+  const childMatches = useChildMatches();
+  if (childMatches.length > 0) return <Outlet />;
+
   return (
     <div>
       <section className="relative overflow-hidden bg-gradient-to-br from-white to-orange-soft">
@@ -53,23 +52,30 @@ function SolucoesPage() {
           SOLUÇÕES PARA O <span className="text-primary">SEU SEGMENTO</span>
         </h2>
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
-          {SEGMENTS.map(({ Icon, img, title, text }) => (
-            <div key={title} className="bg-white rounded-2xl border border-border overflow-hidden hover:shadow-xl transition flex flex-col">
-              <div className="relative h-40">
-                <img src={img} alt={title} loading="lazy" className="w-full h-full object-cover" />
-                <div className="absolute top-3 left-3 h-10 w-10 rounded-full bg-primary grid place-items-center">
-                  <Icon className="h-5 w-5 text-primary-foreground" />
+          {SOLUTIONS.map((s) => {
+            const Icon = SEGMENT_ICONS[s.slug] ?? Package;
+            return (
+              <div key={s.slug} className="bg-white rounded-2xl border border-border overflow-hidden hover:shadow-xl transition flex flex-col">
+                <div className="relative h-40">
+                  <img src={s.img} alt={s.title} loading="lazy" className="w-full h-full object-cover" />
+                  <div className="absolute top-3 left-3 h-10 w-10 rounded-full bg-primary grid place-items-center">
+                    <Icon className="h-5 w-5 text-primary-foreground" />
+                  </div>
+                </div>
+                <div className="p-5 flex-1 flex flex-col">
+                  <h3 className="font-bold text-ink text-sm">{s.title}</h3>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed flex-1">{s.tagline}</p>
+                  <Link
+                    to="/solucoes/$slug"
+                    params={{ slug: s.slug }}
+                    className="mt-4 inline-flex items-center gap-1 text-primary text-xs font-bold hover:gap-2 transition-all"
+                  >
+                    VER SOLUÇÕES <ArrowRight className="h-3 w-3" />
+                  </Link>
                 </div>
               </div>
-              <div className="p-5 flex-1 flex flex-col">
-                <h3 className="font-bold text-ink text-sm">{title}</h3>
-                <p className="mt-2 text-xs text-muted-foreground leading-relaxed flex-1">{text}</p>
-                <Link to="/contato" className="mt-4 inline-flex items-center gap-1 text-primary text-xs font-bold hover:gap-2 transition-all">
-                  VER SOLUÇÕES <ArrowRight className="h-3 w-3" />
-                </Link>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="mt-10 bg-white rounded-2xl border border-border grid md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border">

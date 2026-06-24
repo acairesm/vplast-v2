@@ -179,7 +179,7 @@ function ProductDetail() {
 
           <div className="mt-8 flex flex-col gap-3">
             <a
-              href="https://wa.me/5500000000000"
+              href="https://wa.me/5541969447566"
               target="_blank"
               rel="noreferrer"
               className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] text-white px-6 py-4 font-bold text-sm hover:opacity-90 transition"
