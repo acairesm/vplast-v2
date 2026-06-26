@@ -29,7 +29,7 @@ function SolucaoDetailPage() {
   return (
     <div>
       {/* BREADCRUMB */}
-      <div className="mx-auto max-w-[1400px] px-6 pt-6 flex items-center gap-2 text-xs text-muted-foreground">
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 pt-4 sm:pt-6 flex items-center gap-2 text-xs text-muted-foreground overflow-x-auto whitespace-nowrap">
         <Link to="/" className="hover:text-primary">Home</Link>
         <ChevronRight className="h-3 w-3" />
         <Link to="/solucoes" className="hover:text-primary">Soluções</Link>
@@ -58,7 +58,7 @@ function SolucaoDetailPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-[1400px] px-6 py-12 grid lg:grid-cols-[1fr_320px] gap-10">
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 py-8 sm:py-12 grid lg:grid-cols-[1fr_320px] gap-8 sm:gap-10">
         {/* MAIN CONTENT */}
         <div className="space-y-10">
           {/* DESCRIPTION */}

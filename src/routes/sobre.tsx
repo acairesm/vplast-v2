@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Target, Eye, Gem, Award, Users, Package, MapPin, MessageCircle, Headphones, CheckCircle2, Truck, Clock, ThumbsUp, Handshake, Search, PhoneCall, ShieldCheck, Star } from "lucide-react";
 import { SectionEyebrow } from "@/components/Layout";
-import about from "@/assets/about-factory.jpg";
+import { PageTransition, FadeUp, FadeIn, StaggerList, StaggerItem, AnimatedCounter } from "@/components/animations";
+import about from "@/assets/Cara segurando caixa.jpeg";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
@@ -15,13 +16,14 @@ export const Route = createFileRoute("/sobre")({
 
 function SobrePage() {
   return (
+    <PageTransition>
     <div>
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-br from-white to-orange-soft">
-        <div className="relative mx-auto max-w-[1400px] px-6 py-14 grid lg:grid-cols-2 gap-10 items-center">
-          <div>
+        <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 py-10 sm:py-14 grid lg:grid-cols-2 gap-8 sm:gap-10 items-center">
+          <FadeUp delay={0.1}><div>
             <SectionEyebrow>SOBRE NÓS</SectionEyebrow>
-            <h1 className="mt-4 text-4xl md:text-5xl font-extrabold text-ink leading-tight">
+            <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold text-ink leading-tight">
               A SEGURANÇA DA SUA EMBALAGEM<br />
               <span className="text-primary">É A NOSSA MISSÃO</span>
             </h1>
@@ -34,17 +36,19 @@ function SobrePage() {
             <Link to="/produtos" className="mt-6 inline-flex items-center gap-3 rounded-xl bg-primary text-primary-foreground px-6 py-3.5 font-semibold shadow-lg shadow-primary/30 hover:bg-primary/90 transition">
               <Package className="h-5 w-5" /> CONHEÇA NOSSOS PRODUTOS
             </Link>
-          </div>
-          <img src={about} alt="Vplast facility" className="rounded-2xl shadow-xl" />
+          </div></FadeUp>
+          <FadeIn delay={0.3}><img src={about} alt="Vplast facility" className="rounded-2xl shadow-xl" /></FadeIn>
         </div>
       </section>
 
       {/* ESSÊNCIA */}
-      <section className="mx-auto max-w-[1400px] px-6 py-16">
+      <section className="mx-auto max-w-[1400px] px-4 sm:px-6 py-10 sm:py-16">
+        <FadeUp>
         <h2 className="text-3xl font-extrabold text-center text-ink">
           NOSSA <span className="text-primary">ESSÊNCIA</span>
         </h2>
-        <div className="mt-10 bg-white rounded-2xl border border-border grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
+        </FadeUp>
+        <FadeUp delay={0.15}><div className="mt-10 bg-white rounded-2xl border border-border grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
           {[
             { Icon: Target, title: "MISSÃO", text: "Oferecer soluções em fitas adesivas e embalagens com qualidade e inovação, garantindo a proteção e eficiência que nossos clientes precisam para crescer e ir mais longe." },
             { Icon: Eye, title: "VISÃO", text: "Ser referência nacional em soluções adesivas e embalagens, reconhecida pela qualidade dos produtos, confiança nas relações e compromisso com o sucesso dos clientes." },
@@ -70,12 +74,13 @@ function SobrePage() {
               ))}
             </ul>
           </div>
-        </div>
+        </div></FadeUp>
       </section>
 
       {/* DIFERENCIAIS */}
       <section className="bg-[#f9f6f2] py-16">
-        <div className="mx-auto max-w-[1400px] px-6">
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
+          <FadeUp>
           <SectionEyebrow>POR QUE NOS ESCOLHER</SectionEyebrow>
           <h2 className="mt-4 text-3xl font-extrabold text-ink">
             OS NOSSOS <span className="text-primary">DIFERENCIAIS</span>
@@ -83,7 +88,8 @@ function SobrePage() {
           <p className="mt-3 text-muted-foreground max-w-xl leading-relaxed">
             Não basta ter bons produtos — precisamos ser a melhor experiência de compra e parceria para você.
           </p>
-          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          </FadeUp>
+          <StaggerList className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { Icon: ShieldCheck, title: "Qualidade Garantida", text: "Todos os produtos passam por controle rigoroso antes de chegar até você. Trabalhamos apenas com matéria-prima de alto padrão." },
               { Icon: Truck, title: "Entrega em Todo o Brasil", text: "Atendemos empresas em todo o território nacional com agilidade e segurança na entrega de qualquer volume de pedido." },
@@ -92,41 +98,54 @@ function SobrePage() {
               { Icon: Handshake, title: "Parceria de Longo Prazo", text: "Construímos relações duradouras com nossos clientes. Sua empresa cresce e a Vplast acompanha cada passo desse crescimento." },
               { Icon: Star, title: "Atendimento Especializado", text: "Nossa equipe conhece profundamente cada produto e segmento. Indicamos a solução certa para o seu caso, sem achismos." },
             ].map(({ Icon, title, text }) => (
-              <div key={title} className="bg-white rounded-2xl border border-border p-6 hover:shadow-lg transition">
-                <div className="h-12 w-12 rounded-full bg-orange-soft grid place-items-center">
-                  <Icon className="h-6 w-6 text-primary" />
+              <StaggerItem key={title}>
+                <div className="bg-white rounded-2xl border border-border p-6 hover:shadow-lg transition">
+                  <div className="h-12 w-12 rounded-full bg-orange-soft grid place-items-center">
+                    <Icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="mt-4 font-bold text-ink text-sm">{title}</h3>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{text}</p>
                 </div>
-                <h3 className="mt-4 font-bold text-ink text-sm">{title}</h3>
-                <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{text}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerList>
         </div>
       </section>
 
       {/* STATS */}
-      <section className="mx-auto max-w-[1400px] px-6 py-16">
+      <section className="mx-auto max-w-[1400px] px-4 sm:px-6 py-10 sm:py-16">
+        <FadeUp>
         <div className="bg-[#2a2a2a] rounded-2xl px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-white">
           {[
-            { Icon: Award,   big: "+10",   small: "ANOS",    text: "de experiência no mercado" },
-            { Icon: Users,   big: "+1000", small: "",        text: "clientes atendidos" },
-            { Icon: Package, big: "+200",  small: "",        text: "produtos em catálogo" },
-            { Icon: MapPin,  big: "TODO O", small: "BRASIL", text: "atendimento em todo o território nacional" },
-          ].map(({ Icon, big, small, text }) => (
+            { Icon: Award,   target: 10,   suffix: "+ ANOS",    text: "de experiência no mercado" },
+            { Icon: Users,   target: 1000, suffix: "+",         text: "clientes atendidos" },
+            { Icon: Package, target: 200,  suffix: "+",         text: "produtos em catálogo" },
+          ].map(({ Icon, target, suffix, text }) => (
             <div key={text} className="flex items-center gap-4">
               <Icon className="h-12 w-12 text-primary shrink-0" />
               <div>
-                <p className="text-2xl font-extrabold">{big} <span className="text-primary text-base font-bold">{small}</span></p>
+                <p className="text-2xl font-extrabold text-white">
+                  <AnimatedCounter target={target} suffix={suffix} className="text-white" />
+                </p>
                 <p className="text-xs text-white/70 mt-1">{text}</p>
               </div>
             </div>
           ))}
+          <div className="flex items-center gap-4">
+            <MapPin className="h-12 w-12 text-primary shrink-0" />
+            <div>
+              <p className="text-2xl font-extrabold">TODO O <span className="text-primary text-base font-bold">BRASIL</span></p>
+              <p className="text-xs text-white/70 mt-1">atendimento em todo o território nacional</p>
+            </div>
+          </div>
         </div>
+        </FadeUp>
       </section>
 
       {/* COMO TRABALHAMOS */}
       <section className="bg-[#f9f6f2] py-16">
-        <div className="mx-auto max-w-[1400px] px-6">
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
+          <FadeUp>
           <SectionEyebrow>PROCESSO</SectionEyebrow>
           <h2 className="mt-4 text-3xl font-extrabold text-ink">
             COMO <span className="text-primary">TRABALHAMOS</span>
@@ -134,28 +153,31 @@ function SobrePage() {
           <p className="mt-3 text-muted-foreground max-w-xl leading-relaxed">
             Do primeiro contato à entrega, cada etapa é pensada para garantir a melhor experiência.
           </p>
-          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          </FadeUp>
+          <StaggerList className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { step: "01", Icon: PhoneCall, title: "Contato Inicial",       text: "Você entra em contato via WhatsApp, e-mail ou formulário. Nossa equipe responde com rapidez e atenção." },
               { step: "02", Icon: Search,    title: "Análise da Necessidade", text: "Entendemos seu processo, volume e aplicação para recomendar os produtos ideais — sem empurrar o que você não precisa." },
               { step: "03", Icon: Package,   title: "Proposta e Pedido",      text: "Enviamos uma proposta clara com preços, prazos e condições. Aprovado, processamos o pedido com agilidade." },
               { step: "04", Icon: Truck,     title: "Entrega e Suporte",      text: "Seu pedido chega no prazo combinado. E se precisar de suporte depois, estamos aqui para resolver." },
             ].map(({ step, Icon, title, text }) => (
-              <div key={step} className="relative bg-white rounded-2xl border border-border p-6">
-                <span className="text-5xl font-extrabold text-orange-soft/80 absolute top-4 right-5 select-none">{step}</span>
-                <div className="h-12 w-12 rounded-full bg-primary grid place-items-center">
-                  <Icon className="h-6 w-6 text-primary-foreground" />
+              <StaggerItem key={step}>
+                <div className="relative bg-white rounded-2xl border border-border p-6">
+                  <span className="text-5xl font-extrabold text-orange-soft/80 absolute top-4 right-5 select-none">{step}</span>
+                  <div className="h-12 w-12 rounded-full bg-primary grid place-items-center">
+                    <Icon className="h-6 w-6 text-primary-foreground" />
+                  </div>
+                  <h3 className="mt-4 font-bold text-ink text-sm leading-snug">{title}</h3>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{text}</p>
                 </div>
-                <h3 className="mt-4 font-bold text-ink text-sm leading-snug">{title}</h3>
-                <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{text}</p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerList>
         </div>
       </section>
 
       {/* LOCALIZAÇÃO */}
-      <section className="mx-auto max-w-[1400px] px-6 py-16">
+      <section className="mx-auto max-w-[1400px] px-4 sm:px-6 py-8 sm:py-16"><FadeUp>
         <div className="bg-white rounded-2xl border border-border overflow-hidden grid lg:grid-cols-2">
           <div className="p-10 flex flex-col justify-center">
             <SectionEyebrow>ONDE ESTAMOS</SectionEyebrow>
@@ -169,7 +191,7 @@ function SobrePage() {
               {[
                 { Icon: MapPin,        text: "Curitiba — Paraná, Brasil" },
                 { Icon: PhoneCall,     text: "+55 (41) 9694-7566" },
-                { Icon: MessageCircle, text: "contato@vplast.com.br" },
+                { Icon: MessageCircle, text: "vendas@vplastcomercio.com.br" },
                 { Icon: Clock,         text: "Seg a Sex — 8h às 18h" },
               ].map(({ Icon, text }) => (
                 <li key={text} className="flex items-center gap-3 text-muted-foreground">
@@ -196,10 +218,10 @@ function SobrePage() {
             </div>
           </div>
         </div>
-      </section>
+      </FadeUp></section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-[1400px] px-6 pb-16">
+      <FadeUp className="mx-auto max-w-[1400px] px-6 pb-16">
         <div className="bg-primary rounded-2xl px-8 py-7 flex flex-wrap items-center justify-between gap-6">
           <div className="flex items-center gap-5 text-primary-foreground">
             <div className="h-14 w-14 rounded-full bg-white/15 grid place-items-center">
@@ -211,7 +233,8 @@ function SobrePage() {
             <MessageCircle className="h-5 w-5" /> FALE COM UM ESPECIALISTA
           </Link>
         </div>
-      </section>
+      </FadeUp>
     </div>
+    </PageTransition>
   );
 }

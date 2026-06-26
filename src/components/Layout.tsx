@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { Link, Outlet, useRouterState } from "@tanstack/react-router";
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, ChevronDown } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, ChevronDown, Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const NAV: { to: string; label: string; hasDropdown?: boolean }[] = [
@@ -22,12 +23,19 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 function Header() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  function closeMobile() { setMobileOpen(false); }
+
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-border">
-      <div className="mx-auto max-w-[1400px] px-6 h-20 flex items-center justify-between gap-6">
-        <Link to="/" className="flex items-center group">
-          <img src={logo} alt="Vplast Embalagens" className="h-26 w-auto transition-transform duration-300 group-hover:scale-110" />
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
+        {/* Logo */}
+        <Link to="/" className="flex items-center group shrink-0" onClick={closeMobile}>
+          <img src={logo} alt="Vplast Embalagens" className="h-20 sm:h-26 w-auto transition-transform duration-300 group-hover:scale-110" />
         </Link>
+
+        {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-8">
           {NAV.map((n) => {
             const active = pathname === n.to || (n.to !== "/" && pathname.startsWith(n.to));
@@ -48,16 +56,68 @@ function Header() {
             );
           })}
         </nav>
+
+        {/* Desktop CTA */}
         <a
           href={WPP_LINK}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-5 py-2.5 text-sm font-semibold shadow-md shadow-green-500/30 hover:bg-[#1ebe5d] transition"
+          className="hidden lg:inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-5 py-2.5 text-sm font-semibold shadow-md shadow-green-500/30 hover:bg-[#1ebe5d] transition"
         >
           <WhatsAppIcon className="h-4 w-4" />
           FALE CONOSCO
         </a>
+
+        {/* Mobile: WPP icon + hamburger */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <a
+            href={WPP_LINK}
+            target="_blank"
+            rel="noreferrer"
+            className="h-9 w-9 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-md shadow-green-500/30"
+            aria-label="WhatsApp"
+          >
+            <WhatsAppIcon className="h-5 w-5" />
+          </a>
+          <button
+            onClick={() => setMobileOpen((o) => !o)}
+            className="h-9 w-9 rounded-full border border-border flex items-center justify-center text-ink hover:bg-secondary transition cursor-pointer"
+            aria-label="Menu"
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="lg:hidden bg-white border-t border-border px-4 py-4 space-y-1 shadow-lg">
+          {NAV.map((n) => {
+            const active = pathname === n.to || (n.to !== "/" && pathname.startsWith(n.to));
+            return (
+              <Link
+                key={n.to}
+                to={n.to as "/"}
+                onClick={closeMobile}
+                className={`block px-4 py-3 rounded-xl text-sm font-semibold transition ${
+                  active ? "bg-orange-soft text-primary" : "text-ink hover:bg-secondary"
+                }`}
+              >
+                {n.label}
+              </Link>
+            );
+          })}
+          <a
+            href={WPP_LINK}
+            target="_blank"
+            rel="noreferrer"
+            onClick={closeMobile}
+            className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-[#25D366] text-white px-4 py-3 text-sm font-semibold"
+          >
+            <WhatsAppIcon className="h-4 w-4" /> FALAR PELO WHATSAPP
+          </a>
+        </div>
+      )}
     </header>
   );
 }
@@ -65,8 +125,8 @@ function Header() {
 function Footer() {
   return (
     <footer className="bg-[#1a1a1a] text-white/80 mt-20">
-      <div className="mx-auto max-w-[1400px] px-6 py-14 grid gap-10 md:grid-cols-4">
-        <div>
+      <div className="mx-auto max-w-[1400px] px-6 py-14 grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="col-span-2 md:col-span-1">
           <img src={logo} alt="Vplast Embalagens" className="h-12 w-auto mb-4 brightness-0 invert" />
           <p className="text-sm leading-relaxed">
             Fitas adesivas e soluções completas em embalagens para garantir segurança, qualidade e
@@ -91,18 +151,18 @@ function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4">Produtos</h4>
           <ul className="space-y-2 text-sm">
-            <li>Fitas Crepe</li>
-            <li>Fitas Adesivas</li>
-            <li>Fitas Dupla Face</li>
-            <li>Fitas Impressas e Gomadas</li>
-            <li>Fitas Especiais</li>
+            <li><Link to="/produtos" className="hover:text-primary">Fitas Crepe</Link></li>
+            <li><Link to="/produtos" className="hover:text-primary">Fitas Adesivas</Link></li>
+            <li><Link to="/produtos" className="hover:text-primary">Fitas Dupla Face</Link></li>
+            <li><Link to="/produtos" className="hover:text-primary">Fitas Impressas e Gomadas</Link></li>
+            <li><Link to="/produtos" className="hover:text-primary">Fitas Especiais</Link></li>
           </ul>
         </div>
         <div>
           <h4 className="text-white font-semibold mb-4">Contato</h4>
           <ul className="space-y-3 text-sm">
             <li className="flex gap-2"><Phone className="h-4 w-4 text-primary shrink-0" /> +55 (41) 9694-7566</li>
-            <li className="flex gap-2"><Mail className="h-4 w-4 text-primary shrink-0" /> contato@vplast.com.br</li>
+            <li className="flex gap-2"><Mail className="h-4 w-4 text-primary shrink-0" /> vendas@vplastcomercio.com.br</li>
             <li className="flex gap-2"><MapPin className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Curitiba — Paraná, Brasil</li>
           </ul>
         </div>
@@ -120,18 +180,15 @@ function FloatingWhatsApp() {
       href={WPP_LINK}
       target="_blank"
       rel="noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-3 group"
+      className="fixed bottom-6 right-4 sm:right-6 z-50 flex items-center gap-3 group"
       aria-label="Falar pelo WhatsApp"
     >
-      {/* tooltip */}
       <span className="hidden group-hover:flex items-center bg-white text-ink text-xs font-semibold px-3 py-2 rounded-full shadow-lg border border-border whitespace-nowrap">
         Falar pelo WhatsApp
       </span>
-      {/* botão */}
-      <div className="relative h-14 w-14 rounded-full bg-[#25D366] shadow-lg shadow-green-500/40 flex items-center justify-center hover:scale-110 transition-transform duration-200">
-        {/* pulsar */}
+      <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-[#25D366] shadow-lg shadow-green-500/40 flex items-center justify-center hover:scale-110 transition-transform duration-200">
         <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30" />
-        <WhatsAppIcon className="h-7 w-7 text-white relative z-10" />
+        <WhatsAppIcon className="h-6 w-6 sm:h-7 sm:w-7 text-white relative z-10" />
       </div>
     </a>
   );

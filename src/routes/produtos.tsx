@@ -1,7 +1,8 @@
 import { createFileRoute, Link, Outlet, useChildMatches } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronRight, Boxes, Package, Layers, Tag, Sparkles, RotateCcw, ArrowRight } from "lucide-react";
+import { ChevronRight, Boxes, Package, Layers, Tag, Sparkles, RotateCcw, ArrowRight, SlidersHorizontal, X } from "lucide-react";
 import { SectionEyebrow } from "@/components/Layout";
+import { PageTransition, FadeUp, StaggerList, StaggerItem } from "@/components/animations";
 import { PRODUCTS, CATEGORIES, APPLICATIONS } from "@/lib/products";
 import fitaHero from "@/assets/Foto imagem inicio/fotonovoincio.png";
 
@@ -27,32 +28,35 @@ function ProdutosPage() {
   const childMatches = useChildMatches();
   const [selectedCat, setSelectedCat] = useState<string | null>(null);
   const [apps, setApps] = useState<string[]>([]);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const filtered = PRODUCTS.filter(
     (p) =>
       (!selectedCat || p.category === selectedCat) &&
       (apps.length === 0 || apps.some((a) => p.applications.includes(a)))
   );
 
+  const hasFilters = selectedCat !== null || apps.length > 0;
+
   if (childMatches.length > 0) return <Outlet />;
 
   return (
+    <PageTransition>
     <div>
       {/* HERO */}
-      <section className="relative overflow-hidden h-56 md:h-64 lg:h-72 flex items-stretch">
-        {/* lado esquerdo branco */}
-        <div className="flex-1 bg-white flex items-center px-8 lg:px-16 z-10">
-          <div>
+      <section className="relative overflow-hidden h-44 sm:h-56 md:h-64 lg:h-72 flex items-stretch">
+        <div className="flex-1 bg-white flex items-center px-4 sm:px-8 lg:px-16 z-10">
+          <FadeUp delay={0.1}><div>
             <SectionEyebrow>PRODUTOS</SectionEyebrow>
-            <h1 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink leading-tight">
+            <h1 className="mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink leading-tight">
               LINHA DE <span className="text-primary">PRODUTOS</span>
             </h1>
-            <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-md leading-relaxed">
+            <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-muted-foreground max-w-md leading-relaxed hidden sm:block">
               São diversas opções de fitas adesivas e soluções para embalagens,<br className="hidden md:block" /> desenvolvidas para garantir qualidade, segurança e eficiência.
             </p>
-          </div>
+          </div></FadeUp>
         </div>
-        {/* lado direito laranja com a foto */}
-        <div className="relative w-[45%] lg:w-[40%] bg-white overflow-hidden shrink-0">
+        <div className="relative w-[40%] sm:w-[45%] lg:w-[40%] bg-white overflow-hidden shrink-0">
           <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
             <path d="M180 0 C520 140, 80 260, 300 400 L600 400 L600 0 Z" fill="#F97316" opacity="0.10"/>
             <path d="M220 0 C520 120, 80 280, 260 400 L600 400 L600 0 Z" fill="#F97316"/>
@@ -67,17 +71,119 @@ function ProdutosPage() {
         </div>
       </section>
 
+      {/* Mobile filter bar */}
+      <div className="lg:hidden sticky top-16 z-30 bg-white border-b border-border px-4 py-3 flex items-center justify-between gap-3">
+        <button
+          onClick={() => setSidebarOpen((o) => !o)}
+          className="inline-flex items-center gap-2 rounded-full border-2 border-primary text-primary px-4 py-2 text-sm font-bold cursor-pointer"
+        >
+          <SlidersHorizontal className="h-4 w-4" />
+          FILTROS
+          {hasFilters && (
+            <span className="h-5 w-5 rounded-full bg-primary text-white text-xs flex items-center justify-center">
+              {(selectedCat ? 1 : 0) + apps.length}
+            </span>
+          )}
+        </button>
+        <p className="text-xs text-muted-foreground">{filtered.length} produtos</p>
+        {hasFilters && (
+          <button
+            onClick={() => { setSelectedCat(null); setApps([]); }}
+            className="inline-flex items-center gap-1 text-xs text-primary font-semibold cursor-pointer"
+          >
+            <X className="h-3.5 w-3.5" /> Limpar
+          </button>
+        )}
+      </div>
+
+      {/* Mobile sidebar drawer */}
+      {sidebarOpen && (
+        <div className="lg:hidden fixed inset-0 z-40 flex">
+          <div className="absolute inset-0 bg-black/40" onClick={() => setSidebarOpen(false)} />
+          <div className="relative ml-auto w-[85%] max-w-sm bg-white h-full overflow-y-auto shadow-2xl p-6 space-y-6">
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="font-bold text-ink">Filtros</h3>
+              <button onClick={() => setSidebarOpen(false)} className="cursor-pointer"><X className="h-5 w-5" /></button>
+            </div>
+
+            <div>
+              <h3 className="text-primary font-bold tracking-wider text-sm mb-3">CATEGORIAS</h3>
+              <ul className="space-y-1">
+                <li>
+                  <button
+                    onClick={() => setSelectedCat(null)}
+                    className={`w-full flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm transition cursor-pointer ${
+                      selectedCat === null ? "bg-orange-soft text-primary font-semibold" : "hover:bg-secondary"
+                    }`}
+                  >
+                    <Boxes className="h-4 w-4" /> Todas as categorias
+                  </button>
+                </li>
+                {CATEGORIES.map((c) => {
+                  const Icon = CAT_ICONS[c] ?? Package;
+                  return (
+                    <li key={c}>
+                      <button
+                        onClick={() => setSelectedCat(c)}
+                        className={`w-full flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm transition cursor-pointer ${
+                          selectedCat === c ? "bg-orange-soft text-primary font-semibold" : "text-ink hover:bg-secondary"
+                        }`}
+                      >
+                        <Icon className="h-4 w-4" /> {c}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-primary font-bold tracking-wider text-sm mb-3">APLICAÇÕES</h3>
+              <ul className="space-y-3">
+                {APPLICATIONS.map((a) => (
+                  <li key={a} className="flex items-center gap-2 text-sm">
+                    <input
+                      type="checkbox"
+                      checked={apps.includes(a)}
+                      onChange={(e) =>
+                        setApps((prev) => (e.target.checked ? [...prev, a] : prev.filter((x) => x !== a)))
+                      }
+                      className="h-4 w-4 accent-primary"
+                    />
+                    {a}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <button
+              onClick={() => { setSelectedCat(null); setApps([]); setSidebarOpen(false); }}
+              className="w-full inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary text-primary text-xs font-bold py-2.5 hover:bg-primary hover:text-primary-foreground transition cursor-pointer"
+            >
+              <RotateCcw className="h-3.5 w-3.5" /> LIMPAR FILTROS
+            </button>
+
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground text-sm font-bold py-3 cursor-pointer"
+            >
+              VER {filtered.length} PRODUTOS
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* GRID */}
-      <section className="mx-auto max-w-[1400px] px-6 py-12 grid lg:grid-cols-[260px_1fr] gap-8">
-        {/* SIDEBAR */}
-        <aside className="space-y-6">
+      <section className="mx-auto max-w-[1400px] px-4 sm:px-6 py-8 sm:py-12 grid lg:grid-cols-[260px_1fr] gap-8">
+        {/* SIDEBAR desktop */}
+        <aside className="hidden lg:block space-y-6">
           <div className="bg-white rounded-2xl border border-border p-6">
             <h3 className="text-primary font-bold tracking-wider text-sm mb-4">CATEGORIAS</h3>
             <ul className="space-y-1">
               <li>
                 <button
                   onClick={() => setSelectedCat(null)}
-                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition ${
+                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition cursor-pointer ${
                     selectedCat === null ? "bg-orange-soft text-primary font-semibold" : "hover:bg-secondary"
                   }`}
                 >
@@ -91,7 +197,7 @@ function ProdutosPage() {
                   <li key={c}>
                     <button
                       onClick={() => setSelectedCat(c)}
-                      className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition ${
+                      className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition cursor-pointer ${
                         active ? "bg-orange-soft text-primary font-semibold" : "text-ink hover:bg-secondary"
                       }`}
                     >
@@ -123,7 +229,7 @@ function ProdutosPage() {
             </ul>
             <button
               onClick={() => { setSelectedCat(null); setApps([]); }}
-              className="mt-5 w-full inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary text-primary text-xs font-bold py-2.5 hover:bg-primary hover:text-primary-foreground transition"
+              className="mt-5 w-full inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary text-primary text-xs font-bold py-2.5 hover:bg-primary hover:text-primary-foreground transition cursor-pointer"
             >
               <RotateCcw className="h-3.5 w-3.5" /> LIMPAR FILTROS
             </button>
@@ -132,7 +238,7 @@ function ProdutosPage() {
 
         {/* PRODUCTS */}
         <div>
-          <div className="flex items-center justify-between mb-6">
+          <div className="hidden lg:flex items-center justify-between mb-6">
             <p className="text-sm text-muted-foreground">Mostrando {filtered.length} produtos</p>
             <select className="text-sm border border-border rounded-lg px-4 py-2 bg-white">
               <option>Ordenar por: Mais recentes</option>
@@ -140,32 +246,35 @@ function ProdutosPage() {
             </select>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+          <StaggerList className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-5">
             {filtered.map((p) => (
-              <div key={p.slug} className="group bg-white rounded-2xl border border-border p-5 hover:shadow-xl transition flex flex-col">
+              <StaggerItem key={p.slug}>
+              <div className="group bg-white rounded-2xl border border-border p-3 sm:p-5 hover:shadow-xl transition flex flex-col h-full">
                 <div className="aspect-square bg-secondary rounded-xl overflow-hidden">
                   <img src={p.image} alt={p.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition" />
                 </div>
-                <h3 className="mt-4 text-center font-bold uppercase text-sm text-ink leading-tight">{p.name}</h3>
-                <p className="mt-2 text-center text-xs text-muted-foreground flex-1">{p.description}</p>
+                <h3 className="mt-3 sm:mt-4 text-center font-bold uppercase text-xs sm:text-sm text-ink leading-tight">{p.name}</h3>
+                <p className="mt-1 sm:mt-2 text-center text-xs text-muted-foreground flex-1 hidden sm:block">{p.description}</p>
                 <Link
                   to="/produtos/$slug"
                   params={{ slug: p.slug }}
-                  className="mt-4 inline-flex items-center justify-center gap-1 text-primary text-xs font-bold tracking-wide hover:gap-2 transition-all"
+                  className="mt-3 sm:mt-4 inline-flex items-center justify-center gap-1 text-primary text-xs font-bold tracking-wide hover:gap-2 transition-all"
                 >
                   VER DETALHES <ArrowRight className="h-3 w-3" />
                 </Link>
               </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerList>
 
-          <div className="mt-10 text-center">
-            <button className="inline-flex items-center gap-2 rounded-full border-2 border-primary text-primary px-6 py-3 font-bold text-sm hover:bg-primary hover:text-primary-foreground transition">
+          <FadeUp className="mt-10 text-center">
+            <button className="inline-flex items-center gap-2 rounded-full border-2 border-primary text-primary px-6 py-3 font-bold text-sm hover:bg-primary hover:text-primary-foreground transition cursor-pointer">
               <Package className="h-4 w-4" /> CARREGAR MAIS PRODUTOS
             </button>
-          </div>
+          </FadeUp>
         </div>
       </section>
     </div>
+    </PageTransition>
   );
 }

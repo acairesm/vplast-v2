@@ -27,7 +27,7 @@ export default defineConfig(({ mode }) => {
         "@tanstack/query-core",
       ],
     },
-    server: { host: "::", port: 8080 },
+    server: { host: "::", port: 9000 },
     plugins: [
       tailwindcss(),
       tsConfigPaths({ projects: ["./tsconfig.json"] }),

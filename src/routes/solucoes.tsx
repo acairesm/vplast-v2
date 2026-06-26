@@ -1,6 +1,7 @@
 import { createFileRoute, Link, Outlet, useChildMatches } from "@tanstack/react-router";
 import { Package, Truck, ShoppingCart, HardHat, Car, Award, ShieldCheck, Settings, Handshake, ArrowRight } from "lucide-react";
 import { SectionEyebrow } from "@/components/Layout";
+import { PageTransition, FadeUp, FadeIn, StaggerList, StaggerItem } from "@/components/animations";
 import hero from "@/assets/solutions-hero.jpg";
 import { SOLUTIONS } from "@/lib/solutions";
 
@@ -27,12 +28,14 @@ function SolucoesPage() {
   if (childMatches.length > 0) return <Outlet />;
 
   return (
+    <PageTransition>
     <div>
       <section className="relative overflow-hidden bg-gradient-to-br from-white to-orange-soft">
-        <div className="relative mx-auto max-w-[1400px] px-6 py-14 grid lg:grid-cols-2 gap-10 items-center">
+        <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 py-10 sm:py-14 grid lg:grid-cols-2 gap-8 sm:gap-10 items-center">
+          <FadeUp delay={0.1}>
           <div>
             <SectionEyebrow>SOLUÇÕES VPLAST</SectionEyebrow>
-            <h1 className="mt-4 text-4xl md:text-5xl font-extrabold text-ink leading-tight">
+            <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold text-ink leading-tight">
               SOLUÇÕES INTELIGENTES<br />
               <span className="text-primary">PARA CADA NECESSIDADE</span>
             </h1>
@@ -43,19 +46,23 @@ function SolucoesPage() {
               <Package className="h-5 w-5" /> FALAR COM UM ESPECIALISTA
             </Link>
           </div>
-          <img src={hero} alt="Soluções" className="rounded-2xl shadow-xl" />
+          </FadeUp>
+          <FadeIn delay={0.3}><img src={hero} alt="Soluções" className="rounded-2xl shadow-xl" /></FadeIn>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1400px] px-6 py-16">
+      <section className="mx-auto max-w-[1400px] px-4 sm:px-6 py-10 sm:py-16">
+        <FadeUp>
         <h2 className="text-3xl font-extrabold text-center text-ink">
           SOLUÇÕES PARA O <span className="text-primary">SEU SEGMENTO</span>
         </h2>
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        </FadeUp>
+        <StaggerList className="mt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
           {SOLUTIONS.map((s) => {
             const Icon = SEGMENT_ICONS[s.slug] ?? Package;
             return (
-              <div key={s.slug} className="bg-white rounded-2xl border border-border overflow-hidden hover:shadow-xl transition flex flex-col">
+              <StaggerItem key={s.slug}>
+              <div className="bg-white rounded-2xl border border-border overflow-hidden hover:shadow-xl transition flex flex-col h-full">
                 <div className="relative h-40">
                   <img src={s.img} alt={s.title} loading="lazy" className="w-full h-full object-cover" />
                   <div className="absolute top-3 left-3 h-10 w-10 rounded-full bg-primary grid place-items-center">
@@ -74,16 +81,18 @@ function SolucoesPage() {
                   </Link>
                 </div>
               </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerList>
 
-        <div className="mt-10 bg-white rounded-2xl border border-border grid md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border">
+        <FadeUp delay={0.1} className="mt-10">
+        <div className="bg-white rounded-2xl border border-border grid md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-border">
           {[
-            { Icon: Award, title: "QUALIDADE COMPROVADA", text: "Produtos desenvolvidos com altos padrões para garantir o melhor desempenho." },
-            { Icon: ShieldCheck, title: "SEGURANÇA GARANTIDA", text: "Soluções que protegem suas embalagens e o que realmente importa." },
-            { Icon: Settings, title: "EFICIÊNCIA OPERACIONAL", text: "Produtos que otimizam tempo e recursos em todas as etapas do processo." },
-            { Icon: Handshake, title: "ATENDIMENTO ESPECIALIZADO", text: "Equipe pronta para entender sua necessidade e indicar a melhor solução." },
+            { Icon: Award,       title: "QUALIDADE COMPROVADA",      text: "Produtos desenvolvidos com altos padrões para garantir o melhor desempenho." },
+            { Icon: ShieldCheck, title: "SEGURANÇA GARANTIDA",       text: "Soluções que protegem suas embalagens e o que realmente importa." },
+            { Icon: Settings,    title: "EFICIÊNCIA OPERACIONAL",    text: "Produtos que otimizam tempo e recursos em todas as etapas do processo." },
+            { Icon: Handshake,   title: "ATENDIMENTO ESPECIALIZADO", text: "Equipe pronta para entender sua necessidade e indicar a melhor solução." },
           ].map(({ Icon, title, text }) => (
             <div key={title} className="p-6 flex items-start gap-4">
               <div className="h-12 w-12 rounded-full bg-orange-soft grid place-items-center shrink-0">
@@ -96,7 +105,9 @@ function SolucoesPage() {
             </div>
           ))}
         </div>
+        </FadeUp>
       </section>
     </div>
+    </PageTransition>
   );
 }

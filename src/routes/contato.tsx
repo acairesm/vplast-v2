@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Phone, Mail, MapPin, MessageCircle, Send, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Send, Clock, CheckCircle, AlertCircle } from "lucide-react";
 import { SectionEyebrow } from "@/components/Layout";
 
 export const Route = createFileRoute("/contato")({
@@ -13,14 +13,181 @@ export const Route = createFileRoute("/contato")({
   component: ContatoPage,
 });
 
+// ─── Validadores ────────────────────────────────────────────────────────────
+
+function validateName(v: string) {
+  if (!v.trim()) return "Nome é obrigatório.";
+  if (v.trim().length < 2) return "Nome deve ter ao menos 2 caracteres.";
+  if (!/^[A-Za-zÀ-ÿ\s]+$/.test(v.trim())) return "Nome deve conter apenas letras.";
+  return "";
+}
+
+function validateEmail(v: string) {
+  if (!v.trim()) return "E-mail é obrigatório.";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())) return "Digite um e-mail válido.";
+  return "";
+}
+
+function validatePhone(v: string) {
+  if (!v) return "";
+  const digits = v.replace(/\D/g, "");
+  if (digits.length < 10) return "Número incompleto. Ex: (41) 99999-9999";
+  const ddd = parseInt(digits.slice(0, 2), 10);
+  if (ddd < 11 || ddd > 99) return "DDD inválido.";
+  return "";
+}
+
+function validateMessage(v: string) {
+  if (!v.trim()) return "Mensagem é obrigatória.";
+  if (v.trim().length < 10) return "Mensagem muito curta. Escreva pelo menos 10 caracteres.";
+  return "";
+}
+
+// ─── Máscara de telefone ─────────────────────────────────────────────────────
+
+function maskPhone(value: string): string {
+  const digits = value.replace(/\D/g, "").slice(0, 11);
+  if (digits.length === 0) return "";
+  if (digits.length <= 2) return `(${digits}`;
+  if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+  if (digits.length <= 10)
+    return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+}
+
+// ─── Componentes de campo ────────────────────────────────────────────────────
+
+function FieldInput({
+  label,
+  name,
+  type = "text",
+  value,
+  onChange,
+  error,
+  className = "",
+  placeholder = "",
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  value: string;
+  onChange: (v: string) => void;
+  error: string;
+  className?: string;
+  placeholder?: string;
+}) {
+  const hasError = !!error;
+  return (
+    <div className={className}>
+      <label className="text-xs font-semibold text-ink uppercase tracking-wider">{label}</label>
+      <input
+        name={name}
+        type={type}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        className={`mt-2 w-full rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2 transition ${
+          hasError
+            ? "border-red-400 focus:ring-red-300 bg-red-50"
+            : value
+            ? "border-green-400 focus:ring-primary"
+            : "border-border focus:ring-primary"
+        }`}
+      />
+      {hasError && (
+        <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+          <AlertCircle className="h-3 w-3 shrink-0" /> {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// ─── Página ──────────────────────────────────────────────────────────────────
+
 function ContatoPage() {
-  const [sent, setSent] = useState(false);
+  const [fields, setFields] = useState({
+    name: "", company: "", email: "", phone: "", subject: "", message: "",
+  });
+  const [errors, setErrors] = useState({
+    name: "", email: "", phone: "", message: "",
+  });
+  const [touched, setTouched] = useState({
+    name: false, email: false, phone: false, message: false,
+  });
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  function set(field: keyof typeof fields, value: string) {
+    const formatted = field === "phone" ? maskPhone(value) : value;
+    setFields((prev) => ({ ...prev, [field]: formatted }));
+
+    if (touched[field as keyof typeof touched] !== undefined) {
+      const err =
+        field === "name" ? validateName(formatted) :
+        field === "email" ? validateEmail(formatted) :
+        field === "phone" ? validatePhone(formatted) :
+        field === "message" ? validateMessage(formatted) : "";
+      setErrors((prev) => ({ ...prev, [field]: err }));
+    }
+  }
+
+  function blur(field: keyof typeof touched) {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    const value = fields[field];
+    const err =
+      field === "name" ? validateName(value) :
+      field === "email" ? validateEmail(value) :
+      field === "phone" ? validatePhone(value) :
+      field === "message" ? validateMessage(value) : "";
+    setErrors((prev) => ({ ...prev, [field]: err }));
+  }
+
+  function validate() {
+    const e = {
+      name: validateName(fields.name),
+      email: validateEmail(fields.email),
+      phone: validatePhone(fields.phone),
+      message: validateMessage(fields.message),
+    };
+    setErrors(e);
+    setTouched({ name: true, email: true, phone: true, message: true });
+    return !Object.values(e).some(Boolean);
+  }
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!validate()) return;
+
+    setStatus("sending");
+    const formData = new FormData();
+    Object.entries(fields).forEach(([k, v]) => formData.append(k, v));
+    formData.append("access_key", "9fdd2fce-4eed-4616-9f35-0c14c47378b8");
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("success");
+        setFields({ name: "", company: "", email: "", phone: "", subject: "", message: "" });
+        setTouched({ name: false, email: false, phone: false, message: false });
+        setErrors({ name: "", email: "", phone: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <div>
-      <section className="bg-gradient-to-br from-white to-orange-soft py-14">
-        <div className="mx-auto max-w-[1400px] px-6">
+      <section className="bg-gradient-to-br from-white to-orange-soft py-10 sm:py-14">
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
           <SectionEyebrow>CONTATO</SectionEyebrow>
-          <h1 className="mt-4 text-4xl md:text-5xl font-extrabold text-ink">
+          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold text-ink">
             FALE COM A <span className="text-primary">VPLAST</span>
           </h1>
           <p className="mt-4 text-muted-foreground max-w-2xl">
@@ -29,14 +196,14 @@ function ContatoPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1400px] px-6 py-14 grid lg:grid-cols-[1fr_1.3fr] gap-10">
+      <section className="mx-auto max-w-[1400px] px-4 sm:px-6 py-8 sm:py-14 grid lg:grid-cols-[1fr_1.3fr] gap-6 sm:gap-10">
         <div className="space-y-5">
           {[
-            { Icon: Phone, title: "Telefone", lines: ["+55 (41) 9694-7566"] },
-            { Icon: MessageCircle, title: "WhatsApp", lines: ["+55 (41) 9694-7566"] },
-            { Icon: Mail, title: "E-mail", lines: ["contato@vplast.com.br"] },
-            { Icon: MapPin, title: "Endereço", lines: ["Av. Industrial, 1000", "São Paulo - SP"] },
-            { Icon: Clock, title: "Atendimento", lines: ["Seg a Sex - 8h às 18h"] },
+            { Icon: Phone,         title: "Telefone",    lines: ["+55 (41) 9694-7566"] },
+            { Icon: MessageCircle, title: "WhatsApp",    lines: ["+55 (41) 9694-7566"] },
+            { Icon: Mail,          title: "E-mail",      lines: ["vendas@vplastcomercio.com.br"] },
+            { Icon: MapPin,        title: "Endereço",    lines: ["Curitiba — Paraná, Brasil"] },
+            { Icon: Clock,         title: "Atendimento", lines: ["Seg a Sex — 8h às 18h"] },
           ].map(({ Icon, title, lines }) => (
             <div key={title} className="bg-white rounded-2xl border border-border p-5 flex items-start gap-4">
               <div className="h-12 w-12 rounded-full bg-orange-soft grid place-items-center shrink-0">
@@ -50,45 +217,93 @@ function ContatoPage() {
           ))}
         </div>
 
-        <form
-          onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-          className="bg-white rounded-2xl border border-border p-8"
-        >
+        <form onSubmit={onSubmit} noValidate className="bg-white rounded-2xl border border-border p-5 sm:p-8">
           <h2 className="text-2xl font-extrabold text-ink">Envie sua mensagem</h2>
           <p className="text-sm text-muted-foreground mt-2">Responderemos em até 1 dia útil.</p>
 
           <div className="mt-6 grid sm:grid-cols-2 gap-4">
-            <Field label="Nome*" name="name" />
-            <Field label="Empresa" name="company" />
-            <Field label="E-mail*" name="email" type="email" />
-            <Field label="Telefone" name="phone" />
+            <FieldInput
+              label="Nome*" name="name" value={fields.name}
+              onChange={(v) => set("name", v)} error={touched.name ? errors.name : ""}
+              onBlur={() => blur("name")} placeholder="Seu nome completo"
+            />
+            <div>
+              <label className="text-xs font-semibold text-ink uppercase tracking-wider">Empresa</label>
+              <input
+                name="company" value={fields.company}
+                onChange={(e) => set("company", e.target.value)}
+                placeholder="Nome da empresa (opcional)"
+                className="mt-2 w-full rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+            <FieldInput
+              label="E-mail*" name="email" type="email" value={fields.email}
+              onChange={(v) => set("email", v)} error={touched.email ? errors.email : ""}
+              onBlur={() => blur("email")} placeholder="seuemail@exemplo.com"
+            />
+            <FieldInput
+              label="Telefone" name="phone" value={fields.phone}
+              onChange={(v) => set("phone", v)} error={touched.phone ? errors.phone : ""}
+              onBlur={() => blur("phone")} placeholder="(41) 99999-9999"
+            />
           </div>
-          <Field label="Assunto" name="subject" className="mt-4" />
+
+          <div className="mt-4">
+            <label className="text-xs font-semibold text-ink uppercase tracking-wider">Assunto</label>
+            <input
+              name="subject" value={fields.subject}
+              onChange={(e) => set("subject", e.target.value)}
+              placeholder="Ex: Orçamento fita crepe 48mm"
+              className="mt-2 w-full rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+          </div>
+
           <div className="mt-4">
             <label className="text-xs font-semibold text-ink uppercase tracking-wider">Mensagem*</label>
-            <textarea required rows={5} className="mt-2 w-full rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+            <textarea
+              name="message" value={fields.message} rows={5}
+              onChange={(e) => set("message", e.target.value)}
+              onBlur={() => blur("message")}
+              placeholder="Descreva sua necessidade em detalhes..."
+              className={`mt-2 w-full rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2 transition resize-none ${
+                touched.message && errors.message
+                  ? "border-red-400 focus:ring-red-300 bg-red-50"
+                  : fields.message
+                  ? "border-green-400 focus:ring-primary"
+                  : "border-border focus:ring-primary"
+              }`}
+            />
+            <div className="flex items-center justify-between mt-1">
+              {touched.message && errors.message ? (
+                <p className="text-xs text-red-500 flex items-center gap-1">
+                  <AlertCircle className="h-3 w-3" /> {errors.message}
+                </p>
+              ) : <span />}
+              <p className="text-xs text-muted-foreground">{fields.message.length} caracteres</p>
+            </div>
           </div>
 
-          <button className="mt-6 inline-flex items-center gap-3 rounded-xl bg-primary text-primary-foreground px-7 py-3.5 font-semibold shadow-lg shadow-primary/30 hover:bg-primary/90 transition">
-            <Send className="h-4 w-4" /> ENVIAR MENSAGEM
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="mt-6 inline-flex items-center gap-3 rounded-xl bg-primary text-primary-foreground px-7 py-3.5 font-semibold shadow-lg shadow-primary/30 hover:bg-primary/90 hover:scale-105 active:scale-95 transition cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            <Send className="h-4 w-4" />
+            {status === "sending" ? "ENVIANDO..." : "ENVIAR MENSAGEM"}
           </button>
-          {sent && <p className="mt-4 text-sm text-primary font-semibold">✓ Mensagem enviada! Em breve entraremos em contato.</p>}
+
+          {status === "success" && (
+            <div className="mt-4 flex items-center gap-2 text-sm text-green-600 font-semibold">
+              <CheckCircle className="h-5 w-5" /> Mensagem enviada! Em breve entraremos em contato.
+            </div>
+          )}
+          {status === "error" && (
+            <p className="mt-4 text-sm text-red-500 font-semibold">
+              Erro ao enviar. Tente novamente ou nos chame pelo WhatsApp.
+            </p>
+          )}
         </form>
       </section>
-    </div>
-  );
-}
-
-function Field({ label, name, type = "text", className = "" }: { label: string; name: string; type?: string; className?: string }) {
-  return (
-    <div className={className}>
-      <label className="text-xs font-semibold text-ink uppercase tracking-wider">{label}</label>
-      <input
-        name={name}
-        type={type}
-        required={label.includes("*")}
-        className="mt-2 w-full rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-      />
     </div>
   );
 }
