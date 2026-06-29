@@ -92,7 +92,7 @@ export const PRODUCTS: Product[] = [
     image: crepeUsoGeral1,
     images: [crepeUsoGeral1, crepeUsoGeral2, crepeUsoGeral3],
     uses: ["Fixações temporárias", "Identificação de peças", "Trabalhos manuais", "Mascaramento em pintura básica"],
-    sizes: ["18mm x 50m", "24mm x 50m", "48mm x 50m"],
+    sizes: ["18mm x 50m", "24mm x 50m", "48mm x 50m", "Sob consulta — tamanho personalizado"],
     applications: ["Pintura e Acabamento", "Uso Geral"],
   },
   {
@@ -136,7 +136,7 @@ export const PRODUCTS: Product[] = [
     image: duplaFacePapel1,
     images: [duplaFacePapel1, duplaFacePapel2, duplaFacePapel3],
     uses: ["Fixação de frisos e letreiros", "Montagem de móveis e painéis", "Fixação de espelhos e revestimentos", "Carpetes e fitas de borda"],
-    sizes: ["9mm x 30m", "12mm x 30m", "45mm x 30m"],
+    sizes: ["9mm x 30m", "12mm x 30m", "45mm x 30m", "Sob consulta — tamanho personalizado"],
     applications: ["Fixação e Montagem", "Uso Industrial"],
   },
   {
@@ -149,7 +149,7 @@ export const PRODUCTS: Product[] = [
     image: duplaFaceAltaAderencia2,
     images: [duplaFaceAltaAderencia2, duplaFaceAltaAderencia3],
     uses: ["Fixação industrial permanente", "Montagem de peças técnicas e plásticos", "Resistência à umidade e solventes", "Aplicações com vibração e peso elevado"],
-    sizes: ["10mm x 30m", "12mm x 30m", "24mm x 30m", "45mm x 30m"],
+    sizes: ["10mm x 30m", "12mm x 30m", "24mm x 30m", "45mm x 30m", "Sob consulta — tamanho personalizado"],
     applications: ["Fixação e Montagem", "Uso Industrial"],
   },
   {
@@ -162,7 +162,7 @@ export const PRODUCTS: Product[] = [
     image: duplaFaceEva1,
     images: [duplaFaceEva1, duplaFaceEva2, duplaFaceEva3],
     uses: ["Vedação de janelas e esquadrias", "Fixação em superfícies irregulares", "Absorção de impactos e vibrações", "Painéis solares e eletrodomésticos"],
-    sizes: ["12mm x 5m", "19mm x 5m", "25mm x 5m"],
+    sizes: ["12mm x 5m", "19mm x 5m", "25mm x 5m", "Sob consulta — tamanho personalizado"],
     applications: ["Fixação e Montagem", "Vedação e Impermeabilização"],
   },
   {
@@ -252,7 +252,7 @@ export const PRODUCTS: Product[] = [
       "O Fixa Tape Massa Acrílica é um adesivo à base de acrílico de altíssima resistência desenvolvido para fixações onde o uso de pregos ou parafusos comprometeria a estética ou a integridade da superfície. Adere a cerâmica, vidro, madeira, metal, plástico e concreto, criando uma ancoragem permanente resistente à umidade e variações de temperatura. Ideal para quadros, espelhos, suportes, rodapés e acabamentos de interiores.",
     image: adesiva,
     uses: ["Fixação de quadros e espelhos", "Rodapés e acabamentos", "Aplicação em cerâmica e vidro", "Substituição de pregos e parafusos"],
-    sizes: ["280g"],
+    sizes: ["280g", "Sob consulta — tamanho personalizado"],
     applications: ["Fixação e Montagem", "Uso Geral"],
   },
   {
@@ -264,7 +264,7 @@ export const PRODUCTS: Product[] = [
       "A Fita Filamentosa Mono Direção possui filamentos de fibra de vidro orientados longitudinalmente sob o filme de polyester, conferindo resistência à tração muito superior às fitas convencionais. É indicada para amarração de fardos, reforço de embalagens pesadas, fechamento de tubos e perfis metálicos, e unitização de cargas paletizadas. Resiste ao esmagamento, à abrasão e não se rompe mesmo sob alta tensão.",
     image: fitaFilamentosa,
     uses: ["Amarração de fardos e paletes", "Reforço de embalagens pesadas", "Fechamento de tubos e perfis metálicos", "Unitização de cargas"],
-    sizes: ["18mm x 50m", "24mm x 50m"],
+    sizes: ["18mm x 50m", "24mm x 50m", "Sob consulta — tamanho personalizado"],
     applications: ["Fechamento de Embalagens", "Uso Industrial"],
   },
   {
