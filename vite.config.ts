@@ -39,10 +39,7 @@ export default defineConfig(({ mode }) => {
             specifiers: ["server-only"],
           },
         },
-        server: {
-          entry: "server",
-          preset: process.env.VERCEL ? "vercel" : undefined,
-        },
+        server: { entry: "server" },
       }),
       viteReact(),
     ],
