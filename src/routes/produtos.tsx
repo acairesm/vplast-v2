@@ -71,34 +71,6 @@ function ProdutosPage() {
         </div>
       </section>
 
-      {/* QUICK FILTER — Fitas Sob Medida */}
-      <div className="bg-orange-soft border-b border-primary/20">
-        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 py-3 flex items-center gap-3 flex-wrap">
-          <span className="text-xs font-bold text-primary tracking-wider uppercase flex items-center gap-1.5">
-            <Ruler className="h-3.5 w-3.5" /> Filtro rápido:
-          </span>
-          <button
-            onClick={() => {
-              const app = "Fitas Sob Medida";
-              setApps((prev) => prev.includes(app) ? prev.filter((x) => x !== app) : [...prev, app]);
-            }}
-            className={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold border-2 transition cursor-pointer ${
-              apps.includes("Fitas Sob Medida")
-                ? "bg-primary text-white border-primary"
-                : "bg-white text-primary border-primary hover:bg-primary hover:text-white"
-            }`}
-          >
-            <Ruler className="h-3.5 w-3.5" />
-            FITAS SOB MEDIDA
-          </button>
-          {apps.includes("Fitas Sob Medida") && (
-            <span className="text-xs text-primary/70 font-medium">
-              {filtered.length} produto{filtered.length !== 1 ? "s" : ""} disponível{filtered.length !== 1 ? "is" : ""}
-            </span>
-          )}
-        </div>
-      </div>
-
       {/* Mobile filter bar */}
       <div className="lg:hidden sticky top-16 z-30 bg-white border-b border-border px-4 py-3 flex items-center justify-between gap-3">
         <button
@@ -139,12 +111,22 @@ function ProdutosPage() {
               <ul className="space-y-1">
                 <li>
                   <button
-                    onClick={() => setSelectedCat(null)}
+                    onClick={() => { setSelectedCat(null); setApps([]); }}
                     className={`w-full flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm transition cursor-pointer ${
-                      selectedCat === null ? "bg-orange-soft text-primary font-semibold" : "hover:bg-secondary"
+                      selectedCat === null && !apps.includes("Fitas Sob Medida") ? "bg-orange-soft text-primary font-semibold" : "hover:bg-secondary"
                     }`}
                   >
                     <Boxes className="h-4 w-4" /> Todas as categorias
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => { setSelectedCat(null); setApps(apps.includes("Fitas Sob Medida") ? apps.filter(x => x !== "Fitas Sob Medida") : ["Fitas Sob Medida"]); }}
+                    className={`w-full flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm transition cursor-pointer ${
+                      apps.includes("Fitas Sob Medida") ? "bg-orange-soft text-primary font-semibold" : "text-ink hover:bg-secondary"
+                    }`}
+                  >
+                    <Ruler className="h-4 w-4" /> Fitas Sob Medida
                   </button>
                 </li>
                 {CATEGORIES.map((c) => {
@@ -152,7 +134,7 @@ function ProdutosPage() {
                   return (
                     <li key={c}>
                       <button
-                        onClick={() => setSelectedCat(c)}
+                        onClick={() => { setSelectedCat(c); setApps([]); }}
                         className={`w-full flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm transition cursor-pointer ${
                           selectedCat === c ? "bg-orange-soft text-primary font-semibold" : "text-ink hover:bg-secondary"
                         }`}
@@ -210,12 +192,23 @@ function ProdutosPage() {
             <ul className="space-y-1">
               <li>
                 <button
-                  onClick={() => setSelectedCat(null)}
+                  onClick={() => { setSelectedCat(null); setApps([]); }}
                   className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition cursor-pointer ${
-                    selectedCat === null ? "bg-orange-soft text-primary font-semibold" : "hover:bg-secondary"
+                    selectedCat === null && !apps.includes("Fitas Sob Medida") ? "bg-orange-soft text-primary font-semibold" : "hover:bg-secondary"
                   }`}
                 >
                   <span className="flex items-center gap-2"><Boxes className="h-4 w-4" /> Todas as categorias</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => { setSelectedCat(null); setApps(apps.includes("Fitas Sob Medida") ? apps.filter(x => x !== "Fitas Sob Medida") : ["Fitas Sob Medida"]); }}
+                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition cursor-pointer ${
+                    apps.includes("Fitas Sob Medida") ? "bg-orange-soft text-primary font-semibold" : "text-ink hover:bg-secondary"
+                  }`}
+                >
+                  <span className="flex items-center gap-2"><Ruler className="h-4 w-4" /> Fitas Sob Medida</span>
+                  <ChevronRight className="h-4 w-4" />
                 </button>
               </li>
               {CATEGORIES.map((c) => {
@@ -224,7 +217,7 @@ function ProdutosPage() {
                 return (
                   <li key={c}>
                     <button
-                      onClick={() => setSelectedCat(c)}
+                      onClick={() => { setSelectedCat(c); setApps([]); }}
                       className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition cursor-pointer ${
                         active ? "bg-orange-soft text-primary font-semibold" : "text-ink hover:bg-secondary"
                       }`}
