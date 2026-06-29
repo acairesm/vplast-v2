@@ -137,7 +137,7 @@ export const PRODUCTS: Product[] = [
     images: [duplaFacePapel1, duplaFacePapel2, duplaFacePapel3],
     uses: ["Fixação de frisos e letreiros", "Montagem de móveis e painéis", "Fixação de espelhos e revestimentos", "Carpetes e fitas de borda"],
     sizes: ["9mm x 30m", "12mm x 30m", "45mm x 30m", "Sob consulta — tamanho personalizado"],
-    applications: ["Fixação e Montagem", "Uso Industrial"],
+    applications: ["Fixação e Montagem"],
   },
   {
     slug: "fita-dupla-face-alta-aderencia-pp-306a",
@@ -150,7 +150,7 @@ export const PRODUCTS: Product[] = [
     images: [duplaFaceAltaAderencia2, duplaFaceAltaAderencia3],
     uses: ["Fixação industrial permanente", "Montagem de peças técnicas e plásticos", "Resistência à umidade e solventes", "Aplicações com vibração e peso elevado"],
     sizes: ["10mm x 30m", "12mm x 30m", "24mm x 30m", "45mm x 30m", "Sob consulta — tamanho personalizado"],
-    applications: ["Fixação e Montagem", "Uso Industrial"],
+    applications: ["Fixação e Montagem"],
   },
   {
     slug: "fita-dupla-face-espuma-eva",
@@ -189,7 +189,7 @@ export const PRODUCTS: Product[] = [
     images: [fitaAcrilica1, fitaAcrilica2, fitaAcrilica3],
     uses: ["Fechamento de caixas de papelão", "Embalagem para e-commerce", "Uso em ambientes frios e quentes", "Lacre de embalagens industriais"],
     sizes: ["45mm x 45m", "48mm x 100m", "72mm x 100m"],
-    applications: ["Uso Geral", "Uso Industrial"],
+    applications: ["Uso Geral"],
   },
   {
     slug: "fita-acrilica-impressa-personalizada",
@@ -202,7 +202,7 @@ export const PRODUCTS: Product[] = [
     images: [acrilicaImpressa],
     uses: ["Fechamento de embalagens com identidade visual", "Segurança e antiviolação", "E-commerce e logística", "Presentes e kits corporativos"],
     sizes: ["48mm x 100m", "72mm x 100m"],
-    applications: ["Fechamento de Embalagens", "Identificação e Branding"],
+    applications: ["Fechamento de Embalagens", "Identificação e Branding", "Uso Industrial"],
   },
   {
     slug: "fita-impressa-cuidado-fragil",
@@ -215,7 +215,7 @@ export const PRODUCTS: Product[] = [
     images: [fitaImpressa1, fitaImpressa2, fitaImpressa3],
     uses: ["Identificação de cargas frágeis", "Sinalização logística", "Lacre com aviso de segurança", "E-commerce e transporte de eletrônicos"],
     sizes: ["48mm x 100m"],
-    applications: ["Fechamento de Embalagens", "Identificação e Branding"],
+    applications: ["Fechamento de Embalagens", "Identificação e Branding", "Uso Industrial"],
   },
   {
     slug: "fita-gomada-impressa",
@@ -228,7 +228,7 @@ export const PRODUCTS: Product[] = [
     images: [fitaGomadaImpressa],
     uses: ["Lacre inviolável de caixas", "Identidade visual na embalagem", "E-commerce e exportação", "Reforço estrutural do papelão"],
     sizes: ["50mm x 50m", "70mm x 50m"],
-    applications: ["Fechamento de Embalagens", "Identificação e Branding"],
+    applications: ["Fechamento de Embalagens", "Identificação e Branding", "Uso Industrial"],
   },
   {
     slug: "fita-gomada",
@@ -265,7 +265,7 @@ export const PRODUCTS: Product[] = [
     image: fitaFilamentosa,
     uses: ["Amarração de fardos e paletes", "Reforço de embalagens pesadas", "Fechamento de tubos e perfis metálicos", "Unitização de cargas"],
     sizes: ["18mm x 50m", "24mm x 50m", "Sob consulta — tamanho personalizado"],
-    applications: ["Fechamento de Embalagens", "Uso Industrial"],
+    applications: ["Fechamento de Embalagens"],
   },
   {
     slug: "fita-automotiva",
@@ -291,6 +291,6 @@ export const PRODUCTS: Product[] = [
     images: [crepeVerdeGrossa, crepeVerdeMais, crepeVerde1, crepeVerde2, crepeVerde3],
     uses: ["Marcação e demarcação de áreas", "Proteção em pintura de obras", "Sinalização de zonas em ambientes industriais"],
     sizes: ["18mm x 50m", "24mm x 50m", "48mm x 50m", "Sob consulta — tamanho personalizado"],
-    applications: ["Pintura e Acabamento", "Uso Automotivo", "Uso Industrial", "Uso Geral"],
+    applications: ["Pintura e Acabamento", "Uso Automotivo", "Uso Geral"],
   },
 ];
