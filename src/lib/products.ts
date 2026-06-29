@@ -78,8 +78,6 @@ export const APPLICATIONS = [
   "Uso Automotivo",
   "Identificação e Branding",
   "Uso Industrial",
-  "Vedação e Impermeabilização",
-  "Uso Geral",
 ];
 
 export const PRODUCTS: Product[] = [
@@ -94,7 +92,7 @@ export const PRODUCTS: Product[] = [
     images: [crepeUsoGeral1, crepeUsoGeral2, crepeUsoGeral3],
     uses: ["Fixações temporárias", "Identificação de peças", "Trabalhos manuais", "Mascaramento em pintura básica"],
     sizes: ["18mm x 50m", "24mm x 50m", "48mm x 50m", "Sob consulta — tamanho personalizado"],
-    applications: ["Pintura e Acabamento", "Uso Geral"],
+    applications: ["Pintura e Acabamento"],
   },
   {
     slug: "fita-crepe-automotiva-amarela",
@@ -164,7 +162,7 @@ export const PRODUCTS: Product[] = [
     images: [duplaFaceEva1, duplaFaceEva2, duplaFaceEva3],
     uses: ["Vedação de janelas e esquadrias", "Fixação em superfícies irregulares", "Absorção de impactos e vibrações", "Painéis solares e eletrodomésticos"],
     sizes: ["12mm x 5m", "19mm x 5m", "25mm x 5m", "Sob consulta — tamanho personalizado"],
-    applications: ["Fixação e Montagem", "Vedação e Impermeabilização"],
+    applications: ["Fixação e Montagem"],
   },
   {
     slug: "fita-dupla-face-larga",
@@ -190,7 +188,7 @@ export const PRODUCTS: Product[] = [
     images: [fitaAcrilica1, fitaAcrilica2, fitaAcrilica3],
     uses: ["Fechamento de caixas de papelão", "Embalagem para e-commerce", "Uso em ambientes frios e quentes", "Lacre de embalagens industriais"],
     sizes: ["45mm x 45m", "48mm x 100m", "72mm x 100m"],
-    applications: ["Uso Geral"],
+    applications: ["Fechamento de Embalagens"],
   },
   {
     slug: "fita-acrilica-impressa-personalizada",
@@ -242,7 +240,7 @@ export const PRODUCTS: Product[] = [
     images: [fitaGomada],
     uses: ["Fechamento de caixas pesadas", "Transporte e exportação", "Armazenamento em câmaras frias", "Embalagem sustentável e biodegradável"],
     sizes: ["50mm x 50m", "70mm x 50m"],
-    applications: ["Fechamento de Embalagens", "Uso Industrial", "Uso Geral"],
+    applications: ["Fechamento de Embalagens", "Uso Industrial"],
   },
   {
     slug: "fixa-tape-massa-acrilica",
@@ -255,7 +253,7 @@ export const PRODUCTS: Product[] = [
     images: [fitaTapeMassaAcrilica, crepeVerdeMais],
     uses: ["Fixação de quadros e espelhos", "Rodapés e acabamentos", "Aplicação em cerâmica e vidro", "Substituição de pregos e parafusos"],
     sizes: ["280g", "Sob consulta — tamanho personalizado"],
-    applications: ["Fixação e Montagem", "Uso Geral"],
+    applications: ["Fixação e Montagem"],
   },
   {
     slug: "fita-filamentosa-mono-direcao",
@@ -293,6 +291,6 @@ export const PRODUCTS: Product[] = [
     images: [crepeVerdeGrossa, crepeVerdeMais, crepeVerde1, crepeVerde2, crepeVerde3],
     uses: ["Marcação e demarcação de áreas", "Proteção em pintura de obras", "Sinalização de zonas em ambientes industriais"],
     sizes: ["18mm x 50m", "24mm x 50m", "48mm x 50m", "Sob consulta — tamanho personalizado"],
-    applications: ["Pintura e Acabamento", "Uso Automotivo", "Uso Geral"],
+    applications: ["Pintura e Acabamento", "Uso Automotivo"],
   },
 ];
