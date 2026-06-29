@@ -48,7 +48,7 @@ import fitaGomada from "@/assets/produtos/fita-gomada.jpg";
 import fitaFilamentosa from "@/assets/produtos/fita-filamentosa.jpeg";
 import crepeVerdeGrossa from "@/assets/produtos/crepe-verde-grossa.jpeg";
 import crepeVerdeMais from "@/assets/produtos/crepe-verde-mais.jpeg";
-import fitaTapeMassaAcrilica from "@/assets/produtos/fita-tape-massa-acrilica.jpeg";
+import fitaTapeMassaAcrilica from "@/assets/produtos/fitatapemassaacrilica.jpeg";
 
 export type Product = {
   slug: string;
