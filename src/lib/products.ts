@@ -47,6 +47,7 @@ import fitaGomadaImpressa from "@/assets/produtos/fita-gomada-impressa.jpg";
 import fitaGomada from "@/assets/produtos/fita-gomada.jpg";
 import fitaFilamentosa from "@/assets/produtos/fita-filamentosa.jpeg";
 import crepeVerdeGrossa from "@/assets/produtos/crepe-verde-grossa.jpeg";
+import crepeVerdeMais from "@/assets/produtos/crepe-verde-mais.jpeg";
 
 export type Product = {
   slug: string;
@@ -287,9 +288,9 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "A Fita Crepe Verde Pintura foi desenvolvida para facilitar a organização e identificação de áreas em obras, reformas e projetos industriais. Sua cor verde facilita a visualização do mascaramento, e o adesivo à base de borracha garante boa aderência em paredes, madeiras e superfícies pintadas, com remoção limpa sem danos. Também utilizada para demarcar pisos, sinalizar zonas de risco e proteger superfícies durante acabamentos.",
     image: crepeVerdeGrossa,
-    images: [crepeVerdeGrossa, crepeVerde1, crepeVerde2, crepeVerde3],
+    images: [crepeVerdeGrossa, crepeVerdeMais, crepeVerde1, crepeVerde2, crepeVerde3],
     uses: ["Marcação e demarcação de áreas", "Proteção em pintura de obras", "Sinalização de zonas em ambientes industriais"],
     sizes: ["18mm x 50m", "24mm x 50m", "48mm x 50m", "Sob consulta — tamanho personalizado"],
-    applications: ["Pintura e Acabamento", "Uso Industrial", "Uso Geral"],
+    applications: ["Pintura e Acabamento", "Uso Automotivo", "Uso Industrial", "Uso Geral"],
   },
 ];
