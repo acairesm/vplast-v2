@@ -28,9 +28,6 @@ import fitaAcrilica1 from "@/assets/produtos/fita-adesiva-acrilica-1.png";
 import fitaAcrilica2 from "@/assets/produtos/fita-adesiva-acrilica-2.png";
 import fitaAcrilica3 from "@/assets/produtos/fita-adesiva-acrilica-3.png";
 
-import fitaAltaAderencia1 from "@/assets/produtos/fita-alta-aderencia-1.png";
-import fitaAltaAderencia2 from "@/assets/produtos/fita-alta-aderencia-2.png";
-import fitaAltaAderencia3 from "@/assets/produtos/fita-alta-aderencia-3.png";
 
 import fitaImpressa1 from "@/assets/produtos/fita-impressa-cuidado-fragil-1.png";
 import fitaImpressa2 from "@/assets/produtos/fita-impressa-cuidado-fragil-2.png";
@@ -48,6 +45,7 @@ import acrilicaImpressa from "@/assets/produtos/fita-acrilica-impressa-personali
 import duplaFaceLarga from "@/assets/produtos/fita-dupla-face-larga.jpg";
 import fitaGomadaImpressa from "@/assets/produtos/fita-gomada-impressa.jpg";
 import fitaGomada from "@/assets/produtos/fita-gomada.jpg";
+import fitaFilamentosa from "@/assets/produtos/fita-filamentosa.jpeg";
 
 export type Product = {
   slug: string;
@@ -93,7 +91,7 @@ export const PRODUCTS: Product[] = [
     images: [crepeUsoGeral1, crepeUsoGeral2, crepeUsoGeral3],
     uses: ["Fixações temporárias", "Identificação de peças", "Trabalhos manuais", "Mascaramento em pintura básica"],
     sizes: ["18mm x 50m", "24mm x 50m", "48mm x 50m"],
-    applications: ["Pintura e Acabamento", "Uso Geral", "Fechamento de Embalagens"],
+    applications: ["Pintura e Acabamento", "Uso Geral"],
   },
   {
     slug: "fita-crepe-automotiva-amarela",
@@ -189,7 +187,7 @@ export const PRODUCTS: Product[] = [
     images: [fitaAcrilica1, fitaAcrilica2, fitaAcrilica3],
     uses: ["Fechamento de caixas de papelão", "Embalagem para e-commerce", "Uso em ambientes frios e quentes", "Lacre de embalagens industriais"],
     sizes: ["45mm x 45m", "48mm x 100m", "72mm x 100m"],
-    applications: ["Fechamento de Embalagens", "Uso Geral", "Uso Industrial"],
+    applications: ["Uso Geral", "Uso Industrial"],
   },
   {
     slug: "fita-acrilica-impressa-personalizada",
@@ -262,7 +260,7 @@ export const PRODUCTS: Product[] = [
     description: "Reforçada com filamentos de fibra de vidro para amarração e reforço extremos.",
     longDescription:
       "A Fita Filamentosa Mono Direção possui filamentos de fibra de vidro orientados longitudinalmente sob o filme de polyester, conferindo resistência à tração muito superior às fitas convencionais. É indicada para amarração de fardos, reforço de embalagens pesadas, fechamento de tubos e perfis metálicos, e unitização de cargas paletizadas. Resiste ao esmagamento, à abrasão e não se rompe mesmo sob alta tensão.",
-    image: adesiva,
+    image: fitaFilamentosa,
     uses: ["Amarração de fardos e paletes", "Reforço de embalagens pesadas", "Fechamento de tubos e perfis metálicos", "Unitização de cargas"],
     sizes: ["18mm x 50m", "24mm x 50m"],
     applications: ["Fechamento de Embalagens", "Uso Industrial"],
@@ -292,18 +290,5 @@ export const PRODUCTS: Product[] = [
     uses: ["Marcação e demarcação de áreas", "Proteção em pintura de obras", "Sinalização de zonas em ambientes industriais"],
     sizes: ["18mm x 50m", "24mm x 50m"],
     applications: ["Pintura e Acabamento", "Uso Industrial", "Uso Geral"],
-  },
-  {
-    slug: "fita-alta-aderencia",
-    name: "Fita Alta Aderência",
-    category: "Fitas Dupla Face",
-    description: "Fixação robusta em superfícies exigentes, irregulares e ambientes críticos.",
-    longDescription:
-      "A Fita Alta Aderência é a solução para fixações onde outras fitas falham. Com adesivo acrílico de altíssima ancoragem e backing de polietileno orientado, penetra nas microtexturas de superfícies porosas, rugosas e até levemente oleosas, criando uma ligação resistente à tração, à umidade e à maioria dos solventes. Utilizada em fechamento de embalagens pesadas, fixação industrial, sinalização permanente e aplicações de construção civil.",
-    image: fitaAltaAderencia1,
-    images: [fitaAltaAderencia1, fitaAltaAderencia2, fitaAltaAderencia3],
-    uses: ["Fechamento de embalagens pesadas", "Fixação industrial em superfícies irregulares", "Sinalização permanente", "Construção civil e reforma"],
-    sizes: ["10mm x 30m", "24mm x 30m", "48mm x 30m"],
-    applications: ["Fixação e Montagem", "Uso Industrial", "Fechamento de Embalagens"],
   },
 ];
