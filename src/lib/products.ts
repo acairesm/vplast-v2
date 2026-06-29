@@ -68,7 +68,7 @@ export const CATEGORIES = [
   "Fitas Adesivas",
   "Fitas Dupla Face",
   "Fitas Impressas e Gomadas",
-  "Fitas Especiais",
+  "Fitas Personalizadas",
 ];
 
 export const APPLICATIONS = [
@@ -193,7 +193,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "fita-acrilica-impressa-personalizada",
     name: "Fita Acrílica Impressa Personalizada",
-    category: "Fitas Impressas e Gomadas",
+    category: "Fitas Personalizadas",
     description: "Fita transparente com a sua marca impressa — identidade e segurança na embalagem.",
     longDescription:
       "A Fita Acrílica Impressa Personalizada une a resistência da fita acrílica transparente com a força da identidade visual da sua empresa. A marca, slogan ou informações de segurança são impressos diretamente no filme, tornando cada caixa fechada um ponto de comunicação. Além do diferencial visual, ela dificulta a violação da embalagem, pois qualquer tentativa de abertura fica visível. Ideal para e-commerce, logística, indústria e presentes corporativos.",
@@ -206,7 +206,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "fita-impressa-cuidado-fragil",
     name: "Fita Impressa Cuidado Frágil",
-    category: "Fitas Impressas e Gomadas",
+    category: "Fitas Personalizadas",
     description: "Fita com aviso impresso para proteger cargas frágeis durante o transporte.",
     longDescription:
       "A Fita Impressa Cuidado Frágil comunica de forma clara e imediata que a embalagem contém itens que exigem manuseio cuidadoso. Produzida em filme acrílico transparente com impressão do aviso padronizado, ela identifica visualmente a carga para transportadoras, operadores de logística e destinatários — reduzindo avarias, devoluções e prejuízos. Combina função de lacre com sinalização de segurança em uma única solução.",
@@ -219,7 +219,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "fita-gomada-impressa",
     name: "Fita Gomada Impressa",
-    category: "Fitas Impressas e Gomadas",
+    category: "Fitas Personalizadas",
     description: "Fita kraft ativada por água com sua marca impressa — lacre inviolável e profissional.",
     longDescription:
       "A Fita Gomada Impressa é fabricada em papel kraft resistente com adesivo à base d'água e impressão personalizada da sua marca. Ao ser umedecida, o adesivo penetra nas fibras do papelão e cria uma ligação praticamente permanente, tornando o lacre inviolável — qualquer tentativa de abertura danifica visivelmente a embalagem. Além de segurança, agrega valor estético à caixa, reforçando a identidade da empresa no momento da entrega.",
@@ -245,7 +245,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "fixa-tape-massa-acrilica",
     name: "Fixa Tape Massa Acrílica",
-    category: "Fitas Especiais",
+    category: "Fitas Personalizadas",
     description: "Massa adesiva acrílica que substitui pregos e parafusos com acabamento limpo.",
     longDescription:
       "O Fixa Tape Massa Acrílica é um adesivo à base de acrílico de altíssima resistência desenvolvido para fixações onde o uso de pregos ou parafusos comprometeria a estética ou a integridade da superfície. Adere a cerâmica, vidro, madeira, metal, plástico e concreto, criando uma ancoragem permanente resistente à umidade e variações de temperatura. Ideal para quadros, espelhos, suportes, rodapés e acabamentos de interiores.",
@@ -258,7 +258,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "fita-filamentosa-mono-direcao",
     name: "Fita Filamentosa Mono Direção",
-    category: "Fitas Especiais",
+    category: "Fitas Personalizadas",
     description: "Reforçada com filamentos de fibra de vidro para amarração e reforço extremos.",
     longDescription:
       "A Fita Filamentosa Mono Direção possui filamentos de fibra de vidro orientados longitudinalmente sob o filme de polyester, conferindo resistência à tração muito superior às fitas convencionais. É indicada para amarração de fardos, reforço de embalagens pesadas, fechamento de tubos e perfis metálicos, e unitização de cargas paletizadas. Resiste ao esmagamento, à abrasão e não se rompe mesmo sob alta tensão.",

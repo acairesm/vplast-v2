@@ -21,7 +21,7 @@ const CAT_ICONS: Record<string, any> = {
   "Fitas Adesivas": Package,
   "Fitas Dupla Face": Layers,
   "Fitas Impressas e Gomadas": Tag,
-  "Fitas Especiais": Sparkles,
+  "Fitas Personalizadas": Sparkles,
 };
 
 function ProdutosPage() {
