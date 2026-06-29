@@ -288,11 +288,6 @@ function ProdutosPage() {
             ))}
           </StaggerList>
 
-          <FadeUp className="mt-10 text-center">
-            <button className="inline-flex items-center gap-2 rounded-full border-2 border-primary text-primary px-6 py-3 font-bold text-sm hover:bg-primary hover:text-primary-foreground transition cursor-pointer">
-              <Package className="h-4 w-4" /> CARREGAR MAIS PRODUTOS
-            </button>
-          </FadeUp>
         </div>
       </section>
     </div>

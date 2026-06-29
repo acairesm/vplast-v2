@@ -1,6 +1,6 @@
-import industria from "@/assets/seg-industria.jpg";
+import industria from "@/assets/comunicacaovisual.jpeg";
 import logistica from "@/assets/seg-logistica.jpg";
-import varejo from "@/assets/seg-varejo.jpg";
+
 import construcao from "@/assets/seg-construcao.jpg";
 import auto from "@/assets/seg-auto.jpg";
 
@@ -19,10 +19,10 @@ export type Solution = {
 export const SOLUTIONS: Solution[] = [
   {
     slug: "industria-e-manufatura",
-    title: "INDÚSTRIA E MANUFATURA",
-    shortTitle: "INDÚSTRIA",
+    title: "COMUNICAÇÃO VISUAL",
+    shortTitle: "COMUNICAÇÃO",
     img: industria,
-    tagline: "Resistência e eficiência para linhas de produção exigentes",
+    tagline: "Identidade visual e comunicação para ambientes industriais",
     description:
       "Ambientes industriais demandam fitas que aguentem peso, pressão, umidade e temperatura — sem falhar. A Vplast oferece uma linha completa pensada para as exigências do chão de fábrica: desde o fechamento seguro de caixas pesadas até a fixação permanente de componentes em máquinas e estruturas.",
     challenges: [
@@ -59,29 +59,7 @@ export const SOLUTIONS: Solution[] = [
       { title: "Resistência Climática", text: "Adesivos que mantêm a aderência em câmaras frias, ambientes úmidos e sob calor intenso." },
       { title: "Rastreabilidade", text: "Fitas personalizadas com dados da empresa facilitam a gestão e o controle de estoque." },
     ],
-    recommendedProducts: ["fita-impressa-cuidado-fragil", "fita-gomada-impressa", "fita-gomada", "fita-adesiva-acrilica-t"],
-  },
-  {
-    slug: "varejo-e-ecommerce",
-    title: "VAREJO E E-COMMERCE",
-    shortTitle: "VAREJO",
-    img: varejo,
-    tagline: "Embalagem que encanta e fortalece a sua marca",
-    description:
-      "No varejo e no e-commerce, a embalagem é o primeiro contato físico do cliente com a sua marca. A Vplast transforma esse momento em uma oportunidade: fitas personalizadas com a sua identidade visual que agregam valor ao unboxing, reforçam a credibilidade e protegem o produto ao mesmo tempo.",
-    challenges: [
-      "Diferenciar a marca na experiência de recebimento do pedido",
-      "Garantir segurança do produto sem comprometer a apresentação",
-      "Escalar operações de embalagem mantendo padrão visual",
-      "Comunicar cuidado e qualidade desde a embalagem",
-    ],
-    benefits: [
-      { title: "Branding no Pacote", text: "Fitas com logo e cores da marca transformam cada caixa em propaganda." },
-      { title: "Experiência de Unboxing", text: "Embalagens bem apresentadas aumentam a satisfação e a fidelização do cliente." },
-      { title: "Segurança Antiviolação", text: "Qualquer tentativa de abertura fica visível, transmitindo confiança ao consumidor." },
-      { title: "Produção em Escala", text: "Fitas padronizadas aceleram o processo de embalagem em operações de alto volume." },
-    ],
-    recommendedProducts: ["fita-acrilica-impressa-personalizada", "fita-impressa-cuidado-fragil", "fita-adesiva-acrilica-t"],
+    recommendedProducts: ["fita-dupla-face-larga", "fita-filamentosa-mono-direcao", "fita-adesiva-acrilica-t", "fita-acrilica-impressa-personalizada", "fita-gomada", "fita-gomada-impressa"],
   },
   {
     slug: "construcao-civil",
@@ -125,7 +103,7 @@ export const SOLUTIONS: Solution[] = [
       { title: "Remoção Limpa", text: "Sai íntegra após a pintura, sem marcas, manchas ou resíduos na superfície." },
       { title: "Linha Profissional", text: "Resultado de acabamento nível montadora, mesmo em oficinas e funilarias independentes." },
     ],
-    recommendedProducts: ["fita-crepe-automotiva-amarela", "fita-crepe-automotiva-adelbras-765", "fita-automotiva"],
+    recommendedProducts: ["fita-crepe-automotiva-amarela", "fita-crepe-automotiva-adelbras-765", "fita-automotiva", "fita-crepe-verde-pintura"],
   },
 ];
 

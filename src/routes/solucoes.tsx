@@ -57,7 +57,7 @@ function SolucoesPage() {
           SOLUÇÕES PARA O <span className="text-primary">SEU SEGMENTO</span>
         </h2>
         </FadeUp>
-        <StaggerList className="mt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
+        <StaggerList className="mt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {SOLUTIONS.map((s) => {
             const Icon = SEGMENT_ICONS[s.slug] ?? Package;
             return (
