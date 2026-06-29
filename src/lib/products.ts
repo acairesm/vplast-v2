@@ -78,6 +78,7 @@ export const APPLICATIONS = [
   "Uso Automotivo",
   "Identificação e Branding",
   "Uso Industrial",
+  "Fitas Sob Medida",
 ];
 
 export const PRODUCTS: Product[] = [
@@ -92,7 +93,7 @@ export const PRODUCTS: Product[] = [
     images: [crepeUsoGeral1, crepeUsoGeral2, crepeUsoGeral3],
     uses: ["Fixações temporárias", "Identificação de peças", "Trabalhos manuais", "Mascaramento em pintura básica"],
     sizes: ["18mm x 50m", "24mm x 50m", "48mm x 50m", "Sob consulta — tamanho personalizado"],
-    applications: ["Pintura e Acabamento"],
+    applications: ["Pintura e Acabamento", "Fitas Sob Medida"],
   },
   {
     slug: "fita-crepe-automotiva-amarela",
@@ -136,7 +137,7 @@ export const PRODUCTS: Product[] = [
     images: [duplaFacePapel1, duplaFacePapel2, duplaFacePapel3],
     uses: ["Fixação de frisos e letreiros", "Montagem de móveis e painéis", "Fixação de espelhos e revestimentos", "Carpetes e fitas de borda"],
     sizes: ["9mm x 30m", "12mm x 30m", "45mm x 30m", "Sob consulta — tamanho personalizado"],
-    applications: ["Fixação e Montagem"],
+    applications: ["Fixação e Montagem", "Fitas Sob Medida"],
   },
   {
     slug: "fita-dupla-face-alta-aderencia-pp-306a",
@@ -149,7 +150,7 @@ export const PRODUCTS: Product[] = [
     images: [duplaFaceAltaAderencia2, duplaFaceAltaAderencia3],
     uses: ["Fixação industrial permanente", "Montagem de peças técnicas e plásticos", "Resistência à umidade e solventes", "Aplicações com vibração e peso elevado"],
     sizes: ["10mm x 30m", "12mm x 30m", "24mm x 30m", "45mm x 30m", "Sob consulta — tamanho personalizado"],
-    applications: ["Fixação e Montagem"],
+    applications: ["Fixação e Montagem", "Fitas Sob Medida"],
   },
   {
     slug: "fita-dupla-face-espuma-eva",
@@ -162,7 +163,7 @@ export const PRODUCTS: Product[] = [
     images: [duplaFaceEva1, duplaFaceEva2, duplaFaceEva3],
     uses: ["Vedação de janelas e esquadrias", "Fixação em superfícies irregulares", "Absorção de impactos e vibrações", "Painéis solares e eletrodomésticos"],
     sizes: ["12mm x 5m", "19mm x 5m", "25mm x 5m", "Sob consulta — tamanho personalizado"],
-    applications: ["Fixação e Montagem"],
+    applications: ["Fixação e Montagem", "Fitas Sob Medida"],
   },
   {
     slug: "fita-dupla-face-larga",
@@ -253,7 +254,7 @@ export const PRODUCTS: Product[] = [
     images: [fitaTapeMassaAcrilica, crepeVerdeMais],
     uses: ["Fixação de quadros e espelhos", "Rodapés e acabamentos", "Aplicação em cerâmica e vidro", "Substituição de pregos e parafusos"],
     sizes: ["280g", "Sob consulta — tamanho personalizado"],
-    applications: ["Fixação e Montagem"],
+    applications: ["Fixação e Montagem", "Fitas Sob Medida"],
   },
   {
     slug: "fita-filamentosa-mono-direcao",
@@ -265,7 +266,7 @@ export const PRODUCTS: Product[] = [
     image: fitaFilamentosa,
     uses: ["Amarração de fardos e paletes", "Reforço de embalagens pesadas", "Fechamento de tubos e perfis metálicos", "Unitização de cargas"],
     sizes: ["18mm x 50m", "24mm x 50m", "Sob consulta — tamanho personalizado"],
-    applications: ["Fechamento de Embalagens"],
+    applications: ["Fechamento de Embalagens", "Fitas Sob Medida"],
   },
   {
     slug: "fita-automotiva",
@@ -291,6 +292,6 @@ export const PRODUCTS: Product[] = [
     images: [crepeVerdeGrossa, crepeVerdeMais, crepeVerde1, crepeVerde2, crepeVerde3],
     uses: ["Marcação e demarcação de áreas", "Proteção em pintura de obras", "Sinalização de zonas em ambientes industriais"],
     sizes: ["18mm x 50m", "24mm x 50m", "48mm x 50m", "Sob consulta — tamanho personalizado"],
-    applications: ["Pintura e Acabamento", "Uso Automotivo"],
+    applications: ["Pintura e Acabamento", "Uso Automotivo", "Fitas Sob Medida"],
   },
 ];

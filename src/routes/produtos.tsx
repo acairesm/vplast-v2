@@ -1,6 +1,6 @@
 import { createFileRoute, Link, Outlet, useChildMatches } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronRight, Boxes, Package, Layers, Tag, Sparkles, RotateCcw, ArrowRight, SlidersHorizontal, X } from "lucide-react";
+import { ChevronRight, Boxes, Package, Layers, Tag, Sparkles, RotateCcw, ArrowRight, SlidersHorizontal, X, Ruler } from "lucide-react";
 import { SectionEyebrow } from "@/components/Layout";
 import { PageTransition, FadeUp, StaggerList, StaggerItem } from "@/components/animations";
 import { PRODUCTS, CATEGORIES, APPLICATIONS } from "@/lib/products";
@@ -70,6 +70,34 @@ function ProdutosPage() {
           />
         </div>
       </section>
+
+      {/* QUICK FILTER — Fitas Sob Medida */}
+      <div className="bg-orange-soft border-b border-primary/20">
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 py-3 flex items-center gap-3 flex-wrap">
+          <span className="text-xs font-bold text-primary tracking-wider uppercase flex items-center gap-1.5">
+            <Ruler className="h-3.5 w-3.5" /> Filtro rápido:
+          </span>
+          <button
+            onClick={() => {
+              const app = "Fitas Sob Medida";
+              setApps((prev) => prev.includes(app) ? prev.filter((x) => x !== app) : [...prev, app]);
+            }}
+            className={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold border-2 transition cursor-pointer ${
+              apps.includes("Fitas Sob Medida")
+                ? "bg-primary text-white border-primary"
+                : "bg-white text-primary border-primary hover:bg-primary hover:text-white"
+            }`}
+          >
+            <Ruler className="h-3.5 w-3.5" />
+            FITAS SOB MEDIDA
+          </button>
+          {apps.includes("Fitas Sob Medida") && (
+            <span className="text-xs text-primary/70 font-medium">
+              {filtered.length} produto{filtered.length !== 1 ? "s" : ""} disponível{filtered.length !== 1 ? "is" : ""}
+            </span>
+          )}
+        </div>
+      </div>
 
       {/* Mobile filter bar */}
       <div className="lg:hidden sticky top-16 z-30 bg-white border-b border-border px-4 py-3 flex items-center justify-between gap-3">
