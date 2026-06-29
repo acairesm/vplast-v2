@@ -251,7 +251,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "O Fixa Tape Massa Acrílica é um adesivo à base de acrílico de altíssima resistência desenvolvido para fixações onde o uso de pregos ou parafusos comprometeria a estética ou a integridade da superfície. Adere a cerâmica, vidro, madeira, metal, plástico e concreto, criando uma ancoragem permanente resistente à umidade e variações de temperatura. Ideal para quadros, espelhos, suportes, rodapés e acabamentos de interiores.",
     image: fitaTapeMassaAcrilica,
-    images: [fitaTapeMassaAcrilica, crepeVerdeMais],
+    images: [fitaTapeMassaAcrilica],
     uses: ["Fixação de quadros e espelhos", "Rodapés e acabamentos", "Aplicação em cerâmica e vidro", "Substituição de pregos e parafusos"],
     sizes: ["280g", "Sob consulta — tamanho personalizado"],
     applications: ["Fixação e Montagem", "Fitas Sob Medida"],
