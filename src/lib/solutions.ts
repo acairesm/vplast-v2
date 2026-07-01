@@ -37,7 +37,7 @@ export const SOLUTIONS: Solution[] = [
       { title: "Redução de Perdas", text: "Lacres seguros minimizam avarias, devoluções e retrabalho." },
       { title: "Eficiência Operacional", text: "Fitas fáceis de aplicar aceleram o processo e reduzem o tempo de linha parada." },
     ],
-    recommendedProducts: ["fita-adesiva-acrilica-t", "fita-filamentosa-mono-direcao", "fita-alta-aderencia", "fita-gomada"],
+    recommendedProducts: ["fita-dupla-face-df-hm-papel-147", "fita-dupla-face-alta-aderencia-pp-306a", "fita-dupla-face-espuma-eva", "fixa-tape-massa-acrilica"],
   },
   {
     slug: "logistica-e-transporte",
@@ -59,7 +59,7 @@ export const SOLUTIONS: Solution[] = [
       { title: "Resistência Climática", text: "Adesivos que mantêm a aderência em câmaras frias, ambientes úmidos e sob calor intenso." },
       { title: "Rastreabilidade", text: "Fitas personalizadas com dados da empresa facilitam a gestão e o controle de estoque." },
     ],
-    recommendedProducts: ["fita-dupla-face-larga", "fita-filamentosa-mono-direcao", "fita-adesiva-acrilica-t", "fita-acrilica-impressa-personalizada", "fita-gomada", "fita-gomada-impressa"],
+    recommendedProducts: ["fita-filamentosa-mono-direcao", "fita-adesiva-acrilica-t", "fita-acrilica-impressa-personalizada", "fita-gomada", "fita-gomada-impressa"],
   },
   {
     slug: "construcao-civil",
@@ -81,7 +81,7 @@ export const SOLUTIONS: Solution[] = [
       { title: "Vedação Confiável", text: "Espuma EVA e alta aderência que selam frestas contra vento, poeira e infiltração." },
       { title: "Remoção Limpa", text: "Fitas crepe que saem sem deixar resíduos ou danos à pintura após o serviço." },
     ],
-    recommendedProducts: ["fita-crepe-uso-geral-branca", "fita-dupla-face-espuma-eva", "fita-alta-aderencia", "fita-dupla-face-df-hm-papel-147"],
+    recommendedProducts: ["fita-crepe-uso-geral-branca", "fita-crepe-automotiva-amarela", "fita-crepe-verde-pintura"],
   },
   {
     slug: "automotivo",

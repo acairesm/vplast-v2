@@ -1,18 +1,15 @@
 import adesiva from "@/assets/Fitas Hero /DUREX 12X40 (3).png";
 
+import fitaLargaAmarelaCapa from "@/assets/produtos/fita_larga_amarela.jpeg";
+
 import crepeUsoGeral1 from "@/assets/produtos/crepe-uso-geral-branca-1.png";
 import crepeUsoGeral2 from "@/assets/produtos/crepe-uso-geral-branca-2.png";
 import crepeUsoGeral3 from "@/assets/produtos/crepe-uso-geral-branca-3.png";
 
-import crepeAutomotivaAmarela1 from "@/assets/produtos/crepe-automotiva-amarela-1.png";
-import crepeAutomotivaAmarela2 from "@/assets/produtos/crepe-automotiva-amarela-2.png";
-import crepeAutomotivaAmarela3 from "@/assets/produtos/crepe-automotiva-amarela-3.png";
 
 import crepeAdelbras1 from "@/assets/produtos/crepe-automotiva-adelbras-765-1.jpg";
 import crepeAdelbras2 from "@/assets/produtos/crepe-automotiva-adelbras-765-2.jpg";
-import crepeAdelbras3 from "@/assets/produtos/crepe-automotiva-adelbras-765-3.jpg";
 
-import duplaFacePapel1 from "@/assets/produtos/dupla-face-papel-147-1.png";
 import duplaFacePapel2 from "@/assets/produtos/dupla-face-papel-147-2.png";
 import duplaFacePapel3 from "@/assets/produtos/dupla-face-papel-147-3.png";
 
@@ -20,13 +17,14 @@ import duplaFaceAltaAderencia1 from "@/assets/produtos/dupla-face-alta-aderencia
 import duplaFaceAltaAderencia2 from "@/assets/produtos/dupla-face-alta-aderencia-2.png";
 import duplaFaceAltaAderencia3 from "@/assets/produtos/dupla-face-alta-aderencia-3.png";
 
-import duplaFaceEva1 from "@/assets/produtos/dupla-face-espuma-eva-1.png";
+import duplaFaceEva1 from "@/assets/produtos/Fita_Dupla_Face_Espuma_E.V.A_CAPA.jpeg";
 import duplaFaceEva2 from "@/assets/produtos/dupla-face-espuma-eva-2.png";
 import duplaFaceEva3 from "@/assets/produtos/dupla-face-espuma-eva-3.png";
 
-import fitaAcrilica1 from "@/assets/produtos/fita-adesiva-acrilica-1.png";
-import fitaAcrilica2 from "@/assets/produtos/fita-adesiva-acrilica-2.png";
-import fitaAcrilica3 from "@/assets/produtos/fita-adesiva-acrilica-3.png";
+import fitaAcrilica1 from "@/assets/produtos/fita-capa-45.jpeg";
+import fitaAcrilica2 from "@/assets/produtos/fita-acrilica-nova-1.jpeg";
+import fitaAcrilica3 from "@/assets/produtos/fita-acrilica-nova-2.jpeg";
+import fitaAcrilica4 from "@/assets/produtos/fita-acrilica-nova-3.jpeg";
 
 
 import fitaImpressa1 from "@/assets/produtos/fita-impressa-cuidado-fragil-1.png";
@@ -36,19 +34,24 @@ import fitaImpressa3 from "@/assets/produtos/fita-impressa-cuidado-fragil-3.png"
 import fitaAutomotiva1 from "@/assets/produtos/fita-automotiva-1.jpg";
 import fitaAutomotiva2 from "@/assets/produtos/fita-automotiva-2.jpg";
 import fitaAutomotiva3 from "@/assets/produtos/fita-automotiva-3.jpg";
+import crepeAdelbrasExtra1 from "@/assets/produtos/fita-automotiva-pequena-1.jpeg";
+import crepeAdelbrasExtra2 from "@/assets/produtos/fita-automotiva-pequena-2.jpeg";
 
 import crepeVerde1 from "@/assets/produtos/crepe-verde-1.jpg";
 import crepeVerde2 from "@/assets/produtos/crepe-verde-2.jpg";
 import crepeVerde3 from "@/assets/produtos/crepe-verde-3.jpg";
 
 import acrilicaImpressa from "@/assets/produtos/fita-acrilica-impressa-personalizada.jpg";
-import duplaFaceLarga from "@/assets/produtos/fita-dupla-face-larga.jpg";
+
 import fitaGomadaImpressa from "@/assets/produtos/fita-gomada-impressa.jpg";
 import fitaGomada from "@/assets/produtos/fita-gomada.jpg";
 import fitaFilamentosa from "@/assets/produtos/fita-filamentosa.jpeg";
 import crepeVerdeGrossa from "@/assets/produtos/crepe-verde-grossa.jpeg";
 import crepeVerdeMais from "@/assets/produtos/crepe-verde-mais.jpeg";
 import fitaTapeMassaAcrilica from "@/assets/produtos/fitatapemassaacrilica.jpeg";
+import fitaLargaCapa from "@/assets/produtos/fita-larga-capa.jpeg";
+import fixaTapeFina1 from "@/assets/produtos/fixa_tape_fina_1.jpeg";
+import fixaTapeFina2 from "@/assets/produtos/Fixa_tape_fina_2.jpeg";
 
 export type Product = {
   slug: string;
@@ -60,6 +63,7 @@ export type Product = {
   images?: string[];
   uses: string[];
   sizes: string[];
+  sizeNote?: string;
   applications: string[];
 };
 
@@ -96,24 +100,6 @@ export const PRODUCTS: Product[] = [
     applications: ["Pintura e Acabamento", "Fitas Sob Medida"],
   },
   {
-    slug: "fita-crepe-automotiva-amarela",
-    name: "Fita Crepe Automotiva Amarela",
-    category: "Fitas Crepe",
-    description: "Alta performance para mascaramento preciso em pinturas automotivas.",
-    longDescription:
-      "Desenvolvida especificamente para o mercado automotivo, a Fita Crepe Automotiva Amarela combina resistência à temperatura, aderência controlada e remoção limpa — tudo que o profissional exige na hora de mascarar. Suporta jatos de tinta, solventes e temperaturas de até 80 °C em cabines de pintura, protegendo borrachas, faróis, vidros e acabamentos sem deixar cola nem marcas na superfície.",
-    image: crepeAutomotivaAmarela1,
-    images: [crepeAutomotivaAmarela1, crepeAutomotivaAmarela2, crepeAutomotivaAmarela3],
-    uses: [
-      "Mascaramento em pinturas automotivas",
-      "Proteção de borrachas, vidros e acabamentos",
-      "Repintura, lixamento e polimento",
-      "Resistência a temperaturas de até 80 °C",
-    ],
-    sizes: ["18mm x 50m", "24mm x 50m", "48mm x 50m"],
-    applications: ["Pintura e Acabamento", "Uso Automotivo"],
-  },
-  {
     slug: "fita-crepe-automotiva-adelbras-765",
     name: "Fita Crepe Automotiva Adelbras 765",
     category: "Fitas Crepe",
@@ -121,9 +107,9 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "A Fita Crepe Automotiva Adelbras 765 é referência entre os profissionais de pintura automotiva. Fabricada com papel crepado de alta gramatura e adesivo termossensível de precisão, garante linhas perfeitas e remoção sem resíduos mesmo após exposição ao calor da cabine de secagem. Ideal para funilaria, lataria, montadoras e oficinas exigentes que não abrem mão de qualidade e acabamento impecável.",
     image: crepeAdelbras1,
-    images: [crepeAdelbras1, crepeAdelbras2, crepeAdelbras3],
+    images: [crepeAdelbras1, crepeAdelbras2, crepeAdelbrasExtra1, crepeAdelbrasExtra2],
     uses: ["Mascaramento profissional em funilaria", "Pintura em cabines de secagem", "Proteção de peças durante polimento"],
-    sizes: ["18mm x 40m", "24mm x 40m", "48mm x 40m"],
+    sizes: ["18mm x 40m", "48mm x 40m"],
     applications: ["Pintura e Acabamento", "Uso Automotivo"],
   },
   {
@@ -133,10 +119,10 @@ export const PRODUCTS: Product[] = [
     description: "Fixação permanente e discreta em metais, vidros e policarbonatos.",
     longDescription:
       "A Fita Dupla Face DF HM Papel 147 possui backing de papel de alta resistência impregnado em adesivo hotmelt (HM) dos dois lados, proporcionando ancoragem forte e imediata em superfícies lisas e semilisas. É a solução ideal para fixação de frisos, letreiros, placas, espelhos e revestimentos onde o parafuso ou o prego comprometeria a estética. Também aplicada em montagem de móveis, fixação de fitas de borda e carpetes.",
-    image: duplaFacePapel1,
-    images: [duplaFacePapel1, duplaFacePapel2, duplaFacePapel3],
+    image: fitaLargaCapa,
+    images: [fitaLargaCapa, duplaFacePapel2, duplaFacePapel3],
     uses: ["Fixação de frisos e letreiros", "Montagem de móveis e painéis", "Fixação de espelhos e revestimentos", "Carpetes e fitas de borda"],
-    sizes: ["9mm x 30m", "12mm x 30m", "45mm x 30m", "Sob consulta — tamanho personalizado"],
+    sizes: ["corte de 0010x030 até 1000x030"],
     applications: ["Fixação e Montagem", "Fitas Sob Medida"],
   },
   {
@@ -146,10 +132,10 @@ export const PRODUCTS: Product[] = [
     description: "Adesivo acrílico de alta performance para fixações industriais duradouras.",
     longDescription:
       "A Fita Dupla Face Alta Aderência PP 306A tem base em polipropileno (PP) com adesivo acrílico de alta performance nos dois lados, garantindo resistência superior à umidade, solventes e variações de temperatura. Seu poder de adesão em superfícies rugosas, porosas e pintadas supera o das fitas convencionais, tornando-a a escolha certa para fixações industriais permanentes, montagem de peças técnicas e aplicações onde a vibração e o peso são fatores críticos.",
-    image: duplaFaceAltaAderencia2,
-    images: [duplaFaceAltaAderencia2, duplaFaceAltaAderencia3],
+    image: fitaLargaAmarelaCapa,
+    images: [fitaLargaAmarelaCapa, duplaFaceAltaAderencia2, duplaFaceAltaAderencia3],
     uses: ["Fixação industrial permanente", "Montagem de peças técnicas e plásticos", "Resistência à umidade e solventes", "Aplicações com vibração e peso elevado"],
-    sizes: ["10mm x 30m", "12mm x 30m", "24mm x 30m", "45mm x 30m", "Sob consulta — tamanho personalizado"],
+    sizes: ["corte de 0010x030 até 1000x030"],
     applications: ["Fixação e Montagem", "Fitas Sob Medida"],
   },
   {
@@ -162,21 +148,8 @@ export const PRODUCTS: Product[] = [
     image: duplaFaceEva1,
     images: [duplaFaceEva1, duplaFaceEva2, duplaFaceEva3],
     uses: ["Vedação de janelas e esquadrias", "Fixação em superfícies irregulares", "Absorção de impactos e vibrações", "Painéis solares e eletrodomésticos"],
-    sizes: ["12mm x 5m", "19mm x 5m", "25mm x 5m", "Sob consulta — tamanho personalizado"],
+    sizes: ["12mm x 30m", "19mm x 30m", "25mm x 30m", "Sob consulta — tamanho personalizado"],
     applications: ["Fixação e Montagem", "Fitas Sob Medida"],
-  },
-  {
-    slug: "fita-dupla-face-larga",
-    name: "Fita Dupla Face Larga",
-    category: "Fitas Dupla Face",
-    description: "Dupla face de grande largura para grandes superfícies e aplicações industriais.",
-    longDescription:
-      "A Fita Dupla Face Larga é desenvolvida para fixações que exigem maior área de contato e resistência à tração. Com backing de polietileno e adesivo acrílico distribuído uniformemente, garante ancoragem uniforme em carpetes, revestimentos vinílicos, placas sinalizadoras e painéis de grande porte. O liner silicone facilita a aplicação sem dobras ou bolhas, mesmo em superfícies extensas.",
-    image: duplaFaceLarga,
-    images: [duplaFaceLarga],
-    uses: ["Fixação de carpetes e revestimentos vinílicos", "Montagem de painéis e sinalização", "Aplicações industriais de grande superfície"],
-    sizes: ["48mm x 25m", "72mm x 25m", "100mm x 25m"],
-    applications: ["Fixação e Montagem", "Uso Industrial"],
   },
   {
     slug: "fita-adesiva-acrilica-t",
@@ -186,9 +159,9 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "A Fita Adesiva Acrílica é fabricada com filme de polipropileno biorientado (BOPP) e adesivo acrílico de alta performance, resultando em uma fita transparente, resistente à tração e ao rasgamento. Mantém a adesão em ambientes frios, quentes e úmidos — essencial para centros de distribuição, e-commerce e linhas de embalagem industrial. Garante lacre seguro e apresentação impecável na caixa, sem amarelamento ao longo do tempo.",
     image: fitaAcrilica1,
-    images: [fitaAcrilica1, fitaAcrilica2, fitaAcrilica3],
+    images: [fitaAcrilica1, fitaAcrilica2, fitaAcrilica3, fitaAcrilica4],
     uses: ["Fechamento de caixas de papelão", "Embalagem para e-commerce", "Uso em ambientes frios e quentes", "Lacre de embalagens industriais"],
-    sizes: ["45mm x 45m", "48mm x 100m", "72mm x 100m"],
+    sizes: ["12mm x 40m", "18mm x 50m", "24mm x 50m", "45mm x 100m"],
     applications: ["Fechamento de Embalagens"],
   },
   {
@@ -221,39 +194,41 @@ export const PRODUCTS: Product[] = [
     slug: "fita-gomada-impressa",
     name: "Fita Gomada Impressa",
     category: "Fitas Personalizadas",
-    description: "Fita kraft ativada por água com sua marca impressa — lacre inviolável e profissional.",
+    description: "Fita kraft ativada por água com sua marca impressa — lacre inviolável e profissional. Vendida por quilo.",
     longDescription:
-      "A Fita Gomada Impressa é fabricada em papel kraft resistente com adesivo à base d'água e impressão personalizada da sua marca. Ao ser umedecida, o adesivo penetra nas fibras do papelão e cria uma ligação praticamente permanente, tornando o lacre inviolável — qualquer tentativa de abertura danifica visivelmente a embalagem. Além de segurança, agrega valor estético à caixa, reforçando a identidade da empresa no momento da entrega.",
+      "A Fita Gomada Impressa é fabricada em papel kraft resistente com adesivo à base d'água e impressão personalizada da sua marca. Ao ser umedecida, o adesivo penetra nas fibras do papelão e cria uma ligação praticamente permanente, tornando o lacre inviolável — qualquer tentativa de abertura danifica visivelmente a embalagem. Além de segurança, agrega valor estético à caixa, reforçando a identidade da empresa no momento da entrega. Vendida por quilo, com média de 1,300 kg por rolo e metragem que pode variar de 145 a 160 metros por rolo. Disponível com ou sem reforço.",
     image: fitaGomadaImpressa,
     images: [fitaGomadaImpressa],
     uses: ["Lacre inviolável de caixas", "Identidade visual na embalagem", "E-commerce e exportação", "Reforço estrutural do papelão"],
-    sizes: ["50mm x 50m", "70mm x 50m"],
+    sizes: ["70mm - 80mm", "Com Reforço", "Sem Reforço"],
+    sizeNote: "Vendida por quilo · Média de 1,300 kg por rolo · 145 a 160 metros por rolo · Disponível com ou sem reforço",
     applications: ["Fechamento de Embalagens", "Identificação e Branding", "Uso Industrial"],
   },
   {
     slug: "fita-gomada",
     name: "Fita Gomada",
     category: "Fitas Impressas e Gomadas",
-    description: "Fita kraft ativada por água para lacre seguro, resistente e inviolável.",
+    description: "Fita kraft ativada por água para lacre seguro, resistente e inviolável. Vendida por quilo.",
     longDescription:
-      "A Fita Gomada é produzida em papel kraft de alta gramatura com adesivo vegetal ativado por água. Diferentemente das fitas plásticas, ela adere às fibras do papelão criando um lacre estrutural que aumenta a resistência da caixa. Não descola com frio, calor ou umidade — ideal para transporte de longas distâncias, armazenamento em câmaras frias e cargas pesadas. Sustentável, biodegradável e compatível com linhas de embalagem eco-friendly.",
+      "A Fita Gomada é produzida em papel kraft de alta gramatura com adesivo vegetal ativado por água. Diferentemente das fitas plásticas, ela adere às fibras do papelão criando um lacre estrutural que aumenta a resistência da caixa. Não descola com frio, calor ou umidade — ideal para transporte de longas distâncias, armazenamento em câmaras frias e cargas pesadas. Sustentável, biodegradável e compatível com linhas de embalagem eco-friendly. Vendida por quilo, com média de 1,300 kg por rolo e metragem que pode variar de 145 a 160 metros por rolo. Disponível com ou sem reforço.",
     image: fitaGomada,
     images: [fitaGomada],
     uses: ["Fechamento de caixas pesadas", "Transporte e exportação", "Armazenamento em câmaras frias", "Embalagem sustentável e biodegradável"],
-    sizes: ["50mm x 50m", "70mm x 50m"],
+    sizes: ["70mm - 80mm", "Com Reforço", "Sem Reforço"],
+    sizeNote: "Vendida por quilo · Média de 1,300 kg por rolo · 145 a 160 metros por rolo · Disponível com ou sem reforço",
     applications: ["Fechamento de Embalagens", "Uso Industrial"],
   },
   {
     slug: "fixa-tape-massa-acrilica",
     name: "Fixa Tape Massa Acrílica",
-    category: "Fitas Personalizadas",
+    category: "Fitas Dupla Face",
     description: "Massa adesiva acrílica que substitui pregos e parafusos com acabamento limpo.",
     longDescription:
       "O Fixa Tape Massa Acrílica é um adesivo à base de acrílico de altíssima resistência desenvolvido para fixações onde o uso de pregos ou parafusos comprometeria a estética ou a integridade da superfície. Adere a cerâmica, vidro, madeira, metal, plástico e concreto, criando uma ancoragem permanente resistente à umidade e variações de temperatura. Ideal para quadros, espelhos, suportes, rodapés e acabamentos de interiores.",
     image: fitaTapeMassaAcrilica,
-    images: [fitaTapeMassaAcrilica],
+    images: [fitaTapeMassaAcrilica, fixaTapeFina1, fixaTapeFina2],
     uses: ["Fixação de quadros e espelhos", "Rodapés e acabamentos", "Aplicação em cerâmica e vidro", "Substituição de pregos e parafusos"],
-    sizes: ["280g", "Sob consulta — tamanho personalizado"],
+    sizes: [ "Sob consulta — tamanho personalizado"],
     applications: ["Fixação e Montagem", "Fitas Sob Medida"],
   },
   {
@@ -265,7 +240,7 @@ export const PRODUCTS: Product[] = [
       "A Fita Filamentosa Mono Direção possui filamentos de fibra de vidro orientados longitudinalmente sob o filme de polyester, conferindo resistência à tração muito superior às fitas convencionais. É indicada para amarração de fardos, reforço de embalagens pesadas, fechamento de tubos e perfis metálicos, e unitização de cargas paletizadas. Resiste ao esmagamento, à abrasão e não se rompe mesmo sob alta tensão.",
     image: fitaFilamentosa,
     uses: ["Amarração de fardos e paletes", "Reforço de embalagens pesadas", "Fechamento de tubos e perfis metálicos", "Unitização de cargas"],
-    sizes: ["18mm x 50m", "24mm x 50m", "Sob consulta — tamanho personalizado"],
+    sizes: ["48mm x 50m", "24mm x 50m", "Sob consulta — tamanho personalizado"],
     applications: ["Fechamento de Embalagens", "Fitas Sob Medida"],
   },
   {
@@ -278,16 +253,16 @@ export const PRODUCTS: Product[] = [
     image: fitaAutomotiva1,
     images: [fitaAutomotiva1, fitaAutomotiva2, fitaAutomotiva3],
     uses: ["Mascaramento em funilaria e lataria", "Pintura em cabines de secagem", "Proteção de acabamentos e plásticos", "Conformabilidade em curvas e contornos"],
-    sizes: ["18mm x 40m", "24mm x 40m", "48mm x 40m"],
+    sizes: ["18mm x 40m", "48mm x 40m"],
     applications: ["Pintura e Acabamento", "Uso Automotivo"],
   },
   {
-    slug: "fita-crepe-verde-pintura",
-    name: "Fita Crepe Verde Pintura",
+    slug: "fita-crepe-verde-automotiva",
+    name: "Fita Crepe Verde Automotiva",
     category: "Fitas Crepe",
     description: "Fita crepe colorida para marcação de áreas e proteção em pintura.",
     longDescription:
-      "A Fita Crepe Verde Pintura foi desenvolvida para facilitar a organização e identificação de áreas em obras, reformas e projetos industriais. Sua cor verde facilita a visualização do mascaramento, e o adesivo à base de borracha garante boa aderência em paredes, madeiras e superfícies pintadas, com remoção limpa sem danos. Também utilizada para demarcar pisos, sinalizar zonas de risco e proteger superfícies durante acabamentos.",
+      "A Fita Crepe Verde Automotiva foi desenvolvida para facilitar a organização e identificação de áreas em obras, reformas e projetos industriais. Sua cor verde facilita a visualização do mascaramento, e o adesivo à base de borracha garante boa aderência em paredes, madeiras e superfícies pintadas, com remoção limpa sem danos. Também utilizada para demarcar pisos, sinalizar zonas de risco e proteger superfícies durante acabamentos.",
     image: crepeVerdeGrossa,
     images: [crepeVerdeGrossa, crepeVerdeMais, crepeVerde1, crepeVerde2, crepeVerde3],
     uses: ["Marcação e demarcação de áreas", "Proteção em pintura de obras", "Sinalização de zonas em ambientes industriais"],

@@ -1,5 +1,6 @@
 import { createFileRoute, Link, Outlet, useChildMatches } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { z } from "zod";
 import { ChevronRight, Boxes, Package, Layers, Tag, Sparkles, RotateCcw, ArrowRight, SlidersHorizontal, X, Ruler } from "lucide-react";
 import { SectionEyebrow } from "@/components/Layout";
 import { PageTransition, FadeUp, StaggerList, StaggerItem } from "@/components/animations";
@@ -7,6 +8,9 @@ import { PRODUCTS, CATEGORIES, APPLICATIONS } from "@/lib/products";
 import fitaHero from "@/assets/Foto imagem inicio/fotonovoincio.png";
 
 export const Route = createFileRoute("/produtos")({
+  validateSearch: z.object({
+    categoria: z.string().optional(),
+  }),
   head: () => ({
     meta: [
       { title: "Produtos — Vplast Embalagens" },
@@ -26,8 +30,13 @@ const CAT_ICONS: Record<string, any> = {
 
 function ProdutosPage() {
   const childMatches = useChildMatches();
-  const [selectedCat, setSelectedCat] = useState<string | null>(null);
+  const { categoria } = Route.useSearch();
+  const [selectedCat, setSelectedCat] = useState<string | null>(categoria ?? null);
   const [apps, setApps] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (categoria) setSelectedCat(categoria);
+  }, [categoria]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const filtered = PRODUCTS.filter(
@@ -44,11 +53,13 @@ function ProdutosPage() {
     <PageTransition>
     <div>
       {/* HERO */}
-      <section className="relative overflow-hidden h-44 sm:h-56 md:h-64 lg:h-72 flex items-stretch">
-        <div className="flex-1 bg-white flex items-center px-4 sm:px-8 lg:px-16 z-10">
+      <section className="relative overflow-hidden flex items-stretch" style={{ minHeight: "clamp(140px, 22vw, 288px)" }}>
+        {/* Mobile: fundo laranja suave à direita */}
+        <div className="absolute right-0 top-0 bottom-0 w-1/3 sm:hidden bg-primary/10" />
+        <div className="flex-1 bg-white flex items-center px-5 sm:px-8 lg:px-16 z-10 py-8 sm:py-0">
           <FadeUp delay={0.1}><div>
             <SectionEyebrow>PRODUTOS</SectionEyebrow>
-            <h1 className="mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink leading-tight">
+            <h1 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink leading-tight">
               LINHA DE <span className="text-primary">PRODUTOS</span>
             </h1>
             <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-muted-foreground max-w-md leading-relaxed hidden sm:block">
@@ -56,7 +67,7 @@ function ProdutosPage() {
             </p>
           </div></FadeUp>
         </div>
-        <div className="relative w-[40%] sm:w-[45%] lg:w-[40%] bg-white overflow-hidden shrink-0">
+        <div className="hidden sm:block relative w-[45%] lg:w-[40%] bg-white overflow-hidden shrink-0">
           <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
             <path d="M180 0 C520 140, 80 260, 300 400 L600 400 L600 0 Z" fill="#F97316" opacity="0.10"/>
             <path d="M220 0 C520 120, 80 280, 260 400 L600 400 L600 0 Z" fill="#F97316"/>
