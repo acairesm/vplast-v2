@@ -16,6 +16,7 @@ import duplaFacePapel3 from "@/assets/produtos/dupla-face-papel-147-3.png";
 import duplaFaceAltaAderencia1 from "@/assets/produtos/dupla-face-alta-aderencia-1.png";
 import duplaFaceAltaAderencia2 from "@/assets/produtos/dupla-face-alta-aderencia-2.png";
 import duplaFaceAltaAderencia3 from "@/assets/produtos/dupla-face-alta-aderencia-3.png";
+import duplaFaceAltaAderencia4 from "@/assets/produtos/Fita Dupla Face Alta Aderência PP 306A adicionar.jpeg";
 
 import duplaFaceEva1 from "@/assets/produtos/Fita_Dupla_Face_Espuma_E.V.A_CAPA.jpeg";
 import duplaFaceEva2 from "@/assets/produtos/dupla-face-espuma-eva-2.png";
@@ -31,9 +32,6 @@ import fitaImpressa1 from "@/assets/produtos/fita-impressa-cuidado-fragil-1.png"
 import fitaImpressa2 from "@/assets/produtos/fita-impressa-cuidado-fragil-2.png";
 import fitaImpressa3 from "@/assets/produtos/fita-impressa-cuidado-fragil-3.png";
 
-import fitaAutomotiva1 from "@/assets/produtos/fita-automotiva-1.jpg";
-import fitaAutomotiva2 from "@/assets/produtos/fita-automotiva-2.jpg";
-import fitaAutomotiva3 from "@/assets/produtos/fita-automotiva-3.jpg";
 import crepeAdelbrasExtra1 from "@/assets/produtos/fita-automotiva-pequena-1.jpeg";
 import crepeAdelbrasExtra2 from "@/assets/produtos/fita-automotiva-pequena-2.jpeg";
 
@@ -49,6 +47,7 @@ import fitaFilamentosa from "@/assets/produtos/fita-filamentosa.jpeg";
 import crepeVerdeGrossa from "@/assets/produtos/crepe-verde-grossa.jpeg";
 import crepeVerdeMais from "@/assets/produtos/crepe-verde-mais.jpeg";
 import fitaTapeMassaAcrilica from "@/assets/produtos/fitatapemassaacrilica.jpeg";
+import fixaTapeMassaAdicionar from "@/assets/produtos/Fixa Tape Massa Acrílica ADICIONAR.jpeg";
 import fitaLargaCapa from "@/assets/produtos/fita-larga-capa.jpeg";
 import fixaTapeFina1 from "@/assets/produtos/fixa_tape_fina_1.jpeg";
 import fixaTapeFina2 from "@/assets/produtos/Fixa_tape_fina_2.jpeg";
@@ -133,7 +132,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "A Fita Dupla Face Alta Aderência PP 306A tem base em polipropileno (PP) com adesivo acrílico de alta performance nos dois lados, garantindo resistência superior à umidade, solventes e variações de temperatura. Seu poder de adesão em superfícies rugosas, porosas e pintadas supera o das fitas convencionais, tornando-a a escolha certa para fixações industriais permanentes, montagem de peças técnicas e aplicações onde a vibração e o peso são fatores críticos.",
     image: fitaLargaAmarelaCapa,
-    images: [fitaLargaAmarelaCapa, duplaFaceAltaAderencia2, duplaFaceAltaAderencia3],
+    images: [fitaLargaAmarelaCapa, duplaFaceAltaAderencia2, duplaFaceAltaAderencia3, duplaFaceAltaAderencia4],
     uses: ["Fixação industrial permanente", "Montagem de peças técnicas e plásticos", "Resistência à umidade e solventes", "Aplicações com vibração e peso elevado"],
     sizes: ["corte de 0010x030 até 1000x030"],
     applications: ["Fixação e Montagem", "Fitas Sob Medida"],
@@ -226,7 +225,7 @@ export const PRODUCTS: Product[] = [
     longDescription:
       "O Fixa Tape Massa Acrílica é um adesivo à base de acrílico de altíssima resistência desenvolvido para fixações onde o uso de pregos ou parafusos comprometeria a estética ou a integridade da superfície. Adere a cerâmica, vidro, madeira, metal, plástico e concreto, criando uma ancoragem permanente resistente à umidade e variações de temperatura. Ideal para quadros, espelhos, suportes, rodapés e acabamentos de interiores.",
     image: fitaTapeMassaAcrilica,
-    images: [fitaTapeMassaAcrilica, fixaTapeFina1, fixaTapeFina2],
+    images: [fitaTapeMassaAcrilica, fixaTapeMassaAdicionar, fixaTapeFina1, fixaTapeFina2],
     uses: ["Fixação de quadros e espelhos", "Rodapés e acabamentos", "Aplicação em cerâmica e vidro", "Substituição de pregos e parafusos"],
     sizes: [ "Sob consulta — tamanho personalizado"],
     applications: ["Fixação e Montagem", "Fitas Sob Medida"],
@@ -242,19 +241,6 @@ export const PRODUCTS: Product[] = [
     uses: ["Amarração de fardos e paletes", "Reforço de embalagens pesadas", "Fechamento de tubos e perfis metálicos", "Unitização de cargas"],
     sizes: ["48mm x 50m", "24mm x 50m", "Sob consulta — tamanho personalizado"],
     applications: ["Fechamento de Embalagens", "Fitas Sob Medida"],
-  },
-  {
-    slug: "fita-automotiva",
-    name: "Fita Automotiva",
-    category: "Fitas Crepe",
-    description: "Fita de mascaramento automotivo com remoção limpa e resistência ao calor.",
-    longDescription:
-      "A Fita Automotiva é desenvolvida para as exigências do mercado de reparação veicular. Com papel crepado de alta conformabilidade e adesivo resistente ao calor, garante linhas de corte precisas em curvas e contornos do veículo, suportando a temperatura das cabines de secagem sem soltar ou transferir cola. Remove-se integralmente após a pintura, sem marcas ou resíduos na lataria.",
-    image: fitaAutomotiva1,
-    images: [fitaAutomotiva1, fitaAutomotiva2, fitaAutomotiva3],
-    uses: ["Mascaramento em funilaria e lataria", "Pintura em cabines de secagem", "Proteção de acabamentos e plásticos", "Conformabilidade em curvas e contornos"],
-    sizes: ["18mm x 40m", "48mm x 40m"],
-    applications: ["Pintura e Acabamento", "Uso Automotivo"],
   },
   {
     slug: "fita-crepe-verde-automotiva",
