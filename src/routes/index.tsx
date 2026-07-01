@@ -68,7 +68,7 @@ function HomePage() {
                 <img
                   src={fitaHero}
                   alt="Composição de fitas adesivas Vplast"
-                  className="absolute z-10 w-[160%] max-w-[960px] left-[3px] -translate-x-1/2 top-1/2 -translate-y-1/2 object-contain drop-shadow-2xl"
+                  className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[140%] w-auto object-contain drop-shadow-2xl"
                 />
               </div>
             </FadeIn>
@@ -114,7 +114,7 @@ function HomePage() {
                     <img src={p.image} alt={p.name} loading="lazy" className="w-full h-full object-cover" />
                   </div>
                   <div className="p-5">
-                    <h3 className="text-center text-ink font-bold uppercase tracking-wide text-sm">{p.name}</h3>
+                    <h3 className="text-center text-ink font-bold uppercase tracking-wide text-sm min-h-10 flex items-center justify-center">{p.name}</h3>
                     <p className="mt-2 text-center text-xs text-muted-foreground leading-relaxed">{p.desc}</p>
                   </div>
                 </Link>
