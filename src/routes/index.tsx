@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Award, ShieldCheck, Handshake, Package, ArrowRight } from "lucide-react";
 import { SectionEyebrow } from "@/components/Layout";
 import { PageTransition, FadeUp, FadeIn, StaggerList, StaggerItem } from "@/components/animations";
-import fitaHero from "@/assets/Foto imagem inicio/fotonovoincio.png";
+import fitaHero from "@/assets/novaImageminicio.png";
 import imgCrepe from "@/assets/fitas inicio novas/Fita Crepe.jpeg";
 import imgAcrilica from "@/assets/fitas inicio novas/Fita Acrilica.jpeg";
 import imgAutomotiva from "@/assets/fitas inicio novas/Fita Automotiva.jpeg";
@@ -68,7 +68,7 @@ function HomePage() {
                 <img
                   src={fitaHero}
                   alt="Composição de fitas adesivas Vplast"
-                  className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[140%] w-auto object-contain drop-shadow-2xl"
+                  className="absolute z-10 inset-0 w-full h-full object-contain object-center drop-shadow-2xl"
                 />
               </div>
             </FadeIn>

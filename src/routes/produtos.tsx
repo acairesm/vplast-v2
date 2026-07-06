@@ -5,7 +5,7 @@ import { ChevronRight, Boxes, Package, Layers, Tag, Sparkles, RotateCcw, ArrowRi
 import { SectionEyebrow } from "@/components/Layout";
 import { PageTransition, FadeUp, StaggerList, StaggerItem } from "@/components/animations";
 import { PRODUCTS, CATEGORIES, APPLICATIONS } from "@/lib/products";
-import fitaHero from "@/assets/Foto imagem inicio/fotonovoincio.png";
+import fitaHero from "@/assets/novaImageminicio.png";
 
 export const Route = createFileRoute("/produtos")({
   validateSearch: z.object({
