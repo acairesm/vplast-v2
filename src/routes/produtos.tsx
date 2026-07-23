@@ -13,9 +13,13 @@ export const Route = createFileRoute("/produtos")({
   }),
   head: () => ({
     meta: [
-      { title: "Produtos — Vplast Embalagens" },
-      { name: "description", content: "Linha completa de fitas adesivas, fitas crepe, dupla face, impressas, gomadas e mantas asfálticas." },
+      { title: "Produtos — Vplast Embalagens | Fitas Adesivas, Crepe, Dupla Face e Mais" },
+      { name: "description", content: "Catálogo completo de fitas adesivas: fita crepe, dupla face, acrílica, impressa, gomada e personalizadas. Alta qualidade com entrega para todo o Brasil." },
+      { property: "og:url", content: "https://vplastcomercio.com.br/produtos" },
+      { property: "og:title", content: "Produtos — Vplast Embalagens | Fitas Adesivas, Crepe, Dupla Face e Mais" },
+      { property: "og:description", content: "Catálogo completo de fitas adesivas: fita crepe, dupla face, acrílica, impressa, gomada e personalizadas. Alta qualidade com entrega para todo o Brasil." },
     ],
+    links: [{ rel: "canonical", href: "https://vplastcomercio.com.br/produtos" }],
   }),
   component: ProdutosPage,
 });
@@ -78,6 +82,7 @@ function ProdutosPage() {
             src={fitaHero}
             alt="Produtos Vplast"
             className="absolute inset-0 m-auto h-[140%] w-auto object-contain drop-shadow-2xl"
+            fetchPriority="high"
           />
         </div>
       </section>

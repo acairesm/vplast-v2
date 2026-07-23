@@ -7,9 +7,13 @@ import about from "@/assets/Cara segurando caixa.jpeg";
 export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
-      { title: "Sobre Nós — Vplast Embalagens" },
-      { name: "description", content: "Conheça a história e missão da Vplast Embalagens: qualidade, resistência e inovação em fitas adesivas." },
+      { title: "Sobre Nós — Vplast Embalagens | Fitas Adesivas em Curitiba" },
+      { name: "description", content: "Conheça a Vplast Embalagens: empresa especializada em fitas adesivas e soluções para embalagens em Curitiba. Qualidade, resistência e atendimento personalizado." },
+      { property: "og:url", content: "https://vplastcomercio.com.br/sobre" },
+      { property: "og:title", content: "Sobre Nós — Vplast Embalagens | Fitas Adesivas em Curitiba" },
+      { property: "og:description", content: "Conheça a Vplast Embalagens: empresa especializada em fitas adesivas e soluções para embalagens em Curitiba. Qualidade, resistência e atendimento personalizado." },
     ],
+    links: [{ rel: "canonical", href: "https://vplastcomercio.com.br/sobre" }],
   }),
   component: SobrePage,
 });

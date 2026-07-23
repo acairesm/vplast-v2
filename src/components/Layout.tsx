@@ -36,7 +36,7 @@ function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav aria-label="Navegação principal" className="hidden lg:flex items-center gap-8">
           {NAV.map((n) => {
             const active = pathname === n.to || (n.to !== "/" && pathname.startsWith(n.to));
             return (
@@ -83,6 +83,7 @@ function Header() {
             onClick={() => setMobileOpen((o) => !o)}
             className="h-9 w-9 rounded-full border border-border flex items-center justify-center text-ink hover:bg-secondary transition cursor-pointer"
             aria-label="Menu"
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -162,8 +163,8 @@ function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4">Contato</h4>
           <ul className="space-y-3 text-sm">
-            <li className="flex gap-2"><Phone className="h-4 w-4 text-primary shrink-0" /> +55 (41) 9694-7566</li>
-            <li className="flex gap-2"><Mail className="h-4 w-4 text-primary shrink-0" /> vendas@vplastcomercio.com.br</li>
+            <li className="flex gap-2"><Phone className="h-4 w-4 text-primary shrink-0" /><a href="tel:+5541969447566" className="hover:text-primary">+55 (41) 9694-7566</a></li>
+            <li className="flex gap-2"><Mail className="h-4 w-4 text-primary shrink-0" /><a href="mailto:vendas@vplastcomercio.com.br" className="hover:text-primary">vendas@vplastcomercio.com.br</a></li>
             <li className="flex gap-2"><MapPin className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Curitiba — Paraná, Brasil</li>
           </ul>
         </div>
@@ -188,7 +189,7 @@ function FloatingWhatsApp() {
         Falar pelo WhatsApp
       </span>
       <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-[#25D366] shadow-lg shadow-green-500/40 flex items-center justify-center hover:scale-110 transition-transform duration-200">
-        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30" />
+        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30" aria-hidden="true" />
         <WhatsAppIcon className="h-6 w-6 sm:h-7 sm:w-7 text-white relative z-10" />
       </div>
     </a>

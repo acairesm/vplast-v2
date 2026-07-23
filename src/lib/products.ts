@@ -43,9 +43,6 @@ import acrilicaImpressa from "@/assets/produtos/fita-acrilica-impressa-personali
 
 import fitaGomadaImpressa from "@/assets/produtos/fita-gomada-impressa.jpg";
 import fitaGomada from "@/assets/produtos/fita-gomada.jpg";
-import fitaFilamentosa from "@/assets/produtos/fita-filamentosa.jpeg";
-import filamentosaOutra1 from "@/assets/produtos/FIlamentosaOutraImagem.jpeg";
-import filamentosaOutra2 from "@/assets/produtos/FilamentosaOutraImagemDois.jpeg";
 import crepeVerdeGrossa from "@/assets/produtos/crepe-verde-grossa.jpeg";
 import crepeVerdeMais from "@/assets/produtos/crepe-verde-mais.jpeg";
 import fitaTapeMassaAcrilica from "@/assets/produtos/fitatapemassaacrilica.jpeg";
@@ -231,19 +228,6 @@ export const PRODUCTS: Product[] = [
     uses: ["Fixação de quadros e espelhos", "Rodapés e acabamentos", "Aplicação em cerâmica e vidro", "Substituição de pregos e parafusos"],
     sizes: [ "Sob consulta — tamanho personalizado"],
     applications: ["Fixação e Montagem", "Fitas Sob Medida"],
-  },
-  {
-    slug: "fita-filamentosa-mono-direcao",
-    name: "Fita Filamentosa Mono Direção",
-    category: "Fitas Personalizadas",
-    description: "Reforçada com filamentos de fibra de vidro para amarração e reforço extremos.",
-    longDescription:
-      "A Fita Filamentosa Mono Direção possui filamentos de fibra de vidro orientados longitudinalmente sob o filme de polyester, conferindo resistência à tração muito superior às fitas convencionais. É indicada para amarração de fardos, reforço de embalagens pesadas, fechamento de tubos e perfis metálicos, e unitização de cargas paletizadas. Resiste ao esmagamento, à abrasão e não se rompe mesmo sob alta tensão.",
-    image: fitaFilamentosa,
-    images: [fitaFilamentosa, filamentosaOutra1, filamentosaOutra2],
-    uses: ["Amarração de fardos e paletes", "Reforço de embalagens pesadas", "Fechamento de tubos e perfis metálicos", "Unitização de cargas"],
-    sizes: ["48mm x 50m", "24mm x 50m", "Sob consulta — tamanho personalizado"],
-    applications: ["Fechamento de Embalagens", "Fitas Sob Medida"],
   },
   {
     slug: "fita-crepe-verde-automotiva",

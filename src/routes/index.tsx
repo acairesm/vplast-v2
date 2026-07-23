@@ -12,9 +12,13 @@ import imgAltaAderencia from "@/assets/fitas inicio novas/DUPLA FACE ALTA ADEREN
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Vplast Embalagens — Fitas adesivas e soluções para embalagens" },
-      { name: "description", content: "Fitas adesivas de alta performance e soluções completas para garantir segurança, qualidade e eficiência em cada etapa do seu processo." },
+      { title: "Vplast Embalagens — Fitas Adesivas e Soluções para Embalagens em Curitiba" },
+      { name: "description", content: "Compre fitas adesivas de alta performance em Curitiba. Fitas crepe, dupla face, acrílica, impressa, gomada e personalizadas. Entrega para todo o Brasil." },
+      { property: "og:url", content: "https://vplastcomercio.com.br/" },
+      { property: "og:title", content: "Vplast Embalagens — Fitas Adesivas e Soluções para Embalagens em Curitiba" },
+      { property: "og:description", content: "Compre fitas adesivas de alta performance em Curitiba. Fitas crepe, dupla face, acrílica, impressa, gomada e personalizadas. Entrega para todo o Brasil." },
     ],
+    links: [{ rel: "canonical", href: "https://vplastcomercio.com.br/" }],
   }),
   component: HomePage,
 });
@@ -59,7 +63,7 @@ function HomePage() {
 
             <FadeIn delay={0.3}>
               <div className="relative flex items-center justify-center h-56 sm:h-72 lg:h-[460px] pointer-events-none">
-                <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-full h-full">
+                <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-full h-full" aria-hidden="true">
                   <path d="M180 0 C520 140, 80 260, 300 400 L600 400 L600 0 Z" fill="#F97316" opacity="0.10"/>
                   <path d="M220 0 C520 120, 80 280, 260 400 L600 400 L600 0 Z" fill="#F97316"/>
                   <path d="M260 0 C540 130, 110 270, 300 400" stroke="white" strokeWidth="40" strokeLinecap="round" opacity="0.13" fill="none"/>
@@ -69,6 +73,7 @@ function HomePage() {
                   src={fitaHero}
                   alt="Composição de fitas adesivas Vplast"
                   className="absolute z-10 inset-0 w-full h-full object-contain object-center drop-shadow-2xl"
+                  fetchPriority="high"
                 />
               </div>
             </FadeIn>

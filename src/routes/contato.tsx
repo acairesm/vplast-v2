@@ -6,9 +6,13 @@ import { SectionEyebrow } from "@/components/Layout";
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
-      { title: "Contato — Vplast Embalagens" },
-      { name: "description", content: "Fale com a Vplast Embalagens. Atendimento especializado em todo o Brasil." },
+      { title: "Contato — Vplast Embalagens | Fale com Nossa Equipe" },
+      { name: "description", content: "Entre em contato com a Vplast Embalagens. Atendimento especializado em fitas adesivas para todo o Brasil. WhatsApp, e-mail ou formulário." },
+      { property: "og:url", content: "https://vplastcomercio.com.br/contato" },
+      { property: "og:title", content: "Contato — Vplast Embalagens | Fale com Nossa Equipe" },
+      { property: "og:description", content: "Entre em contato com a Vplast Embalagens. Atendimento especializado em fitas adesivas para todo o Brasil. WhatsApp, e-mail ou formulário." },
     ],
+    links: [{ rel: "canonical", href: "https://vplastcomercio.com.br/contato" }],
   }),
   component: ContatoPage,
 });
@@ -63,6 +67,7 @@ function FieldInput({
   type = "text",
   value,
   onChange,
+  onBlur,
   error,
   className = "",
   placeholder = "",
@@ -72,6 +77,7 @@ function FieldInput({
   type?: string;
   value: string;
   onChange: (v: string) => void;
+  onBlur?: () => void;
   error: string;
   className?: string;
   placeholder?: string;
@@ -79,12 +85,14 @@ function FieldInput({
   const hasError = !!error;
   return (
     <div className={className}>
-      <label className="text-xs font-semibold text-ink uppercase tracking-wider">{label}</label>
+      <label htmlFor={name} className="text-xs font-semibold text-ink uppercase tracking-wider">{label}</label>
       <input
+        id={name}
         name={name}
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onBlur={onBlur}
         placeholder={placeholder}
         className={`mt-2 w-full rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2 transition ${
           hasError
@@ -228,8 +236,9 @@ function ContatoPage() {
               onBlur={() => blur("name")} placeholder="Seu nome completo"
             />
             <div>
-              <label className="text-xs font-semibold text-ink uppercase tracking-wider">Empresa</label>
+              <label htmlFor="company" className="text-xs font-semibold text-ink uppercase tracking-wider">Empresa</label>
               <input
+                id="company"
                 name="company" value={fields.company}
                 onChange={(e) => set("company", e.target.value)}
                 placeholder="Nome da empresa (opcional)"
@@ -249,8 +258,9 @@ function ContatoPage() {
           </div>
 
           <div className="mt-4">
-            <label className="text-xs font-semibold text-ink uppercase tracking-wider">Assunto</label>
+            <label htmlFor="subject" className="text-xs font-semibold text-ink uppercase tracking-wider">Assunto</label>
             <input
+              id="subject"
               name="subject" value={fields.subject}
               onChange={(e) => set("subject", e.target.value)}
               placeholder="Ex: Orçamento fita crepe 48mm"
@@ -259,8 +269,9 @@ function ContatoPage() {
           </div>
 
           <div className="mt-4">
-            <label className="text-xs font-semibold text-ink uppercase tracking-wider">Mensagem*</label>
+            <label htmlFor="message" className="text-xs font-semibold text-ink uppercase tracking-wider">Mensagem*</label>
             <textarea
+              id="message"
               name="message" value={fields.message} rows={5}
               onChange={(e) => set("message", e.target.value)}
               onBlur={() => blur("message")}

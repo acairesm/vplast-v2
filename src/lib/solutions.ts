@@ -59,7 +59,7 @@ export const SOLUTIONS: Solution[] = [
       { title: "Resistência Climática", text: "Adesivos que mantêm a aderência em câmaras frias, ambientes úmidos e sob calor intenso." },
       { title: "Rastreabilidade", text: "Fitas personalizadas com dados da empresa facilitam a gestão e o controle de estoque." },
     ],
-    recommendedProducts: ["fita-filamentosa-mono-direcao", "fita-adesiva-acrilica-t", "fita-acrilica-impressa-personalizada", "fita-gomada", "fita-gomada-impressa"],
+    recommendedProducts: ["fita-adesiva-acrilica-t", "fita-acrilica-impressa-personalizada", "fita-gomada", "fita-gomada-impressa"],
   },
   {
     slug: "construcao-civil",
@@ -81,7 +81,7 @@ export const SOLUTIONS: Solution[] = [
       { title: "Vedação Confiável", text: "Espuma EVA e alta aderência que selam frestas contra vento, poeira e infiltração." },
       { title: "Remoção Limpa", text: "Fitas crepe que saem sem deixar resíduos ou danos à pintura após o serviço." },
     ],
-    recommendedProducts: ["fita-crepe-uso-geral-branca", "fita-crepe-automotiva-amarela", "fita-crepe-verde-pintura"],
+    recommendedProducts: ["fita-crepe-uso-geral-branca", "fita-crepe-automotiva-adelbras-765", "fita-crepe-verde-automotiva"],
   },
   {
     slug: "automotivo",

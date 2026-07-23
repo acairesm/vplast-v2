@@ -7,11 +7,30 @@ import { SectionEyebrow } from "@/components/Layout";
 export const Route = createFileRoute("/solucoes/$slug")({
   head: ({ params }) => {
     const s = getSolutionBySlug(params.slug);
+    const url = `https://vplastcomercio.com.br/solucoes/${params.slug}`;
+    const title = s ? `${s.title} — Soluções Vplast Embalagens` : "Solução — Vplast Embalagens";
+    const desc = s?.description?.slice(0, 155) ?? s?.tagline ?? "";
     return {
       meta: [
-        { title: s ? `${s.title} — Soluções Vplast` : "Solução — Vplast" },
-        { name: "description", content: s?.tagline ?? "" },
+        { title },
+        { name: "description", content: desc },
+        { property: "og:url", content: url },
+        { property: "og:title", content: title },
+        { property: "og:description", content: desc },
       ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: s ? [{
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://vplastcomercio.com.br/" },
+            { "@type": "ListItem", position: 2, name: "Soluções", item: "https://vplastcomercio.com.br/solucoes" },
+            { "@type": "ListItem", position: 3, name: s.title, item: url },
+          ],
+        }),
+      }] : [],
     };
   },
   loader: ({ params }) => {

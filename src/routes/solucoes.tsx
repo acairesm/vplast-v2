@@ -8,9 +8,13 @@ import { SOLUTIONS } from "@/lib/solutions";
 export const Route = createFileRoute("/solucoes")({
   head: () => ({
     meta: [
-      { title: "Soluções — Vplast Embalagens" },
-      { name: "description", content: "Soluções inteligentes em fitas adesivas e embalagens para indústria, logística, varejo, construção civil e automotivo." },
+      { title: "Soluções — Vplast Embalagens | Fitas para Indústria, Logística e Construção" },
+      { name: "description", content: "Soluções completas em fitas adesivas para logística, construção civil, comunicação visual e automotivo. Produtos de alta performance para cada necessidade." },
+      { property: "og:url", content: "https://vplastcomercio.com.br/solucoes" },
+      { property: "og:title", content: "Soluções — Vplast Embalagens | Fitas para Indústria, Logística e Construção" },
+      { property: "og:description", content: "Soluções completas em fitas adesivas para logística, construção civil, comunicação visual e automotivo. Produtos de alta performance para cada necessidade." },
     ],
+    links: [{ rel: "canonical", href: "https://vplastcomercio.com.br/solucoes" }],
   }),
   component: SolucoesPage,
 });

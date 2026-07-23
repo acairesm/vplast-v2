@@ -6,11 +6,49 @@ import { PRODUCTS, CATEGORIES } from "@/lib/products";
 export const Route = createFileRoute("/produtos/$slug")({
   head: ({ params }) => {
     const p = PRODUCTS.find((x) => x.slug === params.slug);
+    const url = `https://vplastcomercio.com.br/produtos/${params.slug}`;
+    const title = `${p?.name ?? "Produto"} — Vplast Embalagens`;
+    const desc = p?.longDescription?.slice(0, 155) ?? p?.description ?? "";
     return {
       meta: [
-        { title: `${p?.name ?? "Produto"} — Vplast Embalagens` },
-        { name: "description", content: p?.description ?? "" },
+        { title },
+        { name: "description", content: desc },
+        { property: "og:url", content: url },
+        { property: "og:title", content: title },
+        { property: "og:description", content: desc },
+        { property: "og:type", content: "product" },
       ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: p ? [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: p.name,
+            description: p.longDescription,
+            brand: { "@type": "Brand", name: "Vplast Embalagens" },
+            offers: {
+              "@type": "Offer",
+              availability: "https://schema.org/InStock",
+              priceCurrency: "BRL",
+              seller: { "@type": "Organization", name: "Vplast Embalagens" },
+            },
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://vplastcomercio.com.br/" },
+              { "@type": "ListItem", position: 2, name: "Produtos", item: "https://vplastcomercio.com.br/produtos" },
+              { "@type": "ListItem", position: 3, name: p.name, item: url },
+            ],
+          }),
+        },
+      ] : [],
     };
   },
   loader: ({ params }) => {
@@ -33,7 +71,7 @@ function ProductDetail() {
   return (
     <div className="mx-auto max-w-[1400px] px-4 sm:px-6 py-6 sm:py-8">
       {/* breadcrumb */}
-      <nav className="flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm text-muted-foreground mb-6 sm:mb-8 overflow-x-auto whitespace-nowrap pb-1">
+      <nav aria-label="Trilha de navegação" className="flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm text-muted-foreground mb-6 sm:mb-8 overflow-x-auto whitespace-nowrap pb-1">
         <Link to="/" className="hover:text-primary shrink-0">Home</Link>
         <ChevronRight className="h-3 w-3 shrink-0" />
         <Link to="/produtos" className="hover:text-primary shrink-0">Produtos</Link>
