@@ -82,13 +82,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:locale", content: "pt_BR" },
       { property: "og:title", content: "Vplast Embalagens — Fitas Adesivas e Soluções para Embalagens" },
       { property: "og:description", content: "Fitas adesivas de alta performance para embalagens, construção e uso automotivo. Fitas crepe, dupla face, impressas, gomadas e personalizadas. Curitiba — PR." },
-      { property: "og:image", content: "https://vplastcomercio.com.br/og-image.png" },
+      { property: "og:image", content: "https://vplastcomercio.com.br/favicon.png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Vplast Embalagens — Fitas Adesivas e Soluções para Embalagens" },
       { name: "twitter:description", content: "Fitas adesivas de alta performance para embalagens, construção e uso automotivo. Curitiba — PR." },
-      { name: "twitter:image", content: "https://vplastcomercio.com.br/og-image.png" },
+      { name: "twitter:image", content: "https://vplastcomercio.com.br/favicon.png" },
     ],
     links: [
       {
