@@ -8,11 +8,11 @@ export const Route = createFileRoute("/contato")({
     meta: [
       { title: "Contato — Vplast Embalagens | Fale com Nossa Equipe" },
       { name: "description", content: "Entre em contato com a Vplast Embalagens. Atendimento especializado em fitas adesivas para todo o Brasil. WhatsApp, e-mail ou formulário." },
-      { property: "og:url", content: "https://vplastcomercio.com.br/contato" },
+      { property: "og:url", content: "https://lojavplast.com/contato" },
       { property: "og:title", content: "Contato — Vplast Embalagens | Fale com Nossa Equipe" },
       { property: "og:description", content: "Entre em contato com a Vplast Embalagens. Atendimento especializado em fitas adesivas para todo o Brasil. WhatsApp, e-mail ou formulário." },
     ],
-    links: [{ rel: "canonical", href: "https://vplastcomercio.com.br/contato" }],
+    links: [{ rel: "canonical", href: "https://lojavplast.com/contato" }],
   }),
   component: ContatoPage,
 });
@@ -209,7 +209,7 @@ function ContatoPage() {
           {[
             { Icon: Phone,         title: "Telefone",    lines: ["+55 (41) 9694-7566"] },
             { Icon: MessageCircle, title: "WhatsApp",    lines: ["+55 (41) 9694-7566"] },
-            { Icon: Mail,          title: "E-mail",      lines: ["vendas@vplastcomercio.com.br"] },
+            { Icon: Mail,          title: "E-mail",      lines: ["vendas@lojavplast.com"] },
             { Icon: MapPin,        title: "Endereço",    lines: ["Curitiba — Paraná, Brasil"] },
             { Icon: Clock,         title: "Atendimento", lines: ["Seg a Sex — 8h às 18h"] },
           ].map(({ Icon, title, lines }) => (

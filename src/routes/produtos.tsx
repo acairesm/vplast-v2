@@ -15,11 +15,11 @@ export const Route = createFileRoute("/produtos")({
     meta: [
       { title: "Produtos — Vplast Embalagens | Fitas Adesivas, Crepe, Dupla Face e Mais" },
       { name: "description", content: "Catálogo completo de fitas adesivas: fita crepe, dupla face, acrílica, impressa, gomada e personalizadas. Alta qualidade com entrega para todo o Brasil." },
-      { property: "og:url", content: "https://vplastcomercio.com.br/produtos" },
+      { property: "og:url", content: "https://lojavplast.com/produtos" },
       { property: "og:title", content: "Produtos — Vplast Embalagens | Fitas Adesivas, Crepe, Dupla Face e Mais" },
       { property: "og:description", content: "Catálogo completo de fitas adesivas: fita crepe, dupla face, acrílica, impressa, gomada e personalizadas. Alta qualidade com entrega para todo o Brasil." },
     ],
-    links: [{ rel: "canonical", href: "https://vplastcomercio.com.br/produtos" }],
+    links: [{ rel: "canonical", href: "https://lojavplast.com/produtos" }],
   }),
   component: ProdutosPage,
 });

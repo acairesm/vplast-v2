@@ -1,5 +1,3 @@
-import adesiva from "@/assets/Fitas Hero /DUREX 12X40 (3).png";
-
 import fitaLargaAmarelaCapa from "@/assets/produtos/fita_larga_amarela.jpeg";
 
 import crepeUsoGeral1 from "@/assets/produtos/crepe-uso-geral-branca-1.png";
@@ -13,7 +11,6 @@ import crepeAdelbras2 from "@/assets/produtos/crepe-automotiva-adelbras-765-2.jp
 import duplaFacePapel2 from "@/assets/produtos/dupla-face-papel-147-2.png";
 import duplaFacePapel3 from "@/assets/produtos/dupla-face-papel-147-3.png";
 
-import duplaFaceAltaAderencia1 from "@/assets/produtos/dupla-face-alta-aderencia-1.png";
 import duplaFaceAltaAderencia2 from "@/assets/produtos/dupla-face-alta-aderencia-2.png";
 import duplaFaceAltaAderencia3 from "@/assets/produtos/dupla-face-alta-aderencia-3.png";
 import duplaFaceAltaAderencia4 from "@/assets/produtos/Fita Dupla Face Alta Aderência PP 306A adicionar.jpeg";

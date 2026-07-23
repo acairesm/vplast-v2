@@ -14,11 +14,11 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Vplast Embalagens — Fitas Adesivas e Soluções para Embalagens em Curitiba" },
       { name: "description", content: "Compre fitas adesivas de alta performance em Curitiba. Fitas crepe, dupla face, acrílica, impressa, gomada e personalizadas. Entrega para todo o Brasil." },
-      { property: "og:url", content: "https://vplastcomercio.com.br/" },
+      { property: "og:url", content: "https://lojavplast.com/" },
       { property: "og:title", content: "Vplast Embalagens — Fitas Adesivas e Soluções para Embalagens em Curitiba" },
       { property: "og:description", content: "Compre fitas adesivas de alta performance em Curitiba. Fitas crepe, dupla face, acrílica, impressa, gomada e personalizadas. Entrega para todo o Brasil." },
     ],
-    links: [{ rel: "canonical", href: "https://vplastcomercio.com.br/" }],
+    links: [{ rel: "canonical", href: "https://lojavplast.com/" }],
   }),
   component: HomePage,
 });

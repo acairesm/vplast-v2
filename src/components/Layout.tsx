@@ -164,7 +164,7 @@ function Footer() {
           <h4 className="text-white font-semibold mb-4">Contato</h4>
           <ul className="space-y-3 text-sm">
             <li className="flex gap-2"><Phone className="h-4 w-4 text-primary shrink-0" /><a href="tel:+5541969447566" className="hover:text-primary">+55 (41) 9694-7566</a></li>
-            <li className="flex gap-2"><Mail className="h-4 w-4 text-primary shrink-0" /><a href="mailto:vendas@vplastcomercio.com.br" className="hover:text-primary">vendas@vplastcomercio.com.br</a></li>
+            <li className="flex gap-2"><Mail className="h-4 w-4 text-primary shrink-0" /><a href="mailto:vendas@lojavplast.com" className="hover:text-primary">vendas@lojavplast.com</a></li>
             <li className="flex gap-2"><MapPin className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Curitiba — Paraná, Brasil</li>
           </ul>
         </div>

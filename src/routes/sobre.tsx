@@ -9,11 +9,11 @@ export const Route = createFileRoute("/sobre")({
     meta: [
       { title: "Sobre Nós — Vplast Embalagens | Fitas Adesivas em Curitiba" },
       { name: "description", content: "Conheça a Vplast Embalagens: empresa especializada em fitas adesivas e soluções para embalagens em Curitiba. Qualidade, resistência e atendimento personalizado." },
-      { property: "og:url", content: "https://vplastcomercio.com.br/sobre" },
+      { property: "og:url", content: "https://lojavplast.com/sobre" },
       { property: "og:title", content: "Sobre Nós — Vplast Embalagens | Fitas Adesivas em Curitiba" },
       { property: "og:description", content: "Conheça a Vplast Embalagens: empresa especializada em fitas adesivas e soluções para embalagens em Curitiba. Qualidade, resistência e atendimento personalizado." },
     ],
-    links: [{ rel: "canonical", href: "https://vplastcomercio.com.br/sobre" }],
+    links: [{ rel: "canonical", href: "https://lojavplast.com/sobre" }],
   }),
   component: SobrePage,
 });
@@ -195,7 +195,7 @@ function SobrePage() {
               {[
                 { Icon: MapPin,        text: "Curitiba — Paraná, Brasil" },
                 { Icon: PhoneCall,     text: "+55 (41) 9694-7566" },
-                { Icon: MessageCircle, text: "vendas@vplastcomercio.com.br" },
+                { Icon: MessageCircle, text: "vendas@lojavplast.com" },
                 { Icon: Clock,         text: "Seg a Sex — 8h às 18h" },
               ].map(({ Icon, text }) => (
                 <li key={text} className="flex items-center gap-3 text-muted-foreground">

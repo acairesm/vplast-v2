@@ -7,7 +7,7 @@ import { SectionEyebrow } from "@/components/Layout";
 export const Route = createFileRoute("/solucoes/$slug")({
   head: ({ params }) => {
     const s = getSolutionBySlug(params.slug);
-    const url = `https://vplastcomercio.com.br/solucoes/${params.slug}`;
+    const url = `https://lojavplast.com/solucoes/${params.slug}`;
     const title = s ? `${s.title} — Soluções Vplast Embalagens` : "Solução — Vplast Embalagens";
     const desc = s?.description?.slice(0, 155) ?? s?.tagline ?? "";
     return {
@@ -25,8 +25,8 @@ export const Route = createFileRoute("/solucoes/$slug")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://vplastcomercio.com.br/" },
-            { "@type": "ListItem", position: 2, name: "Soluções", item: "https://vplastcomercio.com.br/solucoes" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://lojavplast.com/" },
+            { "@type": "ListItem", position: 2, name: "Soluções", item: "https://lojavplast.com/solucoes" },
             { "@type": "ListItem", position: 3, name: s.title, item: url },
           ],
         }),

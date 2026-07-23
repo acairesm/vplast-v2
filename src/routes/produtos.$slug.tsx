@@ -6,7 +6,7 @@ import { PRODUCTS, CATEGORIES } from "@/lib/products";
 export const Route = createFileRoute("/produtos/$slug")({
   head: ({ params }) => {
     const p = PRODUCTS.find((x) => x.slug === params.slug);
-    const url = `https://vplastcomercio.com.br/produtos/${params.slug}`;
+    const url = `https://lojavplast.com/produtos/${params.slug}`;
     const title = `${p?.name ?? "Produto"} — Vplast Embalagens`;
     const desc = p?.longDescription?.slice(0, 155) ?? p?.description ?? "";
     return {
@@ -42,8 +42,8 @@ export const Route = createFileRoute("/produtos/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://vplastcomercio.com.br/" },
-              { "@type": "ListItem", position: 2, name: "Produtos", item: "https://vplastcomercio.com.br/produtos" },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://lojavplast.com/" },
+              { "@type": "ListItem", position: 2, name: "Produtos", item: "https://lojavplast.com/produtos" },
               { "@type": "ListItem", position: 3, name: p.name, item: url },
             ],
           }),
@@ -179,6 +179,7 @@ function ProductDetail() {
                 <button
                   key={i}
                   onClick={() => setActiveImg(i)}
+                  aria-label={`Ver imagem ${i + 1} de ${images.length}`}
                   className={`aspect-square rounded-xl overflow-hidden border-2 transition cursor-pointer ${
                     activeImg === i ? "border-primary" : "border-border hover:border-primary/40"
                   }`}

@@ -3,111 +3,111 @@
 
   <!-- Páginas principais -->
   <url>
-    <loc>https://vplastcomercio.com.br/</loc>
+    <loc>https://lojavplast.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/produtos</loc>
+    <loc>https://lojavplast.com/produtos</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/solucoes</loc>
+    <loc>https://lojavplast.com/solucoes</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/sobre</loc>
+    <loc>https://lojavplast.com/sobre</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/contato</loc>
+    <loc>https://lojavplast.com/contato</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Produtos -->
   <url>
-    <loc>https://vplastcomercio.com.br/produtos/fita-crepe-uso-geral-branca</loc>
+    <loc>https://lojavplast.com/produtos/fita-crepe-uso-geral-branca</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/produtos/fita-crepe-automotiva-adelbras-765</loc>
+    <loc>https://lojavplast.com/produtos/fita-crepe-automotiva-adelbras-765</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/produtos/fita-dupla-face-df-hm-papel-147</loc>
+    <loc>https://lojavplast.com/produtos/fita-dupla-face-df-hm-papel-147</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/produtos/fita-dupla-face-alta-aderencia-pp-306a</loc>
+    <loc>https://lojavplast.com/produtos/fita-dupla-face-alta-aderencia-pp-306a</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/produtos/fita-dupla-face-espuma-eva</loc>
+    <loc>https://lojavplast.com/produtos/fita-dupla-face-espuma-eva</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/produtos/fita-adesiva-acrilica-t</loc>
+    <loc>https://lojavplast.com/produtos/fita-adesiva-acrilica-t</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/produtos/fita-acrilica-impressa-personalizada</loc>
+    <loc>https://lojavplast.com/produtos/fita-acrilica-impressa-personalizada</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/produtos/fita-impressa-cuidado-fragil</loc>
+    <loc>https://lojavplast.com/produtos/fita-impressa-cuidado-fragil</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/produtos/fita-gomada-impressa</loc>
+    <loc>https://lojavplast.com/produtos/fita-gomada-impressa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/produtos/fita-gomada</loc>
+    <loc>https://lojavplast.com/produtos/fita-gomada</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/produtos/fixa-tape-massa-acrilica</loc>
+    <loc>https://lojavplast.com/produtos/fixa-tape-massa-acrilica</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/produtos/fita-crepe-verde-automotiva</loc>
+    <loc>https://lojavplast.com/produtos/fita-crepe-verde-automotiva</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Soluções -->
   <url>
-    <loc>https://vplastcomercio.com.br/solucoes/industria-e-manufatura</loc>
+    <loc>https://lojavplast.com/solucoes/industria-e-manufatura</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/solucoes/logistica-e-transporte</loc>
+    <loc>https://lojavplast.com/solucoes/logistica-e-transporte</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/solucoes/construcao-civil</loc>
+    <loc>https://lojavplast.com/solucoes/construcao-civil</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vplastcomercio.com.br/solucoes/automotivo</loc>
+    <loc>https://lojavplast.com/solucoes/automotivo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
