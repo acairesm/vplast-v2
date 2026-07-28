@@ -13,10 +13,10 @@ export const Route = createFileRoute("/produtos")({
   }),
   head: () => ({
     meta: [
-      { title: "Produtos — Vplast Embalagens | Fitas Adesivas, Crepe, Dupla Face e Mais" },
+      { title: "Catálogo de Fitas Adesivas — Vplast Embalagens" },
       { name: "description", content: "Catálogo completo de fitas adesivas: fita crepe, dupla face, acrílica, impressa, gomada e personalizadas. Alta qualidade com entrega para todo o Brasil." },
       { property: "og:url", content: "https://lojavplast.com/produtos" },
-      { property: "og:title", content: "Produtos — Vplast Embalagens | Fitas Adesivas, Crepe, Dupla Face e Mais" },
+      { property: "og:title", content: "Catálogo de Fitas Adesivas — Vplast Embalagens" },
       { property: "og:description", content: "Catálogo completo de fitas adesivas: fita crepe, dupla face, acrílica, impressa, gomada e personalizadas. Alta qualidade com entrega para todo o Brasil." },
     ],
     links: [{ rel: "canonical", href: "https://lojavplast.com/produtos" }],
@@ -119,7 +119,7 @@ function ProdutosPage() {
           <div className="relative ml-auto w-[85%] max-w-sm bg-white h-full overflow-y-auto shadow-2xl p-6 space-y-6">
             <div className="flex items-center justify-between mb-2">
               <h3 className="font-bold text-ink">Filtros</h3>
-              <button onClick={() => setSidebarOpen(false)} className="cursor-pointer"><X className="h-5 w-5" /></button>
+              <button onClick={() => setSidebarOpen(false)} aria-label="Fechar filtros" className="cursor-pointer"><X className="h-5 w-5" /></button>
             </div>
 
             <div>

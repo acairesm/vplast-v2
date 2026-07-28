@@ -12,10 +12,10 @@ import imgAltaAderencia from "@/assets/fitas inicio novas/DUPLA FACE ALTA ADEREN
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Vplast Embalagens — Fitas Adesivas e Soluções para Embalagens em Curitiba" },
+      { title: "Fitas Adesivas em Curitiba — Vplast Embalagens" },
       { name: "description", content: "Compre fitas adesivas de alta performance em Curitiba. Fitas crepe, dupla face, acrílica, impressa, gomada e personalizadas. Entrega para todo o Brasil." },
       { property: "og:url", content: "https://lojavplast.com/" },
-      { property: "og:title", content: "Vplast Embalagens — Fitas Adesivas e Soluções para Embalagens em Curitiba" },
+      { property: "og:title", content: "Fitas Adesivas em Curitiba — Vplast Embalagens" },
       { property: "og:description", content: "Compre fitas adesivas de alta performance em Curitiba. Fitas crepe, dupla face, acrílica, impressa, gomada e personalizadas. Entrega para todo o Brasil." },
     ],
     links: [{ rel: "canonical", href: "https://lojavplast.com/" }],

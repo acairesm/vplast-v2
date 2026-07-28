@@ -8,7 +8,8 @@ export const Route = createFileRoute("/produtos/$slug")({
     const p = PRODUCTS.find((x) => x.slug === params.slug);
     const url = `https://lojavplast.com/produtos/${params.slug}`;
     const title = `${p?.name ?? "Produto"} — Vplast Embalagens`;
-    const desc = p?.longDescription?.slice(0, 155) ?? p?.description ?? "";
+    const rawDesc = p?.longDescription ?? p?.description ?? "";
+    const desc = rawDesc.length > 152 ? rawDesc.slice(0, 149).replace(/\s\S*$/, "") + "…" : rawDesc;
     return {
       meta: [
         { title },
@@ -26,6 +27,7 @@ export const Route = createFileRoute("/produtos/$slug")({
             "@context": "https://schema.org",
             "@type": "Product",
             name: p.name,
+            image: `https://lojavplast.com${p.image}`,
             description: p.longDescription,
             brand: { "@type": "Brand", name: "Vplast Embalagens" },
             offers: {
@@ -159,12 +161,14 @@ function ProductDetail() {
               <>
                 <button
                   onClick={() => setActiveImg((i) => (i - 1 + images.length) % images.length)}
+                  aria-label="Imagem anterior"
                   className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-white border border-border shadow flex items-center justify-center hover:bg-secondary transition cursor-pointer"
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </button>
                 <button
                   onClick={() => setActiveImg((i) => (i + 1) % images.length)}
+                  aria-label="Próxima imagem"
                   className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-white border border-border shadow flex items-center justify-center hover:bg-secondary transition cursor-pointer"
                 >
                   <ChevronRight className="h-4 w-4" />

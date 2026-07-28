@@ -18,9 +18,9 @@ export type Solution = {
 
 export const SOLUTIONS: Solution[] = [
   {
-    slug: "industria-e-manufatura",
+    slug: "comunicacao-visual",
     title: "COMUNICAÇÃO VISUAL",
-    shortTitle: "COMUNICAÇÃO",
+    shortTitle: "COM. VISUAL",
     img: industria,
     tagline: "Fixação discreta e segura para placas, displays e sinalização",
     description:

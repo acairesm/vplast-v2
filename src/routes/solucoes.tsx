@@ -8,10 +8,10 @@ import { SOLUTIONS } from "@/lib/solutions";
 export const Route = createFileRoute("/solucoes")({
   head: () => ({
     meta: [
-      { title: "Soluções — Vplast Embalagens | Fitas para Indústria, Logística e Construção" },
+      { title: "Soluções em Fitas Adesivas — Vplast Embalagens" },
       { name: "description", content: "Soluções completas em fitas adesivas para logística, construção civil, comunicação visual e automotivo. Produtos de alta performance para cada necessidade." },
       { property: "og:url", content: "https://lojavplast.com/solucoes" },
-      { property: "og:title", content: "Soluções — Vplast Embalagens | Fitas para Indústria, Logística e Construção" },
+      { property: "og:title", content: "Soluções em Fitas Adesivas — Vplast Embalagens" },
       { property: "og:description", content: "Soluções completas em fitas adesivas para logística, construção civil, comunicação visual e automotivo. Produtos de alta performance para cada necessidade." },
     ],
     links: [{ rel: "canonical", href: "https://lojavplast.com/solucoes" }],
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/solucoes")({
 });
 
 const SEGMENT_ICONS: Record<string, any> = {
-  "industria-e-manufatura": Package,
+  "comunicacao-visual": Package,
   "logistica-e-transporte": Truck,
   "varejo-e-ecommerce": ShoppingCart,
   "construcao-civil": HardHat,
@@ -52,7 +52,7 @@ function SolucoesPage() {
             </Link>
           </div>
           </FadeUp>
-          <FadeIn delay={0.3}><img src={hero} alt="Soluções" className="rounded-2xl shadow-xl" /></FadeIn>
+          <FadeIn delay={0.3}><img src={hero} alt="Soluções em fitas adesivas para indústria, logística e automotivo — Vplast Embalagens" fetchPriority="high" className="rounded-2xl shadow-xl" /></FadeIn>
         </div>
       </section>
 

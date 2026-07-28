@@ -8,10 +8,10 @@ export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
       { title: "Sobre Nós — Vplast Embalagens | Fitas Adesivas em Curitiba" },
-      { name: "description", content: "Conheça a Vplast Embalagens: empresa especializada em fitas adesivas e soluções para embalagens em Curitiba. Qualidade, resistência e atendimento personalizado." },
+      { name: "description", content: "Conheça a Vplast Embalagens, empresa em Curitiba especializada em fitas adesivas e soluções para embalagens. Qualidade, resistência e atendimento personalizado." },
       { property: "og:url", content: "https://lojavplast.com/sobre" },
       { property: "og:title", content: "Sobre Nós — Vplast Embalagens | Fitas Adesivas em Curitiba" },
-      { property: "og:description", content: "Conheça a Vplast Embalagens: empresa especializada em fitas adesivas e soluções para embalagens em Curitiba. Qualidade, resistência e atendimento personalizado." },
+      { property: "og:description", content: "Conheça a Vplast Embalagens, empresa em Curitiba especializada em fitas adesivas e soluções para embalagens. Qualidade, resistência e atendimento personalizado." },
     ],
     links: [{ rel: "canonical", href: "https://lojavplast.com/sobre" }],
   }),
@@ -41,7 +41,7 @@ function SobrePage() {
               <Package className="h-5 w-5" /> CONHEÇA NOSSOS PRODUTOS
             </Link>
           </div></FadeUp>
-          <FadeIn delay={0.3}><img src={about} alt="Vplast facility" className="rounded-2xl shadow-xl" /></FadeIn>
+          <FadeIn><img src={about} alt="Equipe Vplast Embalagens em Curitiba" fetchPriority="high" className="rounded-2xl shadow-xl" /></FadeIn>
         </div>
       </section>
 
@@ -194,15 +194,15 @@ function SobrePage() {
             <ul className="mt-6 space-y-3 text-sm">
               {[
                 { Icon: MapPin,        text: "Curitiba — Paraná, Brasil" },
-                { Icon: PhoneCall,     text: "+55 (41) 9694-7566" },
-                { Icon: MessageCircle, text: "vendas@lojavplast.com" },
+                { Icon: PhoneCall,     text: "+55 (41) 9694-7566", href: "tel:+5541969447566" },
+                { Icon: MessageCircle, text: "vendas@lojavplast.com", href: "mailto:vendas@lojavplast.com" },
                 { Icon: Clock,         text: "Seg a Sex — 8h às 18h" },
-              ].map(({ Icon, text }) => (
+              ].map(({ Icon, text, href }: { Icon: any; text: string; href?: string }) => (
                 <li key={text} className="flex items-center gap-3 text-muted-foreground">
                   <div className="h-8 w-8 rounded-full bg-orange-soft grid place-items-center shrink-0">
                     <Icon className="h-4 w-4 text-primary" />
                   </div>
-                  {text}
+                  {href ? <a href={href} className="hover:text-primary transition">{text}</a> : text}
                 </li>
               ))}
             </ul>

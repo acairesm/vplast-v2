@@ -207,19 +207,22 @@ function ContatoPage() {
       <section className="mx-auto max-w-[1400px] px-4 sm:px-6 py-8 sm:py-14 grid lg:grid-cols-[1fr_1.3fr] gap-6 sm:gap-10">
         <div className="space-y-5">
           {[
-            { Icon: Phone,         title: "Telefone",    lines: ["+55 (41) 9694-7566"] },
-            { Icon: MessageCircle, title: "WhatsApp",    lines: ["+55 (41) 9694-7566"] },
-            { Icon: Mail,          title: "E-mail",      lines: ["vendas@lojavplast.com"] },
+            { Icon: Phone,         title: "Telefone",    lines: ["+55 (41) 9694-7566"],   href: "tel:+5541969447566" },
+            { Icon: MessageCircle, title: "WhatsApp",    lines: ["+55 (41) 9694-7566"],   href: "https://wa.me/5541969447566" },
+            { Icon: Mail,          title: "E-mail",      lines: ["vendas@lojavplast.com"], href: "mailto:vendas@lojavplast.com" },
             { Icon: MapPin,        title: "Endereço",    lines: ["Curitiba — Paraná, Brasil"] },
             { Icon: Clock,         title: "Atendimento", lines: ["Seg a Sex — 8h às 18h"] },
-          ].map(({ Icon, title, lines }) => (
+          ].map(({ Icon, title, lines, href }: { Icon: any; title: string; lines: string[]; href?: string }) => (
             <div key={title} className="bg-white rounded-2xl border border-border p-5 flex items-start gap-4">
               <div className="h-12 w-12 rounded-full bg-orange-soft grid place-items-center shrink-0">
                 <Icon className="h-6 w-6 text-primary" />
               </div>
               <div>
                 <p className="font-bold text-ink">{title}</p>
-                {lines.map((l) => <p key={l} className="text-sm text-muted-foreground">{l}</p>)}
+                {lines.map((l) => href
+                  ? <a key={l} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} className="text-sm text-muted-foreground hover:text-primary transition block">{l}</a>
+                  : <p key={l} className="text-sm text-muted-foreground">{l}</p>
+                )}
               </div>
             </div>
           ))}

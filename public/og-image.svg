@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <!-- Orange accent bar left -->
+  <rect x="0" y="0" width="8" height="630" fill="#F97316"/>
+  <!-- Orange wave shape right -->
+  <path d="M750 0 C900 150, 650 350, 780 630 L1200 630 L1200 0 Z" fill="#F97316" opacity="0.12"/>
+  <path d="M820 0 C950 120, 700 360, 820 630 L1200 630 L1200 0 Z" fill="#F97316"/>
+  <!-- Company name -->
+  <text x="80" y="220" font-family="Arial Black, Arial, sans-serif" font-size="88" font-weight="900" fill="#1a1a1a" letter-spacing="-2">VPLAST</text>
+  <!-- Tagline -->
+  <text x="80" y="285" font-family="Arial, sans-serif" font-size="36" font-weight="400" fill="#F97316" letter-spacing="2">EMBALAGENS</text>
+  <!-- Description -->
+  <text x="80" y="355" font-family="Arial, sans-serif" font-size="28" fill="#555555">Fitas Adesivas de Alta Performance</text>
+  <text x="80" y="395" font-family="Arial, sans-serif" font-size="28" fill="#555555">para Embalagem, Construção e Automotivo</text>
+  <!-- Location -->
+  <text x="80" y="460" font-family="Arial, sans-serif" font-size="22" fill="#888888">Curitiba — PR  •  Entregas para todo o Brasil</text>
+  <!-- Domain -->
+  <text x="80" y="560" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#F97316">lojavplast.com</text>
+  <!-- White text on orange section -->
+  <text x="990" y="300" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle" opacity="0.9">Fitas Crepe</text>
+  <text x="990" y="340" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle" opacity="0.9">Dupla Face</text>
+  <text x="990" y="380" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle" opacity="0.9">Fitas Impressas</text>
+  <text x="990" y="420" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle" opacity="0.9">Gomadas</text>
+  <text x="990" y="460" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle" opacity="0.9">Personalizadas</text>
+</svg>

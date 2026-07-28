@@ -9,7 +9,8 @@ export const Route = createFileRoute("/solucoes/$slug")({
     const s = getSolutionBySlug(params.slug);
     const url = `https://lojavplast.com/solucoes/${params.slug}`;
     const title = s ? `${s.title} — Soluções Vplast Embalagens` : "Solução — Vplast Embalagens";
-    const desc = s?.description?.slice(0, 155) ?? s?.tagline ?? "";
+    const rawDesc = s?.description ?? s?.tagline ?? "";
+    const desc = rawDesc.length > 152 ? rawDesc.slice(0, 149).replace(/\s\S*$/, "") + "…" : rawDesc;
     return {
       meta: [
         { title },
@@ -48,13 +49,13 @@ function SolucaoDetailPage() {
   return (
     <div>
       {/* BREADCRUMB */}
-      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 pt-4 sm:pt-6 flex items-center gap-2 text-xs text-muted-foreground overflow-x-auto whitespace-nowrap">
+      <nav aria-label="Trilha de navegação" className="mx-auto max-w-[1400px] px-4 sm:px-6 pt-4 sm:pt-6 flex items-center gap-2 text-xs text-muted-foreground overflow-x-auto whitespace-nowrap">
         <Link to="/" className="hover:text-primary">Home</Link>
         <ChevronRight className="h-3 w-3" />
         <Link to="/solucoes" className="hover:text-primary">Soluções</Link>
         <ChevronRight className="h-3 w-3" />
         <span className="text-ink font-medium">{solution.title}</span>
-      </div>
+      </nav>
 
       {/* HERO */}
       <section className="relative overflow-hidden mt-4">
@@ -62,6 +63,7 @@ function SolucaoDetailPage() {
           <img
             src={solution.img}
             alt={solution.title}
+            fetchPriority="high"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
