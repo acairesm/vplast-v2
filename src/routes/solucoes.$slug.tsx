@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, CheckCircle, Package, ChevronRight } from "lucide-react";
-import { getSolutionBySlug, SOLUTIONS } from "@/lib/solutions";
+import { getSolutionBySlug, SOLUTIONS, type Solution } from "@/lib/solutions";
 import { PRODUCTS } from "@/lib/products";
 import { SectionEyebrow } from "@/components/Layout";
 
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/solucoes/$slug")({
 });
 
 function SolucaoDetailPage() {
-  const solution = Route.useLoaderData();
+  const solution = Route.useLoaderData() as Solution;
   const related = PRODUCTS.filter((p) => solution.recommendedProducts.includes(p.slug));
 
   return (
@@ -164,7 +164,7 @@ function SolucaoDetailPage() {
               Nossa equipe analisa seu processo e indica os produtos ideais para o seu caso.
             </p>
             <a
-              href="https://wa.me/5541969447566"
+              href={`https://wa.me/5541969447566?text=${encodeURIComponent(`Olá! Gostaria de saber mais sobre a solução para ${solution.title}.`)}`}
               target="_blank"
               rel="noreferrer"
               className="mt-5 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-white text-primary px-4 py-3 font-semibold text-sm hover:bg-white/90 transition"

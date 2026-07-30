@@ -226,7 +226,7 @@ function ProductDetail() {
 
           <div className="mt-6 sm:mt-8 flex flex-col gap-3">
             <a
-              href="https://wa.me/5541969447566"
+              href={`https://wa.me/5541969447566?text=${encodeURIComponent(`Olá! Tenho interesse no produto ${product.name}.`)}`}
               target="_blank"
               rel="noreferrer"
               className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] text-white px-6 py-3.5 sm:py-4 font-bold text-sm hover:opacity-90 transition"
