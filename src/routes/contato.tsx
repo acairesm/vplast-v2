@@ -209,7 +209,7 @@ function ContatoPage() {
           {[
             { Icon: Phone,         title: "Telefone",    lines: ["+55 (41) 9694-7566"],   href: "tel:+5541969447566" },
             { Icon: MessageCircle, title: "WhatsApp",    lines: ["+55 (41) 9694-7566"],   href: "https://wa.me/5541969447566" },
-            { Icon: Mail,          title: "E-mail",      lines: ["vendas@lojavplast.com"], href: "mailto:vendas@lojavplast.com" },
+            { Icon: Mail,          title: "E-mail",      lines: ["vendas@vplastcomercio.com.br"], href: "mailto:vendas@vplastcomercio.com.br" },
             { Icon: MapPin,        title: "Endereço",    lines: ["Curitiba — Paraná, Brasil"] },
             { Icon: Clock,         title: "Atendimento", lines: ["Seg a Sex — 8h às 18h"] },
           ].map(({ Icon, title, lines, href }: { Icon: any; title: string; lines: string[]; href?: string }) => (

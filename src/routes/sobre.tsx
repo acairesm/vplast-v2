@@ -195,7 +195,7 @@ function SobrePage() {
               {[
                 { Icon: MapPin,        text: "Curitiba — Paraná, Brasil" },
                 { Icon: PhoneCall,     text: "+55 (41) 9694-7566", href: "tel:+5541969447566" },
-                { Icon: MessageCircle, text: "vendas@lojavplast.com", href: "mailto:vendas@lojavplast.com" },
+                { Icon: MessageCircle, text: "vendas@vplastcomercio.com.br", href: "mailto:vendas@vplastcomercio.com.br" },
                 { Icon: Clock,         text: "Seg a Sex — 8h às 18h" },
               ].map(({ Icon, text, href }: { Icon: any; text: string; href?: string }) => (
                 <li key={text} className="flex items-center gap-3 text-muted-foreground">
