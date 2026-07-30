@@ -40,6 +40,10 @@ export default defineConfig(({ mode }) => {
           },
         },
         server: { entry: "server" },
+        prerender: {
+          enabled: true,
+          crawlLinks: true,
+        },
       }),
       viteReact(),
     ],
