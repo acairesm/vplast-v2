@@ -129,7 +129,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           logo: "https://lojavplast.com/favicon.png",
           contactPoint: {
             "@type": "ContactPoint",
-            telephone: "+55-41-969447566",
+            telephone: "+55-41-96947566",
             contactType: "customer service",
             areaServed: "BR",
             availableLanguage: "Portuguese",

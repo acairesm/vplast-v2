@@ -207,8 +207,8 @@ function ContatoPage() {
       <section className="mx-auto max-w-[1400px] px-4 sm:px-6 py-8 sm:py-14 grid lg:grid-cols-[1fr_1.3fr] gap-6 sm:gap-10">
         <div className="space-y-5">
           {[
-            { Icon: Phone,         title: "Telefone",    lines: ["+55 (41) 9694-7566"],   href: "tel:+5541969447566" },
-            { Icon: MessageCircle, title: "WhatsApp",    lines: ["+55 (41) 9694-7566"],   href: "https://wa.me/5541969447566" },
+            { Icon: Phone,         title: "Telefone",    lines: ["+55 (41) 9694-7566"],   href: "tel:+554196947566" },
+            { Icon: MessageCircle, title: "WhatsApp",    lines: ["+55 (41) 9694-7566"],   href: "https://wa.me/554196947566" },
             { Icon: Mail,          title: "E-mail",      lines: ["vendas@vplastcomercio.com.br"], href: "mailto:vendas@vplastcomercio.com.br" },
             { Icon: MapPin,        title: "Endereço",    lines: ["Curitiba — Paraná, Brasil"] },
             { Icon: Clock,         title: "Atendimento", lines: ["Seg a Sex — 8h às 18h"] },

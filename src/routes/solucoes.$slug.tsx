@@ -164,7 +164,7 @@ function SolucaoDetailPage() {
               Nossa equipe analisa seu processo e indica os produtos ideais para o seu caso.
             </p>
             <a
-              href={`https://wa.me/5541969447566?text=${encodeURIComponent(`Olá! Gostaria de saber mais sobre a solução para ${solution.title}.`)}`}
+              href={`https://wa.me/554196947566?text=${encodeURIComponent(`Olá! Gostaria de saber mais sobre a solução para ${solution.title}.`)}`}
               target="_blank"
               rel="noreferrer"
               className="mt-5 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-white text-primary px-4 py-3 font-semibold text-sm hover:bg-white/90 transition"

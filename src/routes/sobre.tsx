@@ -194,7 +194,7 @@ function SobrePage() {
             <ul className="mt-6 space-y-3 text-sm">
               {[
                 { Icon: MapPin,        text: "Curitiba — Paraná, Brasil" },
-                { Icon: PhoneCall,     text: "+55 (41) 9694-7566", href: "tel:+5541969447566" },
+                { Icon: PhoneCall,     text: "+55 (41) 9694-7566", href: "tel:+554196947566" },
                 { Icon: MessageCircle, text: "vendas@vplastcomercio.com.br", href: "mailto:vendas@vplastcomercio.com.br" },
                 { Icon: Clock,         text: "Seg a Sex — 8h às 18h" },
               ].map(({ Icon, text, href }: { Icon: any; text: string; href?: string }) => (
@@ -214,7 +214,7 @@ function SobrePage() {
                 <Mail className="h-4 w-4" /> ENVIAR E-MAIL
               </Link>
               <a
-                href="https://wa.me/5541969447566"
+                href="https://wa.me/554196947566"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] text-white px-6 py-3 font-semibold text-sm hover:opacity-90 transition"
