@@ -6,16 +6,21 @@ import hero from "@/assets/solutions-hero.jpg";
 import { SOLUTIONS } from "@/lib/solutions";
 
 export const Route = createFileRoute("/solucoes")({
-  head: () => ({
-    meta: [
-      { title: "Soluções em Fitas Adesivas — Vplast Embalagens" },
-      { name: "description", content: "Soluções completas em fitas adesivas para logística, construção civil, comunicação visual e automotivo. Produtos de alta performance para cada necessidade." },
-      { property: "og:url", content: "https://lojavplast.com/solucoes" },
-      { property: "og:title", content: "Soluções em Fitas Adesivas — Vplast Embalagens" },
-      { property: "og:description", content: "Soluções completas em fitas adesivas para logística, construção civil, comunicação visual e automotivo. Produtos de alta performance para cada necessidade." },
-    ],
-    links: [{ rel: "canonical", href: "https://lojavplast.com/solucoes" }],
-  }),
+  head: ({ matches, match }) => {
+    const isLeaf = matches[matches.length - 1]?.id === match.id;
+    return {
+      meta: [
+        { title: "Soluções em Fitas Adesivas — Vplast Embalagens" },
+        { name: "description", content: "Soluções completas em fitas adesivas para logística, construção civil, comunicação visual e automotivo. Produtos de alta performance para cada necessidade." },
+        { property: "og:url", content: "https://lojavplast.com/solucoes" },
+        { property: "og:title", content: "Soluções em Fitas Adesivas — Vplast Embalagens" },
+        { property: "og:description", content: "Soluções completas em fitas adesivas para logística, construção civil, comunicação visual e automotivo. Produtos de alta performance para cada necessidade." },
+      ],
+      // Only emit the listing page's own canonical when it's the active leaf route —
+      // otherwise it would duplicate/conflict with the child solution page's canonical.
+      links: isLeaf ? [{ rel: "canonical", href: "https://lojavplast.com/solucoes" }] : [],
+    };
+  },
   component: SolucoesPage,
 });
 

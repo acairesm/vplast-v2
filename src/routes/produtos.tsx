@@ -11,16 +11,21 @@ export const Route = createFileRoute("/produtos")({
   validateSearch: z.object({
     categoria: z.string().optional(),
   }),
-  head: () => ({
-    meta: [
-      { title: "Catálogo de Fitas Adesivas — Vplast Embalagens" },
-      { name: "description", content: "Catálogo completo de fitas adesivas: fita crepe, dupla face, acrílica, impressa, gomada e personalizadas. Alta qualidade com entrega para todo o Brasil." },
-      { property: "og:url", content: "https://lojavplast.com/produtos" },
-      { property: "og:title", content: "Catálogo de Fitas Adesivas — Vplast Embalagens" },
-      { property: "og:description", content: "Catálogo completo de fitas adesivas: fita crepe, dupla face, acrílica, impressa, gomada e personalizadas. Alta qualidade com entrega para todo o Brasil." },
-    ],
-    links: [{ rel: "canonical", href: "https://lojavplast.com/produtos" }],
-  }),
+  head: ({ matches, match }) => {
+    const isLeaf = matches[matches.length - 1]?.id === match.id;
+    return {
+      meta: [
+        { title: "Catálogo de Fitas Adesivas — Vplast Embalagens" },
+        { name: "description", content: "Catálogo completo de fitas adesivas: fita crepe, dupla face, acrílica, impressa, gomada e personalizadas. Alta qualidade com entrega para todo o Brasil." },
+        { property: "og:url", content: "https://lojavplast.com/produtos" },
+        { property: "og:title", content: "Catálogo de Fitas Adesivas — Vplast Embalagens" },
+        { property: "og:description", content: "Catálogo completo de fitas adesivas: fita crepe, dupla face, acrílica, impressa, gomada e personalizadas. Alta qualidade com entrega para todo o Brasil." },
+      ],
+      // Only emit the listing page's own canonical when it's the active leaf route —
+      // otherwise it would duplicate/conflict with the child product page's canonical.
+      links: isLeaf ? [{ rel: "canonical", href: "https://lojavplast.com/produtos" }] : [],
+    };
+  },
   component: ProdutosPage,
 });
 
