@@ -43,6 +43,7 @@ export default defineConfig(({ mode }) => {
         prerender: {
           enabled: true,
           crawlLinks: true,
+          filter: (page) => !page.path.includes("?"),
         },
       }),
       viteReact(),
